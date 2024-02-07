@@ -88,7 +88,8 @@
                 <div id="div-preenchimento" class="main-header-four"></div>
                 <nav class="navbar navbar-expand-lg navbar-light main-header-four">
                     <a class="navbar-brand company-logo-2" href="{{ route('index-2') }}">
-                        <img src="img/logos/logo.png" alt="logo">
+                        <img src="{{ asset('img/logos/logo.png') }}" alt="logo">
+                       
                     </a>
                     <button class="navbar-toggler" type="button" id="drawer">
                         <span class="fa fa-bars"></span>
