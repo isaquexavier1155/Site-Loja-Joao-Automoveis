@@ -262,7 +262,7 @@
                     <div class="get-in-touch-box d-flex">
                         <i class="flaticon-earth"></i>
                         <div class="media-body">
-                            <a href="#">contato@joaoautomoveisparobe.com.br</a>
+                            <!-- <a href="#">contato@joaoautomoveisparobe.com.br</a> -->
                         </div>
                     </div>
                 </div>
