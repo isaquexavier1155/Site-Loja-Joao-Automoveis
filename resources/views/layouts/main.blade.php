@@ -194,7 +194,7 @@
                     <h3 class="heading">Páginas</h3>
                     <ul class="menu-list">
                         <li>
-                            <a href="#" class="active pt0">Início</a>
+                            <a href="/">Início</a>
                         </li>
                         <li>
                             <a href="{{ route('car-grid-fullWidth') }}">Carros</a>
@@ -303,7 +303,7 @@
                                 <li>
                                     <a href="{{ route('services') }}" class="link-inner"><span> Serviços</span></a>
                                 </li>
-                                <li>
+                                <li >
                                     <a href="{{ route('car-grid-fullWidth') }}"class="link-inner"><span> Carros</span></a>
                                 </li>
                                 <li>
