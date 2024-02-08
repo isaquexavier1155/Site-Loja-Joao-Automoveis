@@ -4,160 +4,168 @@
 
 @section('content')
 
-    <div class="container" style="margin-top: 10%;">
+<div class="container" style="margin-top: 10%;">
+    <h1 class="text-center">Cadastrar Novo Carro</h1>
 
-        <h1 class="text-center">Cadastrar Novo Carro</h1>
+    <form action="{{ route('salvar_carro') }}" method="post" enctype="multipart/form-data">
+        @csrf
 
-        <form action="{{ route('salvar_carro') }}" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center ms-auto me-auto" style="width: 60%;">
-            @csrf
-
-            <div class="col-md-6">
-                <!-- Coluna 1 -->
-                <div class="mb-3">
+        <div class="row justify-content-center">
+            <!-- Coluna 1 -->
+            <div class="col-md-4 mx-1 m-0">
+                <!-- Conteúdo da coluna 1 -->
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="nome" class="form-label">Nome:</label>
-                    <input type="text" value="CRUZE LT 2012" class="form-control" id="nome" name="nome" required>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+                
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="marca" class="form-label">Marca:</label>
+                    <input type="text" class="form-control" id="marca" name="marca">
                 </div>
 
-                <div class="mb-3">
-                    <label for="imagem" class="form-label">Outras Fotos:</label>
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="quilometragem" class="form-label">Quilometragem:</label>
+                    <input type="number" class="form-control" id="quilometragem" name="quilometragem">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="imagem_capa" class="form-label">Foto de Capa:</label>
+                    <input type="file" class="form-control" id="imagem_capa" name="imagem_capa" accept="image/*">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="imagem" class="form-label">Mais Fotos:</label>
                     <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="valor_normal" class="form-label">Valor Normal:</label>
-                    <input type="number" value="60900" class="form-control" id="valor_normal" name="valor_normal" required>
+                    <input type="number" class="form-control" id="valor_normal" name="valor_normal" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="valor_promocional" class="form-label">Valor Promocional:</label>
+                    <input type="number" class="form-control" id="valor_promocional" name="valor_promocional">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="cambio" class="form-label">Câmbio:</label>
                     <select class="form-select" id="cambio" name="cambio" required>
-                        <!-- <option value="">Selecione uma opção</option> -->
                         <option value="Manual">Manual</option>
                         <option value="Automático">Automático</option>
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="transmissao" class="form-label">Transmissão:</label>
-                    <input type="text" value="5 marchas" class="form-control" id="transmissao" name="transmissao">
-                </div>
-
-                <div class="mb-3">
-                    <label for="motor" class="form-label">Motor:</label>
-                    <input type="text" value="1.8 FLEX" class="form-control" id="motor" name="motor">
-                </div>
-
-                <div class="mb-3">
-                    <label for="portas" class="form-label">Portas:</label>
-                    <input type="number" value="4" class="form-control" id="portas" name="portas">
-                </div>
-
-                <div class="mb-3">
-                    <label for="marca" class="form-label">Marca:</label>
-                    <input type="text" value="Chevrolet" class="form-control" id="marca" name="marca">
-                </div>
-
-                <div class="mb-3">
-                    <label for="velocidade_maxima" class="form-label">Velocidade Máxima:</label>
-                    <input type="number" value="204" class="form-control" id="velocidade_maxima" name="velocidade_maxima">
-                </div>
-
-                <div class="mb-3">
-                    <label for="potencia" class="form-label">Potência:</label>
-                    <input type="number" value="140" class="form-control" id="potencia" name="potencia">
-                </div>
-
-                <div class="mb-3">
-                    <label for="destacar" class="form-label">Destacar (características):</label>
-                    <select class="form-control" id="destacar" name="destacar[]" multiple>
-                    <!-- As opções serão adicionadas dinamicamente via JavaScript -->
-                    </select>
-                </div>
-            </div>
-
-
-            <!-- /////////////////////////////////////////////////COLUNA 2 -->
-            <div class="col-md-6">
-                <!-- Coluna 2 -->
-                <div class="mb-3">
-                    <label for="imagem_capa" class="form-label">Foto de Capa:</label>
-                    <input type="file" class="form-control" id="imagem_capa" name="imagem_capa" accept="image/*">
-                </div>
-
-                <div class="mb-3">
-                    <label for="quilometragem" class="form-label">Quilometragem:</label>
-                    <input type="number" value="98000" class="form-control" id="quilometragem" name="quilometragem">
-                </div>
-
-                <div class="mb-3">
-                    <label for="valor_promocional" class="form-label">Valor Promocional:</label>
-                    <input type="number" value="59900" class="form-control" id="valor_promocional" name="valor_promocional">
-                </div>
-
-                <div class="mb-3">
-                    <label for="condicao" class="form-label">Condição:</label>
-                    <select class="form-select" id="condicao" name="condicao" required>
-                        <!-- <option value="">Selecione uma opção</option> -->
-                        <option value="Usado">Usado</option>
-                        <option value="Novo">Novo</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="direcao" class="form-label">Direção:</label>
                     <select class="form-select" id="direcao" name="direcao" required>
-                        <!-- <option value="">Selecione uma opção</option> -->
                         <option value="Hidráulica">Hidráulica</option>
                         <option value="Convencional">Convencional</option>
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="combustivel" class="form-label">Combustível:</label>
-                    <input type="text" value="Flex" class="form-control" id="combustivel" name="combustivel">
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="transmissao" class="form-label">Transmissão:</label>
+                    <input type="text" class="form-control" id="transmissao" name="transmissao">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="motor" class="form-label">Motor:</label>
+                    <input type="text" class="form-control" id="motor" name="motor">
                 </div>
                 
-                <div class="mb-3">
+            </div>
+
+            <!-- Coluna 2 -->
+            <div class="col-md-4 mx-1 m-0">
+                <!-- Conteúdo da coluna 2 -->
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="condicao" class="form-label">Condição:</label>
+                    <select class="form-select" id="condicao" name="condicao" required>
+                        <option value="Usado">Usado</option>
+                        <option value="Novo">Novo</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="combustivel" class="form-label">Combustível:</label>
+                    <input type="text" class="form-control" id="combustivel" name="combustivel">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="passageiros" class="form-label">Passageiros:</label>
-                    <input type="number" value="5" class="form-control" id="passageiros" name="passageiros">
+                    <input type="number" class="form-control" id="passageiros" name="passageiros">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="estilo" class="form-label">Estilo:</label>
-                    <input type="text" value="Sedã" class="form-control" id="estilo" name="estilo">
+                    <input type="text" class="form-control" id="estilo" name="estilo">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="cor" class="form-label">Cor:</label>
-                    <input type="text" value="Prata" class="form-control" id="cor" name="cor">
+                    <input type="text" class="form-control" id="cor" name="cor">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="ano" class="form-label">Ano:</label>
-                    <input type="number" value="2012" class="form-control" id="ano" name="ano">
+                    <input type="number" class="form-control" id="ano" name="ano">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="portas" class="form-label">Portas:</label>
+                    <input type="number" class="form-control" id="portas" name="portas">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="potencia" class="form-label">Potência:</label>
+                    <input type="number" class="form-control" id="potencia" name="potencia">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="velocidade_maxima" class="form-label">Velocidade Máxima:</label>
+                    <input type="number" class="form-control" id="velocidade_maxima" name="velocidade_maxima">
+                </div>
+
+                <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="tag" class="form-label">Tag:</label>
                     <select class="form-select" id="tag" name="tag" required>
-                        <!-- <option value="">Selecione uma opção</option> -->
                         <option value="DESTAQUE">DESTAQUE</option>
                         <option value="UNICO DONO">UNICO DONO</option>
                         <option value="NOVO">NOVO</option>
                     </select>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <label for="descricao" class="form-label">Descrição:</label>
-                <textarea name="descricao" id="descricao" class="form-control" style="width: calc(100% - 15px);"></textarea>
-            </div>
-            <div class="col-md-12 text-center">
-                <!-- Botão de Envio -->
-                <button type="submit" class="btn btn-primary">Cadastrar Carro</button><br><br>
-            </div>
-        </form>
-    </div>
 
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="destacar" class="form-label">Destacar (características):</label>
+                    <select class="form-control" id="destacar" name="destacar[]" multiple>
+                        <!-- As opções serão adicionadas dinamicamente via JavaScript -->
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Campo de descrição -->
+            <div class="col-md-8 mx-auto m-0">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <textarea name="descricao" id="descricao" class="form-control" style="width: 100%;"></textarea>
+            </div>
+
+            <!-- Botão de Envio -->
+            <div class="col-md-8 mx-auto text-center m-0">
+                <button type="submit" class="btn btn-primary">Cadastrar Carro</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    .form-control { 
+        width: 124%;
+      }
+</style>
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
