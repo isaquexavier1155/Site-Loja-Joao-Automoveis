@@ -88,8 +88,7 @@
                 <div id="div-preenchimento" class="main-header-four"></div>
                 <nav class="navbar navbar-expand-lg navbar-light main-header-four">
                     <a class="navbar-brand company-logo-2" href="{{ route('index-2') }}">
-                        <img src="{{ asset('img/logos/logo.png') }}" alt="logo">
-                       
+                        <img src="{{ asset('img/logos/logo.png') }}" alt="logo">                   
                     </a>
                     <button class="navbar-toggler" type="button" id="drawer">
                         <span class="fa fa-bars"></span>
@@ -428,6 +427,14 @@
             </div>
         </footer>
         <!-- Fim Rodapé -->
+
+        <style>
+            #div-preenchimento {
+                position: relative;
+                left: -85px;
+                top: 1px !important;
+            }
+        </style>
 
         <!-- ESCRIPT RESPONSÁVEL PELO CONTROLE DE ANO DO RODAPÉ -->
         <script>

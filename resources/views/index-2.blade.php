@@ -58,6 +58,7 @@
 <!-- Main header start -->
 <header class="main-header sticky-header main-header-four">
     <div class="container">
+        <div id="div-preenchimento" class="main-header-four"></div>
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand company-logo-2" href="#">
                 <img src="img/logos/logo.png" alt="logo">
@@ -1303,6 +1304,14 @@
     </div>
 </footer>
 <!-- Fim Rodapé -->
+
+<style>
+    #div-preenchimento {
+        position: relative;
+        left: -85px;
+        top: 0px !important;
+    }
+</style>
 
 <!-- Full Page Search -->
 <div id="full-page-search">
