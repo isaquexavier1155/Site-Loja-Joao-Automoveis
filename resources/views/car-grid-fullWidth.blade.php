@@ -223,6 +223,11 @@
             position: relative;
             top: 49px;
         }
+
+        .car-model-2 .modal-content {
+            position: relative;
+            top: 39px;
+        }
     </style>
 
     <script src="js/jquery-2.2.0.min.js"></script>
