@@ -224,7 +224,10 @@
                 </div>
                 <div class="get-social">
                     <h3 class="heading">Redes Sociais</h3>
-                    <a href="#" class="facebook-bg">
+                    <a href="https://www.instagram.com/joaoautomoveisparobe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram-bg">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <!-- <a href="#" class="facebook-bg">
                         <i class="fa fa-facebook"></i>
                     </a>
                     <a href="#" class="twitter-bg">
@@ -235,7 +238,7 @@
                     </a>
                     <a href="#" class="linkedin-bg">
                         <i class="fa fa-linkedin"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </nav>
