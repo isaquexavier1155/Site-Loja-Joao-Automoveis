@@ -89,6 +89,11 @@ ul {
     font-family: 'Roboto', sans-serif;
 }
 
+/* .btn-primary:hover{
+    color: red;
+} */
+
+
 /** Social media color **/
 .facebook:hover {
     color: #3b589e !important;
