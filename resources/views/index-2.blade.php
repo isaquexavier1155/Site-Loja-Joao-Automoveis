@@ -180,70 +180,22 @@
     </div>
     <div class="sidebar-inner">
         <div class="sidebar-logo">
-            <img src="img/logos/black-logo.png" alt="logo">
+            <img src="img/logos/logo.png" alt="logo">
         </div>
         <div class="sidebar-navigation">
             <h3 class="heading">Páginas</h3>
             <ul class="menu-list">
-                <li><a href="#" class="active pt0">Início <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li><a href="#">Início 1</a></li>
-                        <!-- <li><a href="#">Início 2</a></li>
-                        <li><a href="index-3.html">Início 3</a></li>
-                        <li><a href="index-4.html">Início 4</a></li>
-                        <li><a href="index-5.html">Início 5</a></li> -->
-                    </ul>
+                <li>
+                    <a href="#" class="active pt0">Início</a>
                 </li>
                 <li>
-                    <a href="{{ route('car-grid-fullWidth') }}">Carros <em class="fa fa-chevron-down"></em></a>
+                    <a href="{{ route('car-grid-fullWidth') }}">Carros</a>
                 </li>
                 <li>
-                    <a href="#">Páginas <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li><a href="{{ route('about') }}">Sobre nós</a></li>
-                        <li><a href="{{ route('team') }}">Equipe</a></li>
-                        <li><a href="{{ route('team-detail') }}">Detalhes da equipe</a></li>
-                        <li><a href="{{ route('car-comparison') }}">Comparação de carros</a></li>
-                        <li><a href="{{ route('search-brand') }}">Marcas de carros</a></li>
-                        <li><a href="{{ route('pricing-tables') }}">Tabelas de preços</a></li>
-                        <li><a href="{{ route('gallery') }}">Galeria</a></li>
-                        <li><a href="{{ route('typography') }}">Tipografia</a></li>
-                        <li><a href="{{ route('elements') }}">Elementos</a></li>
-                        <li><a href="{{ route('faq') }}">Perguntas frequentes</a></li>
-                        <li><a href="{{ route('icon') }}">Ícones</a></li>
-                        <li><a href="{{ route('coming-soon') }}">Em breve</a></li>
-                        <li><a href="{{ route('404') }}">Página de erro</a></li>
-                        <li>
-                            <a href="#">Login <em class="fa fa-chevron-down"></em></a>
-                            <ul>
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('signup') }}">Registro</a></li>
-                                <li><a href="{{ route('forgot-password') }}">Esqueceu sua senha?</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <a href="{{ route('localizacao') }}">Localização</a>
                 </li>
-                <!-- <li><a href="#">Loja <em class="fa fa-chevron-down"></em></a>
-                    <ul>
-                        <li><a href="{{ route('shop-list') }}">Produtos</a></li>
-                        <li><a href="{{ route('shop-cart') }}">Carrinho de compras</a></li>
-                        <li><a href="{{ route('shop-checkout') }}">Finalizar pedidos</a></li>
-                        <li><a href="{{ route('shop-details') }}">Detalhes do produto</a></li>
-                    </ul>
-                </li> -->
-                <!-- <li><a href="{{ route('services') }}">Serviços <em class="fa fa-chevron-down"></em></a> -->
-                    <!-- <ul>
-                        <li><a href="{{ route('services') }}">Serviços</a></li>
-                        <li><a href="services-2.html">Services 2</a></li>
-                        <li><a href="{{ route('services-details') }}">Services Details</a></li>
-                    </ul> -->
-                </li>
-                <!-- <li><a href="{{ route('blog-post') }}">Blog <em class="fa fa-chevron-down"></em></a> -->
-                    <!-- <ul>
-                        <li><a href="{{ route('blog-post') }}">Blog Post</a></li>
-                        <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                        <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                    </ul> -->
+                <li>
+                    <a href="{{ route('about') }}">Sobre nós</a>
                 </li>
                 <li>
                     <a href="{{ route('contact') }}">Contato</a>
@@ -260,18 +212,6 @@
             <div class="get-in-touch-box d-flex mb-2">
                 <i class="flaticon-phone"></i>
                 <a href="tel:051999402842">051999402842</a>
-            </div>
-            <div class="get-in-touch-box d-flex mb-2">
-                <i class="flaticon-mail"></i>
-                <div class="media-body">
-                    <a href="#">contato@joaoautomoveisparobe.com.br</a>
-                </div>
-            </div>
-            <div class="get-in-touch-box d-flex">
-                <i class="flaticon-earth"></i>
-                <div class="media-body">
-                    <a href="#">contato@joaoautomoveisparobe.com.br</a>
-                </div>
             </div>
         </div>
         <div class="get-social">
