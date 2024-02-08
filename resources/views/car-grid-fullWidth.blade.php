@@ -218,6 +218,13 @@
         </div>
     </div>
 
+    <style>
+        .car-model-2 .price-box .del-2 {
+            position: relative;
+            top: 49px;
+        }
+    </style>
+
     <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>

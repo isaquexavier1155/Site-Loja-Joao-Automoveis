@@ -164,7 +164,8 @@
 <style>
     .form-control { 
         width: 124%;
-      }
+}
+
 </style>
         <script src="js/jquery-2.2.0.min.js"></script>
         <script src="js/popper.min.js"></script>
