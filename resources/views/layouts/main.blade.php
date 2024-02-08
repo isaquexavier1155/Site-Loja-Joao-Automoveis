@@ -208,11 +208,11 @@
                         <li>
                             <a href="{{ route('contact') }}">Contato</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#full-page-search">
                                 <i class="fa fa-search"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="get-in-touch">
