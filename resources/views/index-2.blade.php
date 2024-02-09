@@ -513,26 +513,6 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                            <!-- <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-make">
-                                    <option>Select Make</option>
-                                    <option>BMW</option>
-                                    <option>Honda</option>
-                                    <option>Lamborghini Huracán</option>
-                                    <option>Sports Car</option>
-                                </select>
-                            </div> -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                            <!-- <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-location">
-                                    <option>Select Location</option>
-                                    <option>United States</option>
-                                    <option>United Kingdom</option>
-                                </select>
-                            </div> -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="select-year-4" id="select-year-4">
                                     <option>Selecione o ano</option>
@@ -588,7 +568,7 @@
         <!-- Main title -->
         <div class="main-title">
             <h1>Carros  <span>em destaque</span></h1>
-            <p>Veja os modelos mais desejados, projetados para a sua jornada perfeita.</p>
+            <p>Veja os modelos que estão em destaque em nossa loja.</p>
         </div>
         <div class="row">
             @foreach($carros as $carro)
@@ -633,9 +613,8 @@
 <!-- Fim dos carro em destaque -->
 
 <!-- Início da Seção de serviço  -->
-<div class="service-section content-area bg-grea-4">
+<!-- <div class="service-section content-area bg-grea-4">
     <div class="container">
-        <!-- Título principal -->
         <div class="main-title text-center">
             <h1>O que você <span>está procurando?</span></h1>
             <p>Explore nossos diversos serviços para atender às suas necessidades específicas com excelência.</p>
@@ -699,11 +678,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Final Seção de serviços -->
 
-<!-- Latest offers strat -->
-<div class="latest-offers content-area-13">
+<!-- Início da Seção Últimas Ofertas -->
+<<div class="latest-offers content-area-13">
     <div class="container">
         <!-- Main title -->
         <div class="main-title text-center">
@@ -711,93 +690,32 @@
             <p>Explore as ofertas mais recentes que certamente atenderão às suas expectativas.</p>
         </div>
         <div class="row">
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-pad">
-                        <div class="latest-offers-box">
-                            <div class="latest-offers-box-inner">
-                                <div class="latest-offers-box-overflow">
-                                    <div class="latest-offers-box-photo">
-                                        <div class="latest-offers-box-photodd">
-                                            <img class="img-fluid" src="img/latest-offers/img-3.png" alt="latest-offers">
-                                        </div>
+            @foreach($ultimasOfertas as $carro)
+                <div class="col-md-6 col-lg-6 col-pad">
+                    <div class="latest-offers-box">
+                        <div class="latest-offers-box-inner">
+                            <div class="latest-offers-box-overflow">
+                                <div class="latest-offers-box-photo">
+                                    <div class="latest-offers-box-photodd">
+                                        <img class="img-fluid" src="/img/cars/{{ $carro->imagem_capa }}" alt="latest-offers" style="width: 400px; height: 400px;">
                                     </div>
-                                    <div class="info">
-                                        <h5 class="price">1050.00 <span>Fixo</span></h5>
-                                        <h3 class="title">
-                                            <a href="/car-details/{{ $carro->id }}">Electric Cars of 2019</a>                  
-                                        </h3>
-                                    </div>
-                                    <div class="new">Novo</div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-pad">
-                        <div class="latest-offers-box">
-                            <div class="latest-offers-box-inner">
-                                <div class="latest-offers-box-overflow">
-                                    <div class="latest-offers-box-photo">
-                                        <div class="latest-offers-box-photodd">
-                                            <img class="img-fluid" src="img/latest-offers/img-2.png" alt="latest-offers">
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <h5 class="price">1050.00 <span>Negociável</span></h5>
-                                        <h3 class="title">
-                                            <a href="/car-details/{{ $carro->id }}">Lamborghini Huracán</a>                  
-                                        </h3>
-                                    </div>
-                                    <div class="new">Novo</div>
+                                <div class="info">
+                                    <h5 class="price">{{ $carro->preco }} <span>{{ $carro->negociavel ? 'Negociável' : 'Fixo' }}</span></h5>
+                                    <h3 class="title">
+                                        <a href="/car-details/{{ $carro->id }}">{{ $carro->nome }}</a>
+                                    </h3>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-pad">
-                        <div class="latest-offers-box">
-                            <div class="latest-offers-box-inner">
-                                <div class="latest-offers-box-overflow">
-                                    <div class="latest-offers-box-photo">
-                                        <div class="latest-offers-box-photodd">
-                                            <img class="img-fluid" src="img/latest-offers/img-5.png" alt="latest-offers">
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <h5 class="price">1050.00 <span>Negociável</span></h5>
-                                        <h3 class="title">
-                                            <a href="/car-details/{{ $carro->id }}">Lamborghini Huracán</a>                  
-                                        </h3>
-                                    </div>
-                                    <div class="new">Novo</div>
-                                </div>
+                                <div class="new">Novo</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-pad">
-                <div class="latest-offers-box">
-                    <div class="latest-offers-box-inner">
-                        <div class="latest-offers-box-overflow">
-                            <div class="latest-offers-box-photo">
-                                <div class="latest-offers-box-photodd">
-                                    <img class="img-fluid big-img" src="img/latest-offers/img-1.png" alt="latest-offers">
-                                </div>
-                            </div>
-                            <div class="info">
-                                <h5 class="price">959.00 <span>Negociável</span></h5>
-                                <h3 class="title">
-                                    <a href="/car-details/{{ $carro->id }}">Red Audi R8 2018</a>                
-                                </h3>
-                            </div>
-                            <div class="new">Novo</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+
 <!-- Fim Seção Últimas Ofertas -->
 
 <!-- Contadores extratégicos -->
@@ -844,95 +762,6 @@
     </div>
 </div>
 <!-- Counters end -->
-
-<!-- Our team start -->
-<!-- <div class="our-team content-area bg-grea-3">
-    <div class="container">
-        <div class="main-title">
-            <h1>Executive <span>Team</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="team-3">
-                    <div class="clearfix">
-                        <div class="photo">
-                            <img src="img/avatar/avatar-2.png" alt="team-3" class="img-fluid">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title"><a href="team-detail.html">Michelle Nelson Miller</a></h3>
-                            <p>Creative Director</p>
-                            <div class="member-socials">
-                                <a href="#"><i class="fa fa-facebook facebook-color"></i></a>
-                                <a href="#"><i class="fa fa-twitter twitter-color"></i></a>
-                                <a href="#"><i class="fa fa-google-plus google-color"></i></a>
-                                <a href="#"><i class="fa fa-linkedin linkedin-color"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="team-3">
-                    <div class="clearfix">
-                        <div class="photo">
-                            <img src="img/avatar/avatar-1.png" alt="team-3" class="img-fluid">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title"><a href="team-detail.html">Ryan Goncalves Alves</a></h3>
-                            <p>Support Manager</p>
-                            <div class="member-socials">
-                                <a href="#"><i class="fa fa-facebook facebook-color"></i></a>
-                                <a href="#"><i class="fa fa-twitter twitter-color"></i></a>
-                                <a href="#"><i class="fa fa-google-plus google-color"></i></a>
-                                <a href="#"><i class="fa fa-linkedin linkedin-color"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="team-3">
-                    <div class="clearfix">
-                        <div class="photo">
-                            <img src="img/avatar/avatar-3.png" alt="team-3" class="img-fluid">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title"><a href="team-detail.html">Nelson Miller Michelle</a></h3>
-                            <p>Office Manager</p>
-                            <div class="member-socials">
-                                <a href="#"><i class="fa fa-facebook facebook-color"></i></a>
-                                <a href="#"><i class="fa fa-twitter twitter-color"></i></a>
-                                <a href="#"><i class="fa fa-google-plus google-color"></i></a>
-                                <a href="#"><i class="fa fa-linkedin linkedin-color"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="team-3">
-                    <div class="clearfix">
-                        <div class="photo">
-                            <img src="img/avatar/avatar-4.png" alt="team-3" class="img-fluid">
-                        </div>
-                        <div class="detail">
-                            <h3 class="title"><a href="team-detail.html">Alves Goncalves</a></h3>
-                            <p>Web Developer</p>
-                            <div class="member-socials">
-                                <a href="#"><i class="fa fa-facebook facebook-color"></i></a>
-                                <a href="#"><i class="fa fa-twitter twitter-color"></i></a>
-                                <a href="#"><i class="fa fa-google-plus google-color"></i></a>
-                                <a href="#"><i class="fa fa-linkedin linkedin-color"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Our team end -->
 
 <!-- INício Depoimentos 2  -->
 <div class="testimonial-2 content-area-5">

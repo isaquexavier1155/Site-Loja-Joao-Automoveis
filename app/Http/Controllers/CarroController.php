@@ -15,9 +15,11 @@ class CarroController extends Controller
         
         // Recuperar os últimos três carros registrados no banco de dados
         $ultimosCarros = Carro::orderBy('created_at', 'desc')->take(3)->get();
+
+        $ultimasOfertas = Carro::latest()->take(4)->get();
         
         // Passar os carros e os últimos carros para a visão
-        return view('index-2', ['carros' => $carros, 'ultimosCarros' => $ultimosCarros]);
+        return view('index-2', ['carros' => $carros, 'ultimosCarros' => $ultimosCarros, 'ultimasOfertas' => $ultimasOfertas]);
     }
 
     public function carGridFullWidth()
