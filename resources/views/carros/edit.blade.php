@@ -251,15 +251,15 @@
     <script  src="/js/app.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <script  src="/js/ie10-viewport-bug-workaround.js"></script> -->
+    <script  src="/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Custom javascript -->
-    <!-- <script  src="/js/ie10-viewport-bug-workaround.js"></script> -->
+    <script  src="/js/ie10-viewport-bug-workaround.js"></script>
 
     <!-- Scripts responsaveis pelo funcionamento do campo destacar -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-
+    <!-- Esser script está interferindo no funcionamento do modal de sucesso de edição -->
     <!--Script responsavel pelo funcionamento do campo destacar -->
     <!-- <script>
         $(document).ready(function () {
@@ -273,7 +273,7 @@
 
 
     <!-- SCRIPT PARA SER POSSÍVEL EXCLUIR FOTOS DIRETEMENTE NA PÁGINA DE EDIÇÃO DE VEÍCULOS -->
-    <!-- <script>
+    <script>
         $(document).ready(function () {
             $('.remove-image').click(function () {
                 var index = $(this).data('index');
@@ -298,7 +298,7 @@
                 });
             });
         });
-    </script> -->
+    </script>
 
     <!-- SCRIPT PARA EXIBIR MODAL EM CASO DE SUCESSO NA EDIÇÃO -->
     <script>

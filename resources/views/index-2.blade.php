@@ -719,7 +719,7 @@
 <!-- Fim Seção Últimas Ofertas -->
 
 <!-- Contadores extratégicos -->
-<div class="counters-3 bg-grea-4">
+<!-- <div class="counters-3 bg-grea-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 border-l border-r">
@@ -760,11 +760,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Counters end -->
 
 <!-- INício Depoimentos 2  -->
-<div class="testimonial-2 content-area-5">
+<!-- <div class="testimonial-2 content-area-5">
     <div class="container">
         <div class="main-title">
             <h1>Por que os clientes <span> Nos amam?</span></h1>
@@ -830,13 +830,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Fim Depoimento 2-->
 
 <!-- Início do blog-->
-<div class="blog-section content-area-5">
+<!-- <div class="blog-section content-area-5">
     <div class="container">
-        <!-- Main title -->
         <div class="main-title">
             <h1>Últimas <span>Postagens do Blog</span></h1>
             <p>Fique por dentro das novidades e insights do mundo automotivo. Leia nossas postagens mais recentes e mantenha-se informado.</p>
@@ -934,11 +933,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Fim do Blog  -->
 
 <!--  Início Seção Introdução -->
-<div class="intro-section-2">
+<!-- <div class="intro-section-2">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-12">
@@ -953,7 +952,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Fim Seção Introdução -->
 
 <!-- Início Rodapé -->
