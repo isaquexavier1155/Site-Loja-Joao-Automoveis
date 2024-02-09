@@ -16,7 +16,7 @@ use App\Http\Controllers\CarroController;
 
 Route::get('/', [CarroController::class, 'index']);
 
-Route::get('/index-2', [CarroController::class, 'index'])->name('index-2')->middleware('auth');
+Route::get('/index-2', [CarroController::class, 'index'])->name('index-2');
 
 
 //  Route::get('/index-2', function () {
@@ -194,7 +194,7 @@ Route::post('/salvar-carro', [CarroController::class, 'salvarCarro'])->name('sal
 Route::get('/cars/{id}/edit', [CarroController::class,'edit'])->name('cars.edit');
 
 //ROTA PARA ATUALIZAR CARROS CADASTRADOS NO BANCO DE DADOS
-Route::put('cars/update/{id}', [CarroController::class, 'update' ])->middleware('auth');
+Route::put('cars/update/{id}', [CarroController::class, 'update' ]);
 
 //ROTA PARA REMOVER IMAGENS NA TELA DE EDIÇÃO DE VEÍCULOS
 Route::post('/cars/remove-image', [CarroController::class, 'removeImage']);
