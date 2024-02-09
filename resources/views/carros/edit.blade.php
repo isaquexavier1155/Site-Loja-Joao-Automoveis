@@ -5,7 +5,7 @@
 @section('content')
         <div class="container" style="margin-top: 10%;">
             <h1 class="text-center">Editar Carro Cadastrado</h1>
-            <form action="/cars/update/{{ $carro->id }}" method="POST" enctype="multipart/form-data"> 
+            <form id="editForm" action="/cars/update/{{ $carro->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row justify-content-center">
@@ -27,40 +27,34 @@
                         <input type="number" class="form-control" id="quilometragem" name="quilometragem" value="{{ $carro->quilometragem }}">
                     </div>
 
-<!-- Foto de Capa -->
-<div class="mb-3 mb-0" style="width: 80%;">
-    <label for="imagem_capa" class="form-label">Foto de Capa:</label>
-    <input type="file" class="form-control" id="imagem_capa" name="imagem_capa" accept="image/*">
-    @if($carro->imagem_capa)
-        <img src="{{ asset('img/cars/' . $carro->imagem_capa) }}" alt="Foto de Capa Atual" style="max-width: 100px; margin-top: 10px;">
-    @else
-        <p>Nenhuma foto de capa encontrada</p>
-    @endif
-</div>
+                    <!-- Foto de Capa -->
+                    <div class="mb-3 mb-0" style="width: 80%;">
+                        <label for="imagem_capa" class="form-label">Foto de Capa:</label>
+                        <input type="file" class="form-control" id="imagem_capa" name="imagem_capa" accept="image/*">
+                        @if($carro->imagem_capa)
+                            <img src="{{ asset('img/cars/' . $carro->imagem_capa) }}" alt="Foto de Capa Atual" style="max-width: 100px; margin-top: 10px;">
+                        @else
+                            <p>Nenhuma foto de capa encontrada</p>
+                        @endif
+                    </div>
 
-
-<!-- MAIS FOTOS -->
-<div class="mb-3 mb-0" style="width: 80%;">
-    <label for="imagem" class="form-label">Mais Fotos:</label>
-    <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple>
-    <div class="image-container">
-        @if($carro->imagem)
-            @foreach(json_decode($carro->imagem) as $index => $imagem)
-                <div class="image-item">
-                    <img src="{{ asset('img/cars/' . $imagem) }}" alt="Foto" class="image-preview">
-                    <button class="remove-image" data-index="{{ $index }}">X</button>
-                </div>
-            @endforeach
-        @else
-            <p>Nenhuma foto encontrada</p>
-        @endif
-    </div>
-</div>
-
-
-
-
-
+                    <!-- MAIS FOTOS -->
+                    <div class="mb-3 mb-0" style="width: 80%;">
+                        <label for="imagem" class="form-label">Mais Fotos:</label>
+                        <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple>
+                        <div class="image-container">
+                            @if($carro->imagem)
+                                @foreach(json_decode($carro->imagem) as $index => $imagem)
+                                    <div class="image-item">
+                                        <img src="{{ asset('img/cars/' . $imagem) }}" alt="Foto" class="image-preview">
+                                        <button class="remove-image" data-index="{{ $index }}">X</button>
+                                    </div>
+                                @endforeach
+                            @else
+                                <p>Nenhuma foto encontrada</p>
+                            @endif
+                        </div>
+                    </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="valor_normal" class="form-label">Valor Normal:</label>
@@ -183,6 +177,20 @@
             </form>
         </div>
 
+        <!-- Modal de sucesso -->
+        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Sucesso!</h5>
+                    </div>
+                    <div class="modal-body">
+                        Os dados foram atualizados com sucesso. Aguarde recarregar a página.
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     <style>
         .form-control { 
@@ -243,17 +251,17 @@
     <script  src="/js/app.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script  src="/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script  src="/js/ie10-viewport-bug-workaround.js"></script> -->
     <!-- Custom javascript -->
-    <script  src="/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script  src="/js/ie10-viewport-bug-workaround.js"></script> -->
 
     <!-- Scripts responsaveis pelo funcionamento do campo destacar -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
 
     <!--Script responsavel pelo funcionamento do campo destacar -->
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $('#destacar').select2({
                 tags: true,
@@ -261,34 +269,67 @@
                 placeholder: 'Digite uma característica e pressione Enter',
             });
         });
-    </script>
+    </script> -->
 
-<script>
-    $(document).ready(function () {
-        $('.remove-image').click(function () {
-            var index = $(this).data('index');
-            var carroId = {{ $carro->id }};
-            
-            $.ajax({
-                url: '/cars/remove-image',
-                method: 'POST',
-                data: {
-                    index: index,
-                    carro_id: carroId,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function (response) {
-                    // Atualize dinamicamente a exibição das imagens removendo a imagem correspondente
-                    // Aqui você pode usar jQuery ou Vanilla JavaScript para remover a imagem da interface do usuário
-                    console.log('Imagem removida com sucesso');
-                },
-                error: function (xhr, status, error) {
-                    console.error('Erro ao remover imagem:', error);
-                }
+
+    <!-- SCRIPT PARA SER POSSÍVEL EXCLUIR FOTOS DIRETEMENTE NA PÁGINA DE EDIÇÃO DE VEÍCULOS -->
+    <!-- <script>
+        $(document).ready(function () {
+            $('.remove-image').click(function () {
+                var index = $(this).data('index');
+                var carroId = {{ $carro->id }};
+                
+                $.ajax({
+                    url: '/cars/remove-image',
+                    method: 'POST',
+                    data: {
+                        index: index,
+                        carro_id: carroId,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function (response) {
+                        // Atualize dinamicamente a exibição das imagens removendo a imagem correspondente
+                        // Aqui você pode usar jQuery ou Vanilla JavaScript para remover a imagem da interface do usuário
+                        console.log('Imagem removida com sucesso');
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Erro ao remover imagem:', error);
+                    }
+                });
             });
         });
-    });
-</script>
+    </script> -->
 
+    <!-- SCRIPT PARA EXIBIR MODAL EM CASO DE SUCESSO NA EDIÇÃO -->
+    <script>
+        $(document).ready(function () {
+            // Armazenar os valores originais dos campos ao carregar a página
+            var originalValues = {};
+            $('#editForm :input').each(function() {
+                originalValues[this.name] = $(this).val();
+            });
+
+            // Evento de submissão do formulário
+            $('#editForm').submit(function (e) {
+                // Verificar se algum campo foi modificado
+                var formModified = false;
+                $('#editForm :input').each(function() {
+                    if ($(this).val() !== originalValues[this.name]) {
+                        formModified = true;
+                        return false; // Sair do loop se um campo for modificado
+                    }
+                });
+
+                // Se nenhum campo foi modificado, cancelar o envio do formulário
+                if (!formModified) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Se algum campo foi modificado, exibir o modal de sucesso
+                $('#successModal').modal('show');
+            });
+        });
+    </script>
 
 @endsection

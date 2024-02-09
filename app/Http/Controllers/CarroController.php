@@ -138,34 +138,32 @@ class CarroController extends Controller
             }
         
             $carro->update($data);
-        
-            return back()->with('success', 'Carro editado com sucesso!');
+            
+            // Adiciona a mensagem de sucesso na sessão
+            $request->session()->flash('success', 'Carro editado com sucesso!');
+            // Redireciona de volta para a página de edição
+            return redirect()->route('cars.edit', $carro->id);
         }
 
         public function removeImage(Request $request)
-{
-    $carro = Carro::findOrFail($request->carro_id);
-    $images = json_decode($carro->imagem);
-    $index = $request->index;
+        {
+            $carro = Carro::findOrFail($request->carro_id);
+            $images = json_decode($carro->imagem);
+            $index = $request->index;
 
-    if (isset($images[$index])) {
-        $imagePath = public_path('img/cars/' . $images[$index]);
-        if (file_exists($imagePath)) {
-            unlink($imagePath); // Remove o arquivo de imagem do diretório
-        }
-        unset($images[$index]); // Remove a imagem do array
-        $carro->imagem = json_encode(array_values($images)); // Reindexa o array após a remoção
-        $carro->save();
+            if (isset($images[$index])) {
+                $imagePath = public_path('img/cars/' . $images[$index]);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Remove o arquivo de imagem do diretório
+                }
+                unset($images[$index]); // Remove a imagem do array
+                $carro->imagem = json_encode(array_values($images)); // Reindexa o array após a remoção
+                $carro->save();
 
-        return response()->json(['success' => true]);
-    }
+                return response()->json(['success' => true]);
+            }
 
-    return response()->json(['success' => false, 'message' => 'Índice de imagem inválido']);
-}
-
-        
-        
-        
-        
+            return response()->json(['success' => false, 'message' => 'Índice de imagem inválido']);
+        }    
     
 }

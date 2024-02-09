@@ -354,7 +354,7 @@
     <!-- Custom javascript -->
     <script  src="/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- SCRIP PARA SIMULAÇÃO DE FINANCIAMENTO -->
+    <!-- SCRIP PARA CALCULAR E EXIBIR MODAL DE SIMULAÇÃO DE FINANCIAMENTO -->
     <script>
         $(document).ready(function () {
             // Evento de clique no botão Calcular
