@@ -105,5 +105,45 @@ class CarroController extends Controller
             return view('car-details', ['carro' => $carro]);
         }
 
+        public function edit($id)
+        {
+            $carro = Carro::findOrFail($id);
+            return view('carros.edit', compact('carro'));
+        }
+        public function update(Request $request)
+        {
+            $carro = Carro::findOrFail($request->id);
+            $data = $request->all();
+        
+            // Image Upload
+            if ($request->hasFile('imagem_capa') && $request->file('imagem_capa')->isValid()) {
+                $requestImage = $request->imagem_capa;
+                $extension = $requestImage->extension();
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                $requestImage->move(public_path('img/cars'), $imageName);
+                $data['imagem_capa'] = $imageName;
+            }
+        
+            if ($request->hasFile('imagem')) {
+                $images = $carro->imagem ? json_decode($carro->imagem) : [];
+                foreach ($request->file('imagem') as $image) {
+                    if ($image->isValid()) {
+                        $extension = $image->extension();
+                        $imageName = md5($image->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                        $image->move(public_path('img/cars'), $imageName);
+                        $images[] = $imageName;
+                    }
+                }
+                $data['imagem'] = json_encode($images);
+            }
+        
+            $carro->update($data);
+        
+            return back()->with('success', 'Carro editado com sucesso!');
+        }
+        
+        
+        
+        
     
 }

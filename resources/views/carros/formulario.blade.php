@@ -31,12 +31,12 @@
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="imagem_capa" class="form-label">Foto de Capa:</label>
-                    <input type="file" class="form-control" id="imagem_capa" name="imagem_capa" accept="image/*">
+                    <input type="file" class="form-control" id="imagem_capa" name="imagem_capa" accept="image/*" required>
                 </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="imagem" class="form-label">Mais Fotos:</label>
-                    <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple>
+                    <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple required>
                 </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
@@ -140,7 +140,7 @@
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="destacar" class="form-label">Destacar (características):</label>
-                    <select class="form-control" id="destacar" name="destacar[]" multiple>
+                    <select class="form-control" id="destacar" name="destacar[]" multiple required>
                         <!-- As opções serão adicionadas dinamicamente via JavaScript -->
                     </select>
                 </div>

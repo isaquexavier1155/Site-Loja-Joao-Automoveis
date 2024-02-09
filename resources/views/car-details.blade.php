@@ -328,7 +328,7 @@
                      </div>
                       
 
-                     <script src="/js/jquery-2.2.0.min.js"></script>
+    <script src="/js/jquery-2.2.0.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script  src="/js/bootstrap-submenu.js"></script>

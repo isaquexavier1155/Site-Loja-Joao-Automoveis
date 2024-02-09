@@ -189,3 +189,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ROTAS PARA CADASTRAR CARROS NO BANCO DE DADOS
 Route::get('/cadastrar-carro', [CarroController::class, 'mostrarFormulario'])->name('cadastrar_carro');
 Route::post('/salvar-carro', [CarroController::class, 'salvarCarro'])->name('salvar_carro');
+
+//ROTA PARA EDITAR CARROS CADASTRADOS NO BANCO DE DADOS
+Route::get('/cars/{id}/edit', [CarroController::class,'edit'])->name('cars.edit');
+
+//ROTA PARA ATUALIZAR CARROS CADASTRADOS NO BANCO DE DADOS
+Route::put('cars/update/{id}', [CarroController::class, 'update' ])->middleware('auth');
