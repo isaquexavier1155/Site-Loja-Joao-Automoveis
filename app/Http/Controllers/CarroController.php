@@ -141,6 +141,28 @@ class CarroController extends Controller
         
             return back()->with('success', 'Carro editado com sucesso!');
         }
+
+        public function removeImage(Request $request)
+{
+    $carro = Carro::findOrFail($request->carro_id);
+    $images = json_decode($carro->imagem);
+    $index = $request->index;
+
+    if (isset($images[$index])) {
+        $imagePath = public_path('img/cars/' . $images[$index]);
+        if (file_exists($imagePath)) {
+            unlink($imagePath); // Remove o arquivo de imagem do diretório
+        }
+        unset($images[$index]); // Remove a imagem do array
+        $carro->imagem = json_encode(array_values($images)); // Reindexa o array após a remoção
+        $carro->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    return response()->json(['success' => false, 'message' => 'Índice de imagem inválido']);
+}
+
         
         
         

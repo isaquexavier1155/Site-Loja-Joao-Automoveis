@@ -195,3 +195,6 @@ Route::get('/cars/{id}/edit', [CarroController::class,'edit'])->name('cars.edit'
 
 //ROTA PARA ATUALIZAR CARROS CADASTRADOS NO BANCO DE DADOS
 Route::put('cars/update/{id}', [CarroController::class, 'update' ])->middleware('auth');
+
+//ROTA PARA REMOVER IMAGENS NA TELA DE EDIÇÃO DE VEÍCULOS
+Route::post('/cars/remove-image', [CarroController::class, 'removeImage']);

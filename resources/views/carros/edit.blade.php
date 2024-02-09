@@ -38,21 +38,26 @@
     @endif
 </div>
 
-<!-- Mais Fotos -->
+
+<!-- MAIS FOTOS -->
 <div class="mb-3 mb-0" style="width: 80%;">
     <label for="imagem" class="form-label">Mais Fotos:</label>
     <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple>
-    @php
-        $imagens = json_decode($carro->imagem);
-    @endphp
-    @if($imagens && is_array($imagens))
-        @foreach($imagens as $imagem)
-            <img src="{{ asset('img/cars/' . $imagem) }}" alt="Foto" style="max-width: 100px; margin-top: 10px;">
-        @endforeach
-    @else
-        <p>Nenhuma foto encontrada</p>
-    @endif
+    <div class="image-container">
+        @if($carro->imagem)
+            @foreach(json_decode($carro->imagem) as $index => $imagem)
+                <div class="image-item">
+                    <img src="{{ asset('img/cars/' . $imagem) }}" alt="Foto" class="image-preview">
+                    <button class="remove-image" data-index="{{ $index }}">X</button>
+                </div>
+            @endforeach
+        @else
+            <p>Nenhuma foto encontrada</p>
+        @endif
+    </div>
 </div>
+
+
 
 
 
@@ -183,7 +188,38 @@
         .form-control { 
             width: 124%;
         }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Espaçamento entre as imagens */
+        }
+
+        .image-item {
+            position: relative; /* Posição relativa para permitir o posicionamento absoluto do botão "X" */
+        }
+
+        .image-preview {
+            max-width: 100px;
+            margin-top: 10px;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            font-size: 12px;
+            cursor: pointer;
+        }
     </style>
+
 
     <script src="/js/jquery-2.2.0.min.js"></script>
     <script src="/js/popper.min.js"></script>
@@ -226,5 +262,33 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function () {
+        $('.remove-image').click(function () {
+            var index = $(this).data('index');
+            var carroId = {{ $carro->id }};
+            
+            $.ajax({
+                url: '/cars/remove-image',
+                method: 'POST',
+                data: {
+                    index: index,
+                    carro_id: carroId,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function (response) {
+                    // Atualize dinamicamente a exibição das imagens removendo a imagem correspondente
+                    // Aqui você pode usar jQuery ou Vanilla JavaScript para remover a imagem da interface do usuário
+                    console.log('Imagem removida com sucesso');
+                },
+                error: function (xhr, status, error) {
+                    console.error('Erro ao remover imagem:', error);
+                }
+            });
+        });
+    });
+</script>
+
 
 @endsection
