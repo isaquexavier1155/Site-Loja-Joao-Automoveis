@@ -177,20 +177,20 @@
             </form>
         </div>
 
-        <!-- Modal de sucesso -->
-        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="successModalLabel">Sucesso!</h5>
-                    </div>
-                    <div class="modal-body">
-                        Os dados foram atualizados com sucesso. Aguarde recarregar a página.
-                    </div>
-
-                </div>
+<!-- Modal de sucesso -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Sucesso!</h5>
+            </div>
+            <div class="modal-body">
+                Os dados foram atualizados com sucesso. Aguarde recarregar a página.
             </div>
         </div>
+    </div>
+</div>
+
 
     <style>
         .form-control { 
@@ -228,7 +228,6 @@
         }
     </style>
 
-
     <script src="/js/jquery-2.2.0.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
@@ -259,9 +258,9 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <!-- Esser script está interferindo no funcionamento do modal de sucesso de edição -->
+    <!-- Esser script estava interferindo no funcionamento do modal de sucesso de edição -->
     <!--Script responsavel pelo funcionamento do campo destacar -->
-    <!-- <script>
+    <script>
         $(document).ready(function () {
             $('#destacar').select2({
                 tags: true,
@@ -269,8 +268,7 @@
                 placeholder: 'Digite uma característica e pressione Enter',
             });
         });
-    </script> -->
-
+    </script>
 
     <!-- SCRIPT PARA SER POSSÍVEL EXCLUIR FOTOS DIRETEMENTE NA PÁGINA DE EDIÇÃO DE VEÍCULOS -->
     <script>

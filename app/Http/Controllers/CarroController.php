@@ -136,12 +136,14 @@ class CarroController extends Controller
                 }
                 $data['imagem'] = json_encode($images);
             }
+
+            // Obtenha as opções selecionadas como um array
+            $destacarArray = $request->input('destacar');
+            // Atribua o array ao campo destacar após convertê-lo para JSON
+            $carro->destacar = json_encode($destacarArray);
         
             $carro->update($data);
-            
-            // Adiciona a mensagem de sucesso na sessão
-            $request->session()->flash('success', 'Carro editado com sucesso!');
-            // Redireciona de volta para a página de edição
+
             return redirect()->route('cars.edit', $carro->id);
         }
 
