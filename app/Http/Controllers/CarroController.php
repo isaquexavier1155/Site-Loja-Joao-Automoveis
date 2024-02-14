@@ -144,7 +144,7 @@ class CarroController extends Controller
         
             $carro->update($data);
 
-            return redirect()->route('cars.edit', $carro->id);
+            return redirect()->route('carros.gerenciar-veiculos');
         }
 
         public function removeImage(Request $request)
@@ -166,6 +166,22 @@ class CarroController extends Controller
             }
 
             return response()->json(['success' => false, 'message' => 'Índice de imagem inválido']);
-        }    
-    
+        }  
+
+        public function gerenciar_veiculos(){
+            // Recuperar todos os carros
+            $carros = Carro::all();
+
+            // Retorne a view 'car-grid-fullWidth' e passe os carros para ela
+            return view('gerenciar-veiculos', ['carros' => $carros]);
+        }
+        
+        public function destroy($id)
+        {
+            $carro = Carro::findOrFail($id);
+            $carro->delete();
+            
+            return redirect()->route('carros.gerenciar-veiculos')->with('success', 'Veículo excluído com sucesso!');
+        }
+
 }

@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
-@section('title', 'Carros')
+@section('title', 'Cadastrar Veículo')
 
 @section('content')
 
 <div class="container" style="margin-top: 10%;">
     <h1 class="text-center">Cadastrar Novo Carro</h1>
 
-    <form action="{{ route('salvar_carro') }}" method="post" enctype="multipart/form-data">
+    <form id="editForm" action="{{ route('salvar_carro') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="row justify-content-center">
@@ -161,6 +161,21 @@
     </form>
 </div>
 
+        <!-- Modal de sucesso -->
+        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Sucesso!</h5>
+                    </div>
+                    <div class="modal-body text-center text-success">
+                        <i class="fas fa-check-circle fa-4x mb-3"></i>
+                        <p>Veículo cadastrado com sucesso. Aguarde recarregar a página.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <style>
     .form-control { 
         width: 124%;
@@ -204,6 +219,38 @@
                     tags: true,
                     tokenSeparators: [','],
                     placeholder: 'Digite uma característica e pressione Enter',
+                });
+            });
+        </script>
+
+        <!-- SCRIPT PARA EXIBIR MODAL DE SUCESSO EM CASO DE SUCESSO AO CADASTRAR VEÍCULO -->
+        <script>
+            $(document).ready(function () {
+                // Armazenar os valores originais dos campos ao carregar a página
+                var originalValues = {};
+                $('#editForm :input').each(function() {
+                    originalValues[this.name] = $(this).val();
+                });
+
+                // Evento de submissão do formulário
+                $('#editForm').submit(function (e) {
+                    // Verificar se algum campo foi modificado
+                    var formModified = false;
+                    $('#editForm :input').each(function() {
+                        if ($(this).val() !== originalValues[this.name]) {
+                            formModified = true;
+                            return false; // Sair do loop se um campo for modificado
+                        }
+                    });
+
+                    // Se nenhum campo foi modificado, cancelar o envio do formulário
+                    if (!formModified) {
+                        e.preventDefault();
+                        return;
+                    }
+
+                    // Se algum campo foi modificado, exibir o modal de sucesso
+                    $('#successModal').modal('show');
                 });
             });
         </script>

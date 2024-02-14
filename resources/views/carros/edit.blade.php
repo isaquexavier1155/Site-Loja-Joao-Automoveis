@@ -298,7 +298,7 @@
         });
     </script>
 
-    <!-- SCRIPT PARA EXIBIR MODAL EM CASO DE SUCESSO NA EDIÇÃO -->
+    <!-- SCRIPT PARA EXIBIR MODAL DE SUCESSO EM CASO DE SUCESSO NA EDIÇÃO -->
     <script>
         $(document).ready(function () {
             // Armazenar os valores originais dos campos ao carregar a página

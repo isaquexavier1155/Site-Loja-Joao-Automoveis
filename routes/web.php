@@ -194,7 +194,15 @@ Route::post('/salvar-carro', [CarroController::class, 'salvarCarro'])->name('sal
 Route::get('/cars/{id}/edit', [CarroController::class,'edit'])->name('cars.edit');
 
 //ROTA PARA ATUALIZAR CARROS CADASTRADOS NO BANCO DE DADOS
-Route::put('cars/update/{id}', [CarroController::class, 'update' ]);
+Route::put('cars/update/{id}', [CarroController::class, 'update']);
 
 //ROTA PARA REMOVER IMAGENS NA TELA DE EDIÇÃO DE VEÍCULOS
 Route::post('/cars/remove-image', [CarroController::class, 'removeImage']);
+
+
+//ROTA PARA VISUALIZAR TODOS OS VEÍCULOS CADASTRADOS NO SIETEMA
+Route::get('/gerenciar-veiculos', [CarroController::class, 'gerenciar_veiculos'])->name('carros.gerenciar-veiculos');
+
+//ROTA PARA DELETAR VEÍCULOS CADASTRADOS NO SIETEMA
+Route::delete('/cars/{id}', [CarroController::class, 'destroy'])->name('car-delete');
+
