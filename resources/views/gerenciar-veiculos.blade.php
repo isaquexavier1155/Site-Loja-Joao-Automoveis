@@ -20,13 +20,13 @@
 
         <!-- Adicionando campo de busca de veículos -->
         <div id="search-container" class="col-md-12">
-        <h1>Busque um Veículo para editar</h1>
-        <form id="search-form" action="{{ route('buscar-carros-para-editar') }}" method="GET" class="search-header">
-            <!-- <input type="text" id="search" name="search" class="form-control" placeholder="Digite palavras-chave aqui"> -->
-            <input type="search" name="buscar" id="search" class="form-control" value="" placeholder="Digite palavras-chave aqui"/>
-            <br><button type="submit" class="btn btn-sm button-theme">Procurar</button>
-        </form>
-    </div>
+            <h1>Busque um Veículo para editar</h1>
+            <form id="search-form" action="{{ route('buscar-carros-para-editar') }}" method="GET" class="search-header">
+                <!-- <input type="text" id="search" name="search" class="form-control" placeholder="Digite palavras-chave aqui"> -->
+                <input type="search" name="buscar" id="search" class="form-control" value="" placeholder="Digite palavras-chave aqui"/>
+                <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+            </form>
+        </div>
 
     <!-- Conteudo da página para pesquisa -->
     <!-- Featured car start -->
@@ -253,6 +253,16 @@
     </div>
     <!-- Featured car end -->
 
+            <!-- Adicionando campo de busca de veículos -->
+            <div id="search-container" class="col-md-12">
+            <h1>Busque um Veículo para editar</h1>
+            <form id="search-form" action="{{ route('buscar-carros-para-editar') }}" method="GET" class="search-header">
+                <!-- <input type="text" id="search" name="search" class="form-control" placeholder="Digite palavras-chave aqui"> -->
+                <input type="search" name="buscar" id="search" class="form-control" value="" placeholder="Digite palavras-chave aqui"/>
+                <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+            </form>
+        </div>
+
     <!-- Car Overview Modal - Botão de olho que está nos carros da listagem acima -->
     <div class="car-model-2">
         <div class="modal fade" id="carOverviewModal" tabindex="-1" role="dialog" aria-labelledby="carOverviewModalLabel" aria-hidden="true">
@@ -344,7 +354,7 @@
 
         /* Campo de pesquisa de veículo */
         #search-container {
-            background-image: url("../img/banner.jpg");
+            /* background-image: url("../img/banner.jpg"); */
             background-size: cover;
             background-position: center;
             height: 180px;
