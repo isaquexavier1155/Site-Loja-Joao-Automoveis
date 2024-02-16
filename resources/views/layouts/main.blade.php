@@ -168,11 +168,13 @@
                             <li class="nav-item dropdown @if(request()->is('contact')) ativo @endif">
                                 <a class="nav-link" href="{{ route('contact') }}">Contato</a>
                             </li>
-                            <li class="nav-item dropdown m-hide">
-                                <a href="#full-page-search" class="nav-link h-icon">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </li>
+                            @if (!request()->is('gerenciar-veiculos'))
+                                <li class="nav-item dropdown m-hide">
+                                    <a href="#full-page-search" class="nav-link h-icon">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </nav>
@@ -256,14 +258,28 @@
             </div>
         </main>
 
-        <!-- Full Page Search -->
-        <div id="full-page-search">
-            <button type="button" class="close">×</button>
-            <form action="#" class="search-header">
-                <input type="search" value="" placeholder="Digite palavras-chave aqui"/>
-                <button type="submit" class="btn btn-sm button-theme">Procurar</button>
-            </form>
-        </div>
+<!-- Modal de Pesquisa de veículos no banco. Full Page Search -->
+<div id="full-page-search">
+    <button type="button" class="close">×</button>
+    <!-- Use o método GET para enviar o formulário para a rota 'buscar-carros' -->
+    <form id="search-form" action="{{ route('buscar-carros') }}" method="GET" class="search-header">
+        <input type="search" name="buscar" id="search-input" value="" placeholder="Digite palavras-chave aqui"/>
+        <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+    </form>
+</div>
+
+<script>
+    // Captura o formulário de pesquisa
+    var searchForm = document.getElementById('search-form');
+    // Adiciona um listener para o evento submit
+    searchForm.addEventListener('submit', function(event) {
+        // Captura a URL atual
+        var currentUrl = window.location.href;
+        // Adiciona a URL atual como valor do campo oculto "url_atual"
+        document.getElementById('url-atual').value = currentUrl;
+    });
+</script>
+
 
         <!-- Início Rodapé -->
         <footer class="footer">
@@ -422,8 +438,6 @@
             updateDateTime();
         </script>
 
-        <!-- SCRIPT ADICIONADO PARA FUNCIONAR VIEW DE CADASTRO DE CARROS -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
 
     </body>
 </html>

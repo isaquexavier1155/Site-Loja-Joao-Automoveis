@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
 use App\Models\Carro;
 
@@ -24,13 +27,13 @@ class CarroController extends Controller
 
     public function carGridFullWidth()
     {
-        // Recuperar todos os carros
-        $carros = Carro::all();
-
-        // Retorne a view 'car-grid-fullWidth' e passe os carros para ela
-        return view('car-grid-fullWidth', ['carros' => $carros]);
-    }
+        // Recuperar todos os carros sem paginar
+        $carros = Carro::paginate(10); // Define o número de carros por página como 2
     
+        // Retorne a view 'car-grid-fullWidth' e passe os carros paginados para ela
+        return view('car-grid-fullWidth', ['carros' => $carros]);
+                
+    }
     
     public function mostrarFormulario()
     {
@@ -169,12 +172,13 @@ class CarroController extends Controller
         }  
 
         public function gerenciar_veiculos(){
-            // Recuperar todos os carros
-            $carros = Carro::all();
-
-            // Retorne a view 'car-grid-fullWidth' e passe os carros para ela
+            // Recuperar todos os carros paginados
+            $carros = Carro::paginate(10); // Define o número de carros por página como 2
+        
+            // Retorne a view 'gerenciar-veiculos' e passe os carros paginados para ela
             return view('gerenciar-veiculos', ['carros' => $carros]);
         }
+        
         
         public function destroy($id)
         {
@@ -184,4 +188,53 @@ class CarroController extends Controller
             return redirect()->route('carros.gerenciar-veiculos')->with('success', 'Veículo excluído com sucesso!');
         }
 
+
+        public function buscar(Request $request)
+        {
+            $search = $request->input('buscar');
+        
+            // Verificar se foi feita uma pesquisa
+            if ($search) {
+                // Realizar a busca de carros com base no termo
+                $carros = Carro::where('nome', 'like', "%$search%")->paginate(15);
+            } else {
+                // Se não houver pesquisa, retornar todos os carros
+                $carros = Carro::paginate(15);
+            }
+
+                // Verificar se a busca não retornou nenhum resultado
+            if ($carros->isEmpty()) {
+                $mensagem = "Nenhum carro encontrado para o termo '$search'";
+                return view('car-grid-fullWidth', compact('mensagem'));
+            }
+                
+            // Passar os resultados da busca para a view
+            return view('car-grid-fullWidth', compact('carros'));
+        }
+
+        public function buscarCarrosParaEditar(Request $request)
+        {
+            $search = $request->input('buscar');
+        
+            // Verificar se foi feita uma pesquisa
+            if ($search) {
+                // Realizar a busca de carros com base no termo
+                $carros = Carro::where('nome', 'like', "%$search%")->paginate(15);
+            } else {
+                // Se não houver pesquisa, retornar todos os carros
+                $carros = Carro::paginate(15);
+            }
+
+                // Verificar se a busca não retornou nenhum resultado
+            if ($carros->isEmpty()) {
+                $mensagem = "Nenhum carro encontrado para o termo '$search'";
+                return view('gerenciar-veiculos', compact('mensagem'));
+            }
+                
+            // Passar os resultados da busca para a view
+            return view('gerenciar-veiculos', compact('carros'));
+        }
+        
+    
+ //buscar-carros-para-editar
 }

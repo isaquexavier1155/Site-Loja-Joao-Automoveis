@@ -178,13 +178,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ROTAS PARA CADASTRAR CARROS NO BANCO DE DADOS
 Route::get('/cadastrar-carro', [CarroController::class, 'mostrarFormulario'])->name('cadastrar_carro');
@@ -206,3 +206,8 @@ Route::get('/gerenciar-veiculos', [CarroController::class, 'gerenciar_veiculos']
 //ROTA PARA DELETAR VEÍCULOS CADASTRADOS NO SIETEMA
 Route::delete('/cars/{id}', [CarroController::class, 'destroy'])->name('car-delete');
 
+//ROTA PARA BUSCAR VEÍCULOS NO BANCO DE DADOS PELO NOME PESQUISADO
+Route::get('/buscar-carros', [CarroController::class, 'buscar'])->name('buscar-carros');
+
+//ROTA PARA BUSCAR VEÍCULOS NO BANCO DE DADOS PELO NOME PESQUISADO PARA EDITAR 
+Route::get('/buscar-carros-para-editar', [CarroController::class, 'buscarCarrosParaEditar'])->name('buscar-carros-para-editar');

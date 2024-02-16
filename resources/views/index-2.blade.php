@@ -1090,7 +1090,7 @@
     <button type="button" class="close">×</button>
     <form action="home#" class="search-header">
         <input type="search" value="" placeholder="Digite palavras-chave aqui"/>
-        <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+        <button type="submit" class="btn btn-sm button-theme">Procurarr</button>
     </form>
 </div>
 
