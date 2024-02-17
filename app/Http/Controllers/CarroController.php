@@ -276,7 +276,10 @@ class CarroController extends Controller
     if ($request->filled('min_price') && $request->filled('max_price')) {
         $minPrice = $request->input('min_price');
         $maxPrice = $request->input('max_price');
-        $query->whereBetween('valor_promocional', [$minPrice, $maxPrice]);
+        $query->where(function ($q) use ($minPrice, $maxPrice) {
+            $q->where('valor_promocional', '>=', $minPrice)
+                ->where('valor_promocional', '<=', $maxPrice);
+        });
     }
 
     // Executar a consulta
