@@ -405,8 +405,9 @@
 
         <style>
             #div-preenchimento {
+                background-color: black;
                 position: relative;
-                left: -213px;
+                left: -132px;
                 top: 1px !important;
             }
         </style>

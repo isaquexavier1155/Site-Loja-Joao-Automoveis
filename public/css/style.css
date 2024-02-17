@@ -2371,9 +2371,7 @@ input[type=checkbox]:checked + label:before {
     border-radius: 0 10px 10px 0;
 }
 
-#div-preenchimento{
-    background-color: black;
-}
+
 
 /* styles.css */
 .car-image {
