@@ -3314,7 +3314,7 @@ input[type=checkbox]:checked + label:before {
 
 /** Car box start **/
 .car-box {
-    position: relative;
+    position: relative; 
     margin-bottom: 30px;
     background: #fff;
     z-index: 9;

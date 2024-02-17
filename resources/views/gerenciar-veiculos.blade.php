@@ -18,7 +18,6 @@
     </div>
     <!-- Sub Banner end -->
 
-
     <!-- Conteudo da página para pesquisa -->
     <!-- Featured car start -->
     <div class="featured-car content-area" id="page-content">
@@ -82,7 +81,7 @@
                     <!-- Início primeiro carro -->
                     @foreach($carros as $carro)
                         <div class="col-lg-4 col-md-6">
-                            <div class="car-box">
+                            <div class="car-box-modificado"><!-- qunado mudo o nome dessa classe modal funciona corretamente -->
                                 <!-- Início da Tela exibida ao clicar em expandir -->
                                 <div class="car-thumbnail">
                                     <a href="/car-details/{{ $carro->id }}" class="car-img">
@@ -134,6 +133,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <!-- Fim da Tela exibida ao clicar em expandir -->
 
                                 <!-- Botões de edição e exclusão -->
@@ -149,12 +149,14 @@
                                         <a href="/cars/{{ $carro->id }}/edit" class="btn btn-warning">Editar</a>
                                     </div>
                                 </div>
+                            
 
                                 <!-- Modal de Confirmação para Exclusão -->
-                                <div class="modal fade" id="confirmDeleteModal{{ $carro->id }}" tabindex="-1" aria-labelledby="confirmDeleteModalLabel{{ $carro->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal custom-modal" id="confirmDeleteModal{{ $carro->id }}" tabindex="-1" aria-labelledby="confirmDeleteModalLabel{{ $carro->id }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                        
+                                        <div class="modal-header">
                                                 <h5 class="modal-title" id="confirmDeleteModalLabel{{ $carro->id }}">Confirmar Exclusão</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                                             </div>
@@ -172,16 +174,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-                                    <script>
-                                        function confirmDelete(carId) {
-                                            if (confirm("Tem certeza que deseja excluir este carro?")) {
-                                                // Se confirmado, envia o formulário de exclusão
-                                                document.getElementById('delete-form-' + carId).submit();
-                                            }
-                                        }
-                                    </script>
+                                        
                                 <div class="footer clearfix">
                                     <!--<div class="pull-left ratings days">
                                         <span class="ratings-box">4.5/5</span>
@@ -206,7 +199,7 @@
                 <div class="pagination-box text-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                        @if(isset($carros))
+                            @if(isset($carros))
                                 @if ($carros->isEmpty())
                                     <li class="page-item disabled">
                                         <span class="page-link"><i class="fa fa-angle-left"></i></span>
@@ -249,10 +242,7 @@
                         </ul>
                     </nav>
                 </div>
-
-
-
-
+            </div>
         </div>
     </div>
     <!-- Featured car end -->
@@ -327,7 +317,7 @@
     </div>
 
     <style>
-        .car-model-2 .price-box .del-2 {
+        /* .car-model-2 .price-box .del-2 {
             position: relative;
             top: 49px;
         }
@@ -343,8 +333,8 @@
 
         .button-group form,
         .button-group a {
-            margin-right: 10px; /* Ajuste conforme necessário para espaçamento entre os botões */
-        }
+            margin-right: 10px;
+        } */
 
         /* Campo de pesquisa de veículo */
         #search-container {
@@ -372,6 +362,91 @@
         .content-area {
             margin-top: 4%;
         }
+
+        /* Adicionei o seguinte trecho de CSS para ajustar modal de confirmação de exclusão de veículos que não estava funcionando */
+        /** Car box start **/
+        .car-box-modificado {
+            /* position: relative; */
+            margin-bottom: 30px;
+            background: #fff;
+            z-index: 9999;
+            -webkit-transition: .5s;
+            transition: .5s;
+            margin-bottom: 30px!important;
+        }
+
+        .car-box-modificado .detail .title {
+            font-size: 21px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .car-box-modificado .detail .title a:hover {
+            color: #343a40;
+        }
+        .car-box-modificado .detail .location {
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        .car-box-modificado .detail .location a{
+            color: #5f5e5e;
+        }
+        .car-box-modificado .detail{
+            padding: 25px 20px 10px;
+        }
+        .car-box-modificado .facilities-list {
+            position: absolute;
+            bottom: 0;
+            font-size: 15px;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.36);
+        }
+
+        .car-box-modificado .footer {
+            border-top: 1px solid #e5e5e5;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .car-box-modificado .footer .ratings {
+            font-size: 15px;
+            color: orange;
+        }
+        .car-box-modificado .footer {
+            font-size: 15px;
+            border-top: solid 1px #efefef;
+        }
+
+        .car-box-modificado .footer .price{
+            font-weight: 600;
+            font-size: 18px;
+            padding-right: 20px;
+            margin-bottom: 0;
+            line-height: 49px;
+        }
+
+        .car-box-modificado .days{
+            line-height: 49px;
+            padding-left: 20px;
+        }
+
+        .car-box-modificado .facilities-list li {
+            list-style: none;
+            float: left;
+            width: 33.33%;
+            font-weight: 400;
+            font-size: 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .car-box-modificado .facilities-list li span i{
+            margin-right: 5px;
+        }
+        /** End Car box **/
 
     </style>
 
@@ -402,7 +477,8 @@
         <script  src="js/ie10-viewport-bug-workaround.js"></script>
 
     <!-- Script para exibir dados ao clicar no ícone de olho em cada carro -->
-    <!-- Para relacionar aos componentes do Modal de-se mudar o id do componente no html para funcionar -->
+    
+    <!-- Para relacionar aos componentes do Modal deve-se mudar o id do componente no html para funcionar -->
     <script>
         $(document).ready(function() {
             $('.overlap-btn').click(function() {
