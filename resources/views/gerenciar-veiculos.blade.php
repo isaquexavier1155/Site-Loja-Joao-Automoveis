@@ -18,15 +18,6 @@
     </div>
     <!-- Sub Banner end -->
 
-        <!-- Adicionando campo de busca de veículos -->
-        <div id="search-container" class="col-md-12">
-            <h1>Busque um Veículo para editar</h1>
-            <form id="search-form" action="{{ route('buscar-carros-para-editar') }}" method="GET" class="search-header">
-                <!-- <input type="text" id="search" name="search" class="form-control" placeholder="Digite palavras-chave aqui"> -->
-                <input type="search" name="buscar" id="search" class="form-control" value="" placeholder="Digite palavras-chave aqui"/>
-                <br><button type="submit" class="btn btn-sm button-theme">Procurar</button>
-            </form>
-        </div>
 
     <!-- Conteudo da página para pesquisa -->
     <!-- Featured car start -->
@@ -35,37 +26,52 @@
             <!-- Option bar start -->
             <div class="option-bar clearfix">
                 <div class="row">
-                    <div class="col-lg-5 col-md-6 col-sm-12">
-                        <div class="sorting-options2">
-                        @if(isset($carros))
-                            @if(!$carros->isEmpty())
-                                <h5>Mostrando {{ $carros->firstItem() }} - {{ $carros->lastItem() }} de {{ $carros->total() }} carros</h5>
-                            @else
-                                <h5>Nenhum carro encontrado</h5>
-                            @endif
-                        @else
-                            <h5>Nenhum carro encontrado</h5>
-                        @endif
-                      
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-6 col-sm-12">
-                        <div class="sorting-options">
-                            <!-- <a href="{{ route('car-list-fullWidth') }}" class="change-view-btn float-right"><i class="fa fa-th-list"></i></a> -->
-                            <a href="{{ route('carros.gerenciar-veiculos') }}" class="change-view-btn float-right active-view-btn" title="Todos"><i class="fa fa-th-large"></i></a>
-                        </div>
-                        <!-- <div class="sorting-options-3">
-                            <select class="selectpicker search-fields" name="default-order">
-                                <option>Ordenar por</option>
-                                <option>Preço: Alto para Baixo</option>
-                                <option>Preço: Baixo para Alto</option>
-                                <option>Carros mais Recentes</option>
-                                <option>Carros mais Antigos</option>
-                            </select>
-                        </div> -->
-                    </div>
+<!-- Componente 1 -->
+<div class="col-lg-5 col-md-6 col-sm-12">
+    <div class="sorting-options2">
+        @if(isset($carros))
+            @if(!$carros->isEmpty())
+                <h5>Mostrando {{ $carros->firstItem() }} - {{ $carros->lastItem() }} de {{ $carros->total() }} carros</h5>
+            @else
+                <h5>Nenhum carro encontrado</h5>
+            @endif
+        @else
+            <h5>Nenhum carro encontrado</h5>
+        @endif
+    </div>
+</div>
+
+<!-- Componente 2 -->
+<div class="col-lg-5 col-md-6 col-sm-12">
+    <form id="search-form" action="{{ route('buscar-carros-para-editar') }}" method="GET" class="search-header">
+        <div class="input-group">
+            <input type="search" name="buscar" id="search" class="form-control" value="" placeholder="Digite palavras-chave aqui"/>
+            <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+        </div>
+    </form>
+</div>
+
+<!-- Componente 3 -->
+<div class="col-lg-2 col-md-12 col-sm-12">
+    <div class="sorting-options">
+        <!-- <a href="{{ route('car-list-fullWidth') }}" class="change-view-btn float-right"><i class="fa fa-th-list"></i></a> -->
+        <a href="{{ route('carros.gerenciar-veiculos') }}" class="change-view-btn float-right active-view-btn" title="Todos"><i class="fa fa-th-large"></i></a>
+    </div>
+    <!-- <div class="sorting-options-3">
+        <select class="selectpicker search-fields" name="default-order">
+            <option>Ordenar por</option>
+            <option>Preço: Alto para Baixo</option>
+            <option>Preço: Baixo para Alto</option>
+            <option>Carros mais Recentes</option>
+            <option>Carros mais Antigos</option>
+        </select>
+    </div> -->
+</div>
+
                 </div>
             </div>
+
+
             <div class="row">
                 @if(isset($mensagem))
                     <div class="container">
@@ -366,7 +372,7 @@
         }
 
         .content-area {
-            margin-top: 10%;
+            margin-top: 4%;
         }
 
     </style>
