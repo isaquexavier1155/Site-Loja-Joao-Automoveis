@@ -18,13 +18,25 @@ class CarroController extends Controller
         
         // Recuperar os últimos três carros registrados no banco de dados
         $ultimosCarros = Carro::orderBy('created_at', 'desc')->take(3)->get();
-
+    
         $ultimasOfertas = Carro::latest()->take(4)->get();
+    
+        $blocos_pesquisa = [
+            [
+                'imagem' => 'img/car-4.jpg',
+            ],
+            [
+                'imagem' => 'img/car-3.jpg',
+            ],
+            [
+                'imagem' => 'img/car-2.jpg',
+            ]
+        ];
         
         // Passar os carros e os últimos carros para a visão
-        return view('index-2', ['carros' => $carros, 'ultimosCarros' => $ultimosCarros, 'ultimasOfertas' => $ultimasOfertas]);
+        return view('index-2', compact('carros', 'ultimosCarros', 'ultimasOfertas', 'blocos_pesquisa'));
     }
-
+    
     public function carGridFullWidth()
     {
         // Recuperar todos os carros sem paginar
@@ -234,7 +246,57 @@ class CarroController extends Controller
             // Passar os resultados da busca para a view
             return view('gerenciar-veiculos', compact('carros'));
         }
+
+
+        public function pesquisar(Request $request)
+        {
+
+    // Iniciar a consulta
+    $query = Carro::query();
+
+    // Verificar e adicionar condição para a marca se estiver preenchida
+    if ($request->filled('select-brand')) {
+        $marca = $request->input('select-brand');
+        $query->where('marca', $marca); // Utilizar a comparação exata
+    }
+
+    // Verificar e adicionar condição para o ano se estiver preenchido
+    if ($request->filled('select-year') && $request->input('select-year') != 'Selecione o ano') {
+        $ano = $request->input('select-year');
+        $query->where('ano', $ano);
+    }
+
+    // Verificar e adicionar condição para o estilo se estiver preenchido
+    if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
+        $estilo = $request->input('estilo');
+        $query->where('estilo', $estilo);
+    }
+
+    // Executar a consulta
+    $carros = $query->get();
         
+
+            $blocos_pesquisa = [
+                [
+                    'imagem' => 'img/car-4.jpg',
+                ],
+                [
+                    'imagem' => 'img/car-3.jpg',
+                ],
+                [
+                    'imagem' => 'img/car-2.jpg',
+                ]
+            ];
+
+        // Recuperar os últimos três carros registrados no banco de dados
+         $ultimosCarros = Carro::orderBy('created_at', 'desc')->take(3)->get();
     
- //buscar-carros-para-editar
+        $ultimasOfertas = Carro::latest()->take(4)->get();
+
+            // Passa os resultados da busca para a visão
+            return view('index-2', compact('carros', 'blocos_pesquisa', 'ultimasOfertas', 'ultimosCarros'));
+        }
+
+       
+    
 }

@@ -211,3 +211,6 @@ Route::get('/buscar-carros', [CarroController::class, 'buscar'])->name('buscar-c
 
 //ROTA PARA BUSCAR VEÍCULOS NO BANCO DE DADOS PELO NOME PESQUISADO PARA EDITAR 
 Route::get('/buscar-carros-para-editar', [CarroController::class, 'buscarCarrosParaEditar'])->name('buscar-carros-para-editar');
+
+//ROTA PARA BUSCAR VEÍCULOS NO BANCO DE DADOS PELO NOME PESQUISADO PARA A PÁGINA INÍCIAL
+Route::get('/pesquisar', [CarroController::class, 'pesquisar'])->name('pesquisar');

@@ -200,11 +200,11 @@
                 <li>
                     <a href="{{ route('contact') }}">Contato</a>
                 </li>
-                <!-- <li>
+                <li>
                     <a href="#full-page-search">
                         <i class="fa fa-search"></i>
                     </a>
-                </li> -->
+                </li>
             </ul>
         </div>
         <div class="get-in-touch">
@@ -236,239 +236,84 @@
 </nav>
 <!-- Sidenav end -->
 
+<!-- INÍCIO BLOCO PESQUISA AVANÇADA -->
 <!-- Banner start -->
+<!-- INÍCIO BLOCO PESQUISA AVANÇADA -->
 <div class="banner bnr-2" id="banner">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item item-bg banner-max-height active">
-                <img class="d-block w-100 h-100" src="img/car-4.jpg" alt="banner">
-                <div class="carousel-caption d-flex h-100">
-                    <div class="carousel-content container banner-info-2 bi-2 align-self-center">
-                        <div class="row bi5">
-                            <div class="col-lg-7">
-                                <div class="b-content text-start">
-                                    <h3>Bem-vindo à João Automóveis</h3>
-                                    <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse,<br>
-                                        para encontrar o carro dos seus sonhos.</h5>
-                                    <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
-                                </div>
-                                
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="search-box-4 sb-8">
-                                    <form method="GET">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-brand">
-                                                <option>Selecione a marca</option>
-                                                <option>Audi</option>
-                                                <option>BMW</option>
-                                                <option>Chevrolet</option>
-                                                <option>Citroën</option>
-                                                <option>Fiat</option>
-                                                <option>Ford</option>
-                                                <option>Honda</option>
-                                                <option>Hyundai</option>
-                                                <option>Jeep</option>
-                                                <option>Kia</option>
-                                                <option>Mitsubishi</option>
-                                                <option>Nissan</option>
-                                                <option>Peugeot</option>
-                                                <option>Renault</option>
-                                                <option>Toyota</option>
-                                                <option>Volkswagen</option>
-                                                <option>Volvo</option>
-                                            </select>                                                                             
-                                        </div>
-                                        <!-- <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-make">
-                                                <option>Selecione fazer</option>
-                                                <option>BMW</option>
-                                                <option>Honda</option>
-                                                <option>Lamborghini Huracán</option>
-                                                <option>Sports Car</option>
-                                            </select>
-                                        </div> -->
-                                        <!-- <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-location">
-                                                <option>Selecione a Localização</option>
-                                                <option>United States</option>
-                                                <option>United Kingdom</option>
-                                            </select>
-                                        </div> -->
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-year-1" id="select-year-1">
-                                                <option>Selecione o ano</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-type">
-                                                <option>Selecione Tipo de carro</option>
-                                                <option>Carro novo</option>
-                                                <option>Carro usado</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
+    @foreach($blocos_pesquisa as $index => $bloco_pesquisa)
+    <div class="carousel-item item-bg banner-max-height @if($index === 0) active @endif">
+        <img class="d-block w-100 h-100" src="{{ $bloco_pesquisa['imagem'] }}" alt="banner">
+        <div class="carousel-caption d-flex h-100">
+            <div class="carousel-content container banner-info-2 bi-2 align-self-center">
+                <div class="row bi5">
+                    <div class="col-lg-7">
+                        <div class="b-content text-start">
+                            <h3>Bem-vindo à João Automóveis</h3>
+                            <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse, para encontrar o carro dos seus sonhos.</h5>
+                            <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="carousel-item item-bg">
-                <img class="d-block w-100 h-100" src="img/car-3.jpg" alt="banner">
-                <div class="carousel-caption d-flex h-100 text-start">
-                    <div class="carousel-content container align-self-center">
-                        <div class="row bi5">
-                            <div class="col-lg-7">
-                                <div class="b-content text-start">
-                                    <h3>Bem-vindo à João Automóveis</h3>
-                                    <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse,<br>
-                                        para encontrar o carro dos seus sonhos.</h5>
-                                    <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
+                    <div class="col-lg-5">
+                        <div class="search-box-4 sb-8">
+                            <form method="GET" action="{{ route('pesquisar') }}">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="select-brand">
+                                        <option>Selecione a marca</option>
+                                        <option>Audi</option>
+                                        <option>BMW</option>
+                                        <option>Chevrolet</option>
+                                        <option>Citroën</option>
+                                        <option>Fiat</option>
+                                        <option>Ford</option>
+                                        <option>Honda</option>
+                                        <option>Hyundai</option>
+                                        <option>Jeep</option>
+                                        <option>Kia</option>
+                                        <option>Mitsubishi</option>
+                                        <option>Nissan</option>
+                                        <option>Peugeot</option>
+                                        <option>Renault</option>
+                                        <option>Toyota</option>
+                                        <option>Volkswagen</option>
+                                        <option>Volvo</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="search-box-4 sb-8">
-                                    <form method="GET">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-brand">
-                                                <option>Selecione a marca</option>
-                                                <option>Audi</option>
-                                                <option>BMW</option>
-                                                <option>Chevrolet</option>
-                                                <option>Citroën</option>
-                                                <option>Fiat</option>
-                                                <option>Ford</option>
-                                                <option>Honda</option>
-                                                <option>Hyundai</option>
-                                                <option>Jeep</option>
-                                                <option>Kia</option>
-                                                <option>Mitsubishi</option>
-                                                <option>Nissan</option>
-                                                <option>Peugeot</option>
-                                                <option>Renault</option>
-                                                <option>Toyota</option>
-                                                <option>Volkswagen</option>
-                                                <option>Volvo</option>
-                                            </select>
-                                        </div>
-                                        <!-- <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-make">
-                                                <option>Select Make</option>
-                                                <option>BMW</option>
-                                                <option>Honda</option>
-                                                <option>Lamborghini Huracán</option>
-                                                <option>Sports Car</option>
-                                            </select>
-                                        </div> -->
-                                        <!-- <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-location">
-                                                <option>Select Location</option>
-                                                <option>United States</option>
-                                                <option>United Kingdom</option>
-                                            </select>
-                                        </div> -->
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-year-2" id="select-year-2">
-                                                <option>Selecione o ano</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-type">
-                                                <option>Selecione Tipo de carro</option>
-                                                <option>Carro novo</option>
-                                                <option>Carro usado</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
-                                        </div>
-                                    </form>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="select-year" id="select-year">
+                                        <option>Selecione o ano</option>
+                                        <!-- Opções de ano aqui -->
+                                    </select>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item item-bg">
-                <img class="d-block w-100 h-100" src="img/car-2.jpg" alt="banner">
-                <div class="carousel-caption d-flex h-100 text-start">
-                    <div class="carousel-content container align-self-center">
-                        <div class="row bi5">
-                            <div class="col-lg-7">
-                                <div class="b-content text-start">
-                                    <h3>Bem-vindo à João Automóveis</h3>
-                                    <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse,<br>
-                                        para encontrar o carro dos seus sonhos.</h5>
-                                    <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="search-box-4 sb-8">
-                                    <form method="GET">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-brand">
-                                                <option>Selecione a marca</option>
-                                                <option>Audi</option>
-                                                <option>BMW</option>
-                                                <option>Chevrolet</option>
-                                                <option>Citroën</option>
-                                                <option>Fiat</option>
-                                                <option>Ford</option>
-                                                <option>Honda</option>
-                                                <option>Hyundai</option>
-                                                <option>Jeep</option>
-                                                <option>Kia</option>
-                                                <option>Mitsubishi</option>
-                                                <option>Nissan</option>
-                                                <option>Peugeot</option>
-                                                <option>Renault</option>
-                                                <option>Toyota</option>
-                                                <option>Volkswagen</option>
-                                                <option>Volvo</option>
-                                            </select>
-                                        </div>
-                                        <!-- <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-make">
-                                                <option>Select Make</option>
-                                                <option>BMW</option>
-                                                <option>Honda</option>
-                                                <option>Lamborghini Huracán</option>
-                                                <option>Sports Car</option>
-                                            </select>
-                                        </div> -->
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-year-3" id="select-year-3">
-                                                <option>Selecione o ano</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="select-type">
-                                                <option>Selecione Tipo de carro</option>
-                                                <option>Carro novo</option>
-                                                <option>Carro usado</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Créditos de imagem -->
-            <span>
-                Foto de <a href="https://unsplash.com/pt-br/@bbtl?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Josh Berquist</a> na <a href="https://unsplash.com/pt-br/fotografias/cinza-mercedes-benz-coupe-na-estrada-de-asfalto-preto-durante-o-dia-_4sWbzH5fp8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-                Foto de <a href="https://unsplash.com/pt-br/@samuele_piccarini?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Samuele Errico Piccarini</a> na <a href="https://unsplash.com/pt-br/fotografias/seda-preto-FMbWFDiVRPs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-            </span>
-        </div>
+                                <div class="form-group">
+                                <select class="selectpicker search-fields" name="estilo">
+                                    <option>Selecione o Estilo</option>
+                                    <option>Sedã</option>
+                                    <option>Hat</option>
+                                    <option>SUV</option>
+                                    <option>Picape</option>
+                                    <option>Cupê</option>
+                                    <option>Minivan</option>
+                                    <option>Crossover</option>
+                                </select>
 
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
+
+        <!-- Botões de controle -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -481,6 +326,13 @@
 </div>
 <!-- Banner end -->
 
+
+<!-- FIM BLOCO DE PESQUISA Avançada////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- Search box 3 start -->
 <div class="search-box-3 sb-7 sb-2 bg-active">
     <div class="container">
@@ -550,7 +402,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <button class="btn btn-block button-theme btn-md">
-                                    Procurar
+                                    Procurar4
                                 </button>
                             </div>
                         </div>
@@ -682,7 +534,7 @@
 <!-- Final Seção de serviços -->
 
 <!-- Início da Seção Últimas Ofertas -->
-<<div class="latest-offers content-area-13">
+<div class="latest-offers content-area-13">
     <div class="container">
         <!-- Main title -->
         <div class="main-title text-center">
@@ -1086,11 +938,13 @@
 </style>
 
 <!-- Full Page Search -->
+<!-- Modal de Pesquisa de veículos no banco. Full Page Search -->
 <div id="full-page-search">
     <button type="button" class="close">×</button>
-    <form action="home#" class="search-header">
-        <input type="search" value="" placeholder="Digite palavras-chave aqui"/>
-        <button type="submit" class="btn btn-sm button-theme">Procurarr</button>
+    <!-- Use o método GET para enviar o formulário para a rota 'buscar-carros' -->
+    <form id="search-form" action="{{ route('buscar-carros') }}" method="GET" class="search-header">
+        <input type="search" name="buscar" id="search-input" value="" placeholder="Digite palavras-chave aqui"/>
+        <button type="submit" class="btn btn-sm button-theme">Procurar</button>
     </form>
 </div>
 
@@ -1215,7 +1069,7 @@
     }
 
     // Chama a função para cada campo de seleção
-    populateYears('select-year-1');
+    populateYears('select-year');
     populateYears('select-year-2');
     populateYears('select-year-3');
     populateYears('select-year-4');
