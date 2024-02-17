@@ -24,7 +24,7 @@
             <form id="search-form" action="{{ route('buscar-carros-para-editar') }}" method="GET" class="search-header">
                 <!-- <input type="text" id="search" name="search" class="form-control" placeholder="Digite palavras-chave aqui"> -->
                 <input type="search" name="buscar" id="search" class="form-control" value="" placeholder="Digite palavras-chave aqui"/>
-                <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+                <br><button type="submit" class="btn btn-sm button-theme">Procurar</button>
             </form>
         </div>
 
