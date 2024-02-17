@@ -407,7 +407,7 @@
                         <!-- Botão de pesquisa no menu mobile -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
+                                <button type="submit" class="btn btn-block button-theme btn-md">Procurar</button>
                             </div>
                         </div>
                     </div>
