@@ -347,10 +347,10 @@
             /* background-image: url("../img/banner.jpg"); */
             background-size: cover;
             background-position: center;
-            height: 180px;
+            height: 140px;
             padding: 50px;
             text-align: center;
-            margin-bottom: 10%;
+            margin-bottom: 14%;
 
         }
 
@@ -363,6 +363,10 @@
         #search-container form {
             width: 50%;
             margin: 0 auto;
+        }
+
+        .content-area {
+            margin-top: 10%;
         }
 
     </style>
