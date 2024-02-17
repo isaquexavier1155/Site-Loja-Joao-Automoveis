@@ -333,6 +333,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 <!-- Search box 3 start -->
 <div class="search-box-3 sb-7 sb-2 bg-active">
     <div class="container">
@@ -387,19 +388,10 @@
                                 </select>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="transmission">
-                                    <option>Transmissão</option>
-                                    <option>Automática</option>
-                                    <option>Manual</option>
-                                </select>
-                            </div>
-                        </div> -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <div class="range-slider">
-                                    <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div data-min="0" data-max="150000" data-unit="Reais" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -416,7 +408,7 @@
         </div>
     </div>
 </div>
-<!-- final da Caixa de pesquisa 3 -->
+<!-- final da Caixa em dispositivos móveis -->
 
 <!-- Início do carros em destaque -->
 <div class="featured-car content-area">
