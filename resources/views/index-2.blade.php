@@ -338,7 +338,7 @@
     <div class="container">
         <div class="search-area-inner">
             <div class="search-contents">
-                <form method="GET">
+                <form method="GET" action="{{ route('pesquisar') }}">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
@@ -366,7 +366,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-year-4" id="select-year-4">
+                                <select class="selectpicker search-fields" name="select-year" id="select-year">
                                     <option>Selecione o ano</option>
                                 </select>
                             </div>
@@ -375,14 +375,19 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="select-type">
-                                    <option>Selecione Tipo de carro</option>
-                                    <option>Carro novo</option>
-                                    <option>Carro usado</option>
+                                <select class="selectpicker search-fields" name="estilo">
+                                    <option>Selecione o Estilo</option> 
+                                    <option>Sedã</option>
+                                    <option>Hat</option>
+                                    <option>SUV</option>
+                                    <option>Picape</option>
+                                    <option>Cupê</option>
+                                    <option>Minivan</option>
+                                    <option>Crossover</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="transmission">
                                     <option>Transmissão</option>
@@ -390,7 +395,7 @@
                                     <option>Manual</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <div class="range-slider">
@@ -399,11 +404,10 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Botão de pesquisa no menu mobile -->
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <button class="btn btn-block button-theme btn-md">
-                                    Procurar4
-                                </button>
+                                <button type="submit" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
                             </div>
                         </div>
                     </div>
