@@ -49,6 +49,12 @@
     <![endif]-->
 </head>
 <body class="comon-index">
+    <!-- Bloco adicao ícone whatsapp com efeito js,  colocar abaixo body-->
+    <!-- <script>window.rwbp={email:'qsconsultoriarh@gmail.com',phone:'5521971065766',
+    message:'Envie-nos uma mensagem via WhatsApp',lang:'pt-BR'}</script>
+    <script defer async src="{{ asset('js/whats.js') }}">
+    </script> -->
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX5VQP"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1095,6 +1101,9 @@
         });
     });
 </script>
+
+<!-- Botão do WhatsApp gerado no site: https://www.rdstation.com/ferramentas/botao-de-whatsapp-gratuito/ -->
+<script>window.rwbp={email:'isaque.ixs@gmail.com',phone:'5551999006797',message:'Olá, seja bem vindo ao atendimento João Automóveis. Como podemos ajudar?',lang:'pt-BR'}</script><script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script>
 
 </body>
 </html>

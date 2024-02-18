@@ -50,6 +50,12 @@
     <script src="{{ asset('js/ie-emulation-modes-warning.js') }}"></script>
 </head>
     <body>
+        <!-- Bloco adicao ícone whatsapp com efeito js,  colocar abaixo body-->
+        <script>window.rwbp={email:'qsconsultoriarh@gmail.com',phone:'5521971065766',
+        message:'Envie-nos uma mensagem via WhatsApp',lang:'pt-BR'}</script>
+        <script defer async src="{{ asset('js/whats.js') }}">
+        </script>
+
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX5VQP"
                         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -438,7 +444,6 @@
             // Inicializa a função para exibir a data e hora imediatamente
             updateDateTime();
         </script>
-
 
     </body>
 </html>
