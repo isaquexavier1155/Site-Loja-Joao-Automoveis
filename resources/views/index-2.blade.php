@@ -551,7 +551,7 @@
                                 </div>
                                 </div>
                                 <div class="info">
-                                    <h5 class="price">{{ $carro->preco }} <span>{{ $carro->negociavel ? 'Negociável' : 'Fixo' }}</span></h5>
+                                    <h5 class="price">{{ $carro->valor_promocional }}</h5>
                                     <h3 class="title">
                                         <a href="/car-details/{{ $carro->id }}">{{ $carro->nome }}</a>
                                     </h3>
