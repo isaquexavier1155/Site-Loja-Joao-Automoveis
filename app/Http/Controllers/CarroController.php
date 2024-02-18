@@ -272,19 +272,22 @@ class CarroController extends Controller
         $query->where('estilo', $estilo);
     }
 
-    // Verificar e adicionar condição para a faixa de preço se estiver preenchida
-    if ($request->filled('min_price') && $request->filled('max_price')) {
-        $minPrice = $request->input('min_price');
-        $maxPrice = $request->input('max_price');
-        $query->where(function ($q) use ($minPrice, $maxPrice) {
-            $q->where('valor_promocional', '>=', $minPrice)
-                ->where('valor_promocional', '<=', $maxPrice);
-        });
-    }
+// Verificar e adicionar condição para a faixa de preço se estiver preenchida
+if ($request->filled('min_price') && $request->filled('max_price')) {
+    $minPrice = $request->input('min_price');
+    $maxPrice = $request->input('max_price');
+    //dd($minPrice, $maxPrice);
+    $query->where(function ($q) use ($minPrice, $maxPrice) {
+        $q->where('valor_promocional', '>=', $minPrice)
+            ->where('valor_promocional', '<=', $maxPrice);
+            
+    });
+}
+
 
     // Executar a consulta
     $carros = $query->get();
-        
+    //dd( $carros, $query->toSql(), $query->getBindings());
 
             $blocos_pesquisa = [
                 [

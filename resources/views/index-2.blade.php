@@ -344,10 +344,10 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="select-brand">
-                                    <option>Selecione a marca</option>
-                                    <option>Audi</option>
-                                    <option>BMW</option>
+                                    <option value="">Selecione a Marca</option> 
                                     <option>Chevrolet</option>
+                                    <option>Audi</option>
+                                    <option>BMW</option>                         
                                     <option>Citroën</option>
                                     <option>Fiat</option>
                                     <option>Ford</option>
@@ -368,7 +368,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="select-year" id="select-year">
-                                    <option>Selecione o ano</option>
+                                    <option value="">Selecione o Ano</option>
                                 </select>
                             </div>
                         </div>
@@ -377,7 +377,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="estilo">
-                                    <option>Selecione o Estilo</option> 
+                                    <option value="">Selecione o Estilo</option> 
                                     <option>Sedã</option>
                                     <option>Hat</option>
                                     <option>SUV</option>
@@ -391,7 +391,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <div class="range-slider">
-                                    <div data-min="0" data-max="150000" data-unit="Reais" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div data-min="0" data-max="150000" data-unit="R$" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
