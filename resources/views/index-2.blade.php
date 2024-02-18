@@ -544,9 +544,11 @@
                         <div class="latest-offers-box-inner">
                             <div class="latest-offers-box-overflow">
                                 <div class="latest-offers-box-photo">
-                                    <div class="latest-offers-box-photodd">
+                                <div class="latest-offers-box-photodd">
+                                    <a href="/car-details/{{ $carro->id }}">
                                         <img class="img-fluid" src="/img/cars/{{ $carro->imagem_capa }}" alt="latest-offers" style="width: 400px; height: 400px;">
-                                    </div>
+                                    </a>
+                                </div>
                                 </div>
                                 <div class="info">
                                     <h5 class="price">{{ $carro->preco }} <span>{{ $carro->negociavel ? 'Negociável' : 'Fixo' }}</span></h5>
