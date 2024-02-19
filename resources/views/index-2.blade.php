@@ -979,7 +979,7 @@ $params = [
 
     .whatsapp-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 72px;
     right: 20px;
     z-index: 1000;
     }
