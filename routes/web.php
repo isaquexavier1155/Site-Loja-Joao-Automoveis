@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\ContatoWhatsappController;
+
 
 // //ROTAS DE EXEMPLO DO PROJETO RIFAS
 // Route::get('/home', [RifaController::class, 'home']);
@@ -214,3 +216,6 @@ Route::get('/buscar-carros-para-editar', [CarroController::class, 'buscarCarrosP
 
 //ROTA PARA BUSCAR VEÍCULOS NO BANCO DE DADOS PELO NOME PESQUISADO PARA A PÁGINA INÍCIAL
 Route::get('/pesquisar', [CarroController::class, 'pesquisar'])->name('pesquisar');
+
+//ROTA PARA SALVAR DADOS DE USUÁRIO QUE ENTRAR EM CONTATO VIA API WHATSAPP
+Route::post('/contato-whatsapp', [ContatoWhatsappController::class, 'store']);

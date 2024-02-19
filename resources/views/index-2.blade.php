@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
+    <!-- Meta tag utilizada para corrigir erro ao clicar no contato via whtas -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
@@ -48,7 +51,41 @@
     <script  src="js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="comon-index">
+<body>
+
+
+<!-- Capturar o endereço IP do usuário -->
+<?php $user_ip = $_SERVER['REMOTE_ADDR']; ?>
+
+<!-- URL base para o WhatsApp -->
+<?php $whatsapp_url = "https://api.whatsapp.com/send"; ?>
+
+<!-- Parâmetros adicionais para personalizar a mensagem -->
+<?php
+$params = [
+    'phone' => '5551999402842',
+    'text' => 'Olá, gostaria de mais informações sobre um veículo disponível em João Automóveis. Por favor, podem me ajudar?',
+    'nome' => 'Nome do Cliente',
+    'email' => 'email@example.com',
+    'telefone' => '(00) 12345-6789',
+    'ip' => $user_ip
+];
+?>
+
+<!-- Construir a URL final com os parâmetros -->
+<?php $final_url = $whatsapp_url . '?' . http_build_query($params); ?>
+
+<!-- Adicionar um evento JavaScript para enviar os dados antes de redirecionar para o WhatsApp -->
+<div id="whatsapp-button" class="whatsapp-button">
+    <a href="#" onclick="enviarDadosESeguirLink('<?php echo $final_url; ?>')">
+        <img src="{{ asset('img/whats.png') }}" alt="WhatsApp" width="50" height="50">
+    </a>
+</div>
+
+
+
+
+
     <!-- Bloco adicao ícone whatsapp com efeito js,  colocar abaixo body-->
     <!-- <script>window.rwbp={email:'qsconsultoriarh@gmail.com',phone:'5521971065766',
     message:'Envie-nos uma mensagem via WhatsApp',lang:'pt-BR'}</script>
@@ -939,6 +976,14 @@
         left: -213px;
         top: 0px !important;
     }
+
+    .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    }
+
 </style>
 
 <!-- Full Page Search -->
@@ -1102,8 +1147,41 @@
     });
 </script>
 
-<!-- Botão do WhatsApp gerado no site: https://www.rdstation.com/ferramentas/botao-de-whatsapp-gratuito/ -->
-<script>window.rwbp={email:'isaque.ixs@gmail.com',phone:'5551999006797',message:'Olá, seja bem vindo ao atendimento João Automóveis. Como podemos ajudar?',lang:'pt-BR'}</script><script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script>
+    <!-- Botão do WhatsApp gerado no site: https://www.rdstation.com/ferramentas/botao-de-whatsapp-gratuito/ -->
+    <!-- <script>window.rwbp={email:'isaque.ixs@gmail.com',phone:'5551999006797',message:'Olá, seja bem vindo ao atendimento João Automóveis. Como podemos ajudar?',lang:'pt-BR'}</script><script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script> -->
+
+    <script>
+    function enviarDadosESeguirLink(finalUrl) {
+        // Enviar os dados para a rota de contato-whatsapp via AJAX
+        fetch('/contato-whatsapp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                nome: 'Nome do Cliente',
+                email: 'email@example.com',
+                telefone: '(00) 12345-6789',
+                ip: '<?php echo $user_ip; ?>'
+            })
+        })
+        .then(response => {
+    console.log('Resposta do backend:', response);
+    return response.text(); // Convertendo a resposta para texto
+})
+        .then(data => {
+            console.log('Dados recebidos do backend:', data);
+            // Após receber a resposta do backend, redirecionar para o WhatsApp
+            window.location.href = finalUrl;
+        })
+        .catch(error => {
+            console.error('Erro ao salvar os dados:', error);
+        });
+    }
+</script>
+
+
 
 </body>
 </html>
