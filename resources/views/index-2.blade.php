@@ -75,18 +75,115 @@ $params = [
 <!-- Construir a URL final com os parâmetros -->
 <?php $final_url = $whatsapp_url . '?' . http_build_query($params); ?>
 
-<!-- Adicionar um evento JavaScript para enviar os dados antes de redirecionar para o WhatsApp -->
+<!-- Até aqui estava funcionando perfeitamente - Adicionar um evento JavaScript para enviar os dados antes de redirecionar para o WhatsApp -->
 <div id="whatsapp-button" class="whatsapp-button">
     <a href="#" onclick="enviarDadosESeguirLink('<?php echo $final_url; ?>')">
         <img src="{{ asset('img/whats.png') }}" alt="WhatsApp" width="50" height="50">
     </a>
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+    <h2>Entre em contato</h2>
+    <p>Por favor, insira seu nome e email para que possamos entrar em contato:</p>
+<!-- Formulário de contato -->
+<form id="contactForm">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+  <button type="button" onclick="submitForm()">Enviar</button>
+</form>
+  </div>
+</div>
 
 
 
 
-    <!-- Bloco adicao ícone whatsapp com efeito js,  colocar abaixo body-->
+
+
+<script>
+// Função para enviar dados e redirecionar para o WhatsApp
+function enviarDadosESeguirLink(finalUrl) {
+    // Enviar os dados para a rota de contato-whatsapp via AJAX
+    fetch('/contato-whatsapp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            nome: 'Nome do Cliente',
+            email: 'email@example.com',
+            telefone: '(00) 12345-6789',
+            ip: '<?php echo $user_ip; ?>'
+        })
+    })
+    .then(response => {
+        console.log('Resposta do backend:', response);
+        return response.text(); // Convertendo a resposta para texto
+    })
+    .then(data => {
+        console.log('Dados recebidos do backend:', data);
+        // Após receber a resposta do backend, redirecionar para o WhatsApp
+        window.location.href = finalUrl;
+    })
+    .catch(error => {
+        console.error('Erro ao salvar os dados:', error);
+    });
+}
+
+// Abrir o modal do formulário
+function openForm() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+// Fechar o modal do formulário
+function closeForm() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Enviar dados do formulário
+function submitForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+
+    // Enviar os dados para o backend
+    fetch('/contato-whatsapp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            nome: name,
+            email: email,
+            telefone: '(00) 12345-6789',
+            ip: '<?php echo $user_ip; ?>'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Após receber a resposta do backend, redirecionar para o WhatsApp
+        window.location.href = finalUrl;
+    })
+    .catch(error => {
+        console.error('Erro ao salvar os dados:', error);
+    });
+}
+
+
+</script>
+
+
+
+
+
+
+    <!-- Bloco adicao ícone whatsapp com efeito js do site QSCONSULTORIARH,  colocar abaixo body-->
     <!-- <script>window.rwbp={email:'qsconsultoriarh@gmail.com',phone:'5521971065766',
     message:'Envie-nos uma mensagem via WhatsApp',lang:'pt-BR'}</script>
     <script defer async src="{{ asset('js/whats.js') }}">
@@ -1150,36 +1247,7 @@ $params = [
     <!-- Botão do WhatsApp gerado no site: https://www.rdstation.com/ferramentas/botao-de-whatsapp-gratuito/ -->
     <!-- <script>window.rwbp={email:'isaque.ixs@gmail.com',phone:'5551999006797',message:'Olá, seja bem vindo ao atendimento João Automóveis. Como podemos ajudar?',lang:'pt-BR'}</script><script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script> -->
 
-    <script>
-    function enviarDadosESeguirLink(finalUrl) {
-        // Enviar os dados para a rota de contato-whatsapp via AJAX
-        fetch('/contato-whatsapp', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({
-                nome: 'Nome do Cliente',
-                email: 'email@example.com',
-                telefone: '(00) 12345-6789',
-                ip: '<?php echo $user_ip; ?>'
-            })
-        })
-        .then(response => {
-    console.log('Resposta do backend:', response);
-    return response.text(); // Convertendo a resposta para texto
-})
-        .then(data => {
-            console.log('Dados recebidos do backend:', data);
-            // Após receber a resposta do backend, redirecionar para o WhatsApp
-            window.location.href = finalUrl;
-        })
-        .catch(error => {
-            console.error('Erro ao salvar os dados:', error);
-        });
-    }
-</script>
+
 
 
 
