@@ -53,7 +53,6 @@
 </head>
 <body>
 
-
 <!-- Capturar o endereço IP do usuário -->
 <?php $user_ip = $_SERVER['REMOTE_ADDR']; ?>
 
@@ -77,7 +76,7 @@ $params = [
 
 <!-- Até aqui estava funcionando perfeitamente - Adicionar um evento JavaScript para enviar os dados antes de redirecionar para o WhatsApp -->
 <div id="whatsapp-button" class="whatsapp-button">
-    <a href="#" onclick="enviarDadosESeguirLink('<?php echo $final_url; ?>')">
+    <a href="#" onclick="openForm()">
         <img src="{{ asset('img/whats.png') }}" alt="WhatsApp" width="50" height="50">
     </a>
 </div>
@@ -87,13 +86,15 @@ $params = [
   <div class="modal-content">
     <span class="close" onclick="closeForm()">&times;</span>
     <h2>Entre em contato</h2>
-    <p>Por favor, insira seu nome e email para que possamos entrar em contato:</p>
+    <p>Por favor, insira seu nome, email e telefone para que possamos entrar em contato:</p>
 <!-- Formulário de contato -->
 <form id="contactForm">
   <label for="name">Nome:</label>
   <input type="text" id="name" name="name">
   <label for="email">Email:</label>
   <input type="email" id="email" name="email">
+  <label for="telefone">Telefone:</label>
+  <input type="tel" id="telefone" name="telefone">
   <button type="button" onclick="submitForm()">Enviar</button>
 </form>
   </div>
@@ -101,12 +102,11 @@ $params = [
 
 
 
-
-
-
 <script>
+var finalUrl = '<?php echo $final_url; ?>';
+
 // Função para enviar dados e redirecionar para o WhatsApp
-function enviarDadosESeguirLink(finalUrl) {
+function enviarDadosESeguirLink() {
     // Enviar os dados para a rota de contato-whatsapp via AJAX
     fetch('/contato-whatsapp', {
         method: 'POST',
@@ -115,9 +115,9 @@ function enviarDadosESeguirLink(finalUrl) {
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         },
         body: JSON.stringify({
-            nome: 'Nome do Cliente',
-            email: 'email@example.com',
-            telefone: '(00) 12345-6789',
+            nome: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            telefone: document.getElementById("telefone").value,
             ip: '<?php echo $user_ip; ?>'
         })
     })
@@ -147,36 +147,11 @@ function closeForm() {
 
 // Enviar dados do formulário
 function submitForm() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-
-    // Enviar os dados para o backend
-    fetch('/contato-whatsapp', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify({
-            nome: name,
-            email: email,
-            telefone: '(00) 12345-6789',
-            ip: '<?php echo $user_ip; ?>'
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Após receber a resposta do backend, redirecionar para o WhatsApp
-        window.location.href = finalUrl;
-    })
-    .catch(error => {
-        console.error('Erro ao salvar os dados:', error);
-    });
+    enviarDadosESeguirLink();
 }
 
-
 </script>
+
 
 
 
@@ -1080,6 +1055,86 @@ function submitForm() {
     right: 20px;
     z-index: 1000;
     }
+
+    
+    /* ESTILO PARA MODAL ABERTO AO CLICAR NA IMAGEM DO WHATSAPP */
+/* Estilo para o modal */
+.modal {
+    display: none; /* Escondendo o modal por padrão */
+    position: fixed; /* Posicionamento fixo para que ele fique sobreposto ao conteúdo */
+    z-index: 9999; /* Z-index alto para garantir que o modal esteja acima de todos os outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Cobrindo toda a largura da tela */
+    height: 100%; /* Cobrindo toda a altura da tela */
+    overflow: auto; /* Adicionando rolagem se o conteúdo for maior que a tela */
+    background-color: rgba(0,0,0,0.4); /* Cor de fundo semi-transparente */
+    transition: all 0.3s ease; /* Efeito de transição suave */
+}
+
+/* Estilo para o conteúdo do modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Margem para centralizar o modal verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do conteúdo do modal */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease; /* Efeito de transição suave */
+}
+
+/* Estilo para o botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para o botão "Enviar" */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para tornar o formulário responsivo */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 90%; /* Reduzir a largura do conteúdo do modal */
+        position: relative;
+        top: 5%;
+    }
+    label {
+        display: block; /* Fazer com que as etiquetas apareçam como blocos */
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+        width: 100%; /* Definir a largura dos campos de entrada como 100% */
+        margin-bottom: 10px; /* Adicionar espaço entre os campos */
+    }
+    button {
+        width: 100%; /* Definir a largura do botão "Enviar" como 100% */
+    }
+}
+
+
 
 </style>
 
