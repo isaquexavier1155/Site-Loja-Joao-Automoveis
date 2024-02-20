@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
+    <!-- metatag 001 tag utilizada para corrigir erro ao clicar no contato via whtas -->
+    <!-- Se não inserir essa metatag ocorre erro especifico ao clicar no contato via whatsapp -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
@@ -50,11 +54,150 @@
     <script src="{{ asset('js/ie-emulation-modes-warning.js') }}"></script>
 </head>
     <body>
-        <!-- Bloco adicao ícone whatsapp com efeito js,  colocar abaixo body-->
-        <script>window.rwbp={email:'qsconsultoriarh@gmail.com',phone:'5521971065766',
-        message:'Envie-nos uma mensagem via WhatsApp',lang:'pt-BR'}</script>
-        <script defer async src="{{ asset('js/whats.js') }}">
+        <!-- INÍCIO FUNCIONAMENTO DO BOTÃO FLUTUANTE DO WHATSAPP -->
+            <!-- Para funcionar deve-se adicionar metatag 001 abaixo no header da página -->
+            <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+
+        <!-- Capturar o endereço IP do usuário -->
+        <?php $user_ip = $_SERVER['REMOTE_ADDR']; ?>
+        <!-- URL base para o WhatsApp -->
+        <?php $whatsapp_url = "https://api.whatsapp.com/send"; ?>
+        <!-- Parâmetros adicionais para personalizar a mensagem -->
+        <?php
+            $params = [
+                'phone' => '5551999402842',
+                'text' => 'Olá, gostaria de mais informações sobre um veículo disponível em João Automóveis. Por favor, podem me ajudar?',
+                'nome' => 'Nome do Cliente',
+                'email' => 'email@example.com',
+                'telefone' => '(00) 12345-6789',
+                'ip' => $user_ip
+            ];
+        ?>
+
+        <!-- Construir a URL final com os parâmetros -->
+        <?php $final_url = $whatsapp_url . '?' . http_build_query($params); ?>
+
+        <!-- Ao clicar no ícone do whatsapp executa a função openForm -->
+        <div id="whatsapp-button" class="whatsapp-button">
+            <a href="#" onclick="openForm()">
+                <img src="{{ asset('img/whats.png') }}" alt="WhatsApp" width="50" height="50">
+            </a>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="custom-close" onclick="closeForm()">&times;</span>
+                <h2>Entre em contato</h2>
+                <p>Por favor, preencha os campos abaixo para continuar para o WhatsApp:</p>
+                <form id="contactForm">
+                    <div class="input-group" onsubmit="return validateForm()">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <button id="submitButton" type="submit" onclick="submitForm()" disabled>Continuar</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Função para verificar se todos os campos estão preenchidos -->
+        <script>
+            function checkForm() {
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var telefone = document.getElementById("telefone").value;
+
+                // Habilitar o botão Continuar se todos os campos estiverem preenchidos
+                if (name.trim() !== '' && email.trim() !== '' && telefone.trim() !== '') {
+                    document.getElementById("submitButton").removeAttribute("disabled");
+                } else {
+                    document.getElementById("submitButton").setAttribute("disabled", "disabled");
+                }
+            }
+
+            // Adicionar evento de input para verificar sempre que um campo for preenchido
+            document.getElementById("name").addEventListener("input", checkForm);
+            document.getElementById("email").addEventListener("input", checkForm);
+            document.getElementById("telefone").addEventListener("input", checkForm);
         </script>
+
+
+        <!-- // Script para adicionar efeito de balanço à imagem do WhatsApp -->
+        <script>
+            function shakeWhatsAppImage() {
+                const whatsappImage = document.querySelector('.whatsapp-button img');
+                whatsappImage.style.transition = 'transform 0.5s ease'; // Definir transição suave
+                whatsappImage.style.transform = 'rotate(10deg)'; // Rotacionar mais para a direita
+
+                // Após 0.5 segundos, restaurar a posição original
+                setTimeout(() => {
+                    whatsappImage.style.transform = 'rotate(0deg)';
+                }, 500);
+            }
+
+            // Chamar a função shakeWhatsAppImage a cada 5 segundos
+            setInterval(shakeWhatsAppImage, 5000);
+        </script>
+
+        <!-- Função para enviar dados e redirecionar para o WhatsApp -->
+        <script>
+            var finalUrl = '<?php echo $final_url; ?>';
+            function enviarDadosESeguirLink() {
+                // Enviar os dados para a rota de contato-whatsapp via AJAX
+                fetch('/contato-whatsapp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        nome: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        telefone: document.getElementById("telefone").value,
+                        ip: '<?php echo $user_ip; ?>'
+                    })
+                })
+                .then(response => {
+                    console.log('Resposta do backend:', response);
+                    return response.text(); // Convertendo a resposta para texto
+                })
+                .then(data => {
+                    console.log('Dados recebidos do backend:', data);
+                    // Após receber a resposta do backend, redirecionar para o WhatsApp
+                    window.location.href = finalUrl;
+                })
+                .catch(error => {
+                    console.error('Erro ao salvar os dados:', error);
+                });
+            }
+
+            // Abrir o modal do formulário
+            function openForm() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            // Fechar o modal do formulário
+            function closeForm() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            // Enviar dados do formulário
+            function submitForm() {
+                enviarDadosESeguirLink();
+            }
+
+        </script>
+
+        <!-- FIM FUNCIONAMENTO DO BOTÃO FLUTUANTE DO WHATSAPP -->
+
 
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX5VQP"
@@ -415,6 +558,122 @@
                 position: relative;
                 left: -132px;
                 top: 1px !important;
+            }
+            .whatsapp-button {
+                position: fixed;
+                bottom: 72px;
+                right: 20px;
+                z-index: 1000;
+            }
+    
+            /* ESTILO PARA MODAL ABERTO AO CLICAR NA IMAGEM DO WHATSAPP */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                left: 50%;
+                top: 64%; /* Ajuste a margem superior conforme necessário */
+                transform: translate(-50%, -50%) scale(0.1);
+                width: 30%;
+                max-width: 400px;
+                overflow: hidden;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 10px;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                animation: modal-open 1.2s ease forwards;
+            }
+
+            /* Estilo para o conteúdo do modal */
+            .modal-content {
+                padding: 20px;
+                font-family: Arial, sans-serif;
+            }
+
+            .input-group {
+                margin-bottom: 20px;
+            }
+
+            .input-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .input-group input {
+                width: calc(100% - 10px);
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            /* Estilo para o botão "Continuar" */
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                float: right;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            /* Estilo para o botão de fechar */
+            .custom-close {
+                color: #aaa;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 28px;
+                font-weight: bold;
+                border-radius: 50%;
+                padding: 5px;
+            }
+
+            .custom-close:hover,
+            .custom-close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* Estilo para o botão de abertura do modal */
+            .whatsapp-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 9999;
+            }
+
+            .whatsapp-button img {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                position: relative;
+                bottom: 50px;
+            }
+
+            /* Animação de abertura do modal */
+            @keyframes modal-open {
+                0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            }
+
+            /* Estilo para tornar o formulário responsivo */
+            @media screen and (max-width: 600px) {
+                .modal {
+                    width: 90%; /* Reduzir a largura do modal */
+                    max-width: 90%; /* Reduzir a largura máxima do modal */
+                }
+                .input-group input {
+                    width: 100%; /* Definir a largura dos campos de entrada como 100% */
+                    margin-bottom: 10px; /* Adicionar espaço entre os campos */
+                }
+                button {
+                    width: 100%; /* Definir a largura do botão "Continuar" como 100% */
+                }
             }
         </style>
 
