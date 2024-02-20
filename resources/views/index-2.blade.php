@@ -60,9 +60,7 @@
 
 <!-- Capturar o endereço IP do usuário -->
 <?php $user_ip = $_SERVER['REMOTE_ADDR']; ?>
-<!-- URL base para o WhatsApp -->
 <?php $whatsapp_url = "https://api.whatsapp.com/send"; ?>
-<!-- Parâmetros adicionais para personalizar a mensagem -->
 <?php
     $params = [
         'phone' => '5551999402842',
@@ -392,72 +390,72 @@
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
     <div class="carousel-inner">
     @foreach($blocos_pesquisa as $index => $bloco_pesquisa)
-    <div class="carousel-item item-bg banner-max-height @if($index === 0) active @endif">
-        <img class="d-block w-100 h-100" src="{{ $bloco_pesquisa['imagem'] }}" alt="banner">
-        <div class="carousel-caption d-flex h-100">
-            <div class="carousel-content container banner-info-2 bi-2 align-self-center">
-                <div class="row bi5">
-                    <div class="col-lg-7">
-                        <div class="b-content text-start">
-                            <h3>Bem-vindo à João Automóveis</h3>
-                            <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse, para encontrar o carro dos seus sonhos.</h5>
-                            <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
+        <div class="carousel-item item-bg banner-max-height <?php if($index === 0) echo 'active'; ?>">
+            <img class="d-block w-100 h-100" src="{{ $bloco_pesquisa['imagem'] }}" alt="banner">
+            <div class="carousel-caption d-flex h-100">
+                <div class="carousel-content container banner-info-2 bi-2 align-self-center">
+                    <div class="row bi5">
+                        <div class="col-lg-7">
+                            <div class="b-content text-start">
+                                <h3>Bem-vindo à João Automóveis</h3>
+                                <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse, para encontrar o carro dos seus sonhos.</h5>
+                                <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="search-box-4 sb-8">
-                            <form method="GET" action="{{ route('pesquisar') }}">
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="select-brand">
-                                        <option>Selecione a marca</option>
-                                        <option>Audi</option>
-                                        <option>BMW</option>
-                                        <option>Chevrolet</option>
-                                        <option>Citroën</option>
-                                        <option>Fiat</option>
-                                        <option>Ford</option>
-                                        <option>Honda</option>
-                                        <option>Hyundai</option>
-                                        <option>Jeep</option>
-                                        <option>Kia</option>
-                                        <option>Mitsubishi</option>
-                                        <option>Nissan</option>
-                                        <option>Peugeot</option>
-                                        <option>Renault</option>
-                                        <option>Toyota</option>
-                                        <option>Volkswagen</option>
-                                        <option>Volvo</option>
+                        <div class="col-lg-5">
+                            <div class="search-box-4 sb-8">
+                                <form method="GET" action="{{ route('pesquisar') }}">
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="select-brand">
+                                            <option>Selecione a marca</option>
+                                            <option>Audi</option>
+                                            <option>BMW</option>
+                                            <option>Chevrolet</option>
+                                            <option>Citroën</option>
+                                            <option>Fiat</option>
+                                            <option>Ford</option>
+                                            <option>Honda</option>
+                                            <option>Hyundai</option>
+                                            <option>Jeep</option>
+                                            <option>Kia</option>
+                                            <option>Mitsubishi</option>
+                                            <option>Nissan</option>
+                                            <option>Peugeot</option>
+                                            <option>Renault</option>
+                                            <option>Toyota</option>
+                                            <option>Volkswagen</option>
+                                            <option>Volvo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="select-year" id="select-year">
+                                            <option>Selecione o ano</option>
+                                            <!-- Opções de ano aqui -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                    <select class="selectpicker search-fields" name="estilo">
+                                        <option>Selecione o Estilo</option>
+                                        <option>Sedã</option>
+                                        <option>Hat</option>
+                                        <option>SUV</option>
+                                        <option>Picape</option>
+                                        <option>Cupê</option>
+                                        <option>Minivan</option>
+                                        <option>Crossover</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="select-year" id="select-year">
-                                        <option>Selecione o ano</option>
-                                        <!-- Opções de ano aqui -->
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                <select class="selectpicker search-fields" name="estilo">
-                                    <option>Selecione o Estilo</option>
-                                    <option>Sedã</option>
-                                    <option>Hat</option>
-                                    <option>SUV</option>
-                                    <option>Picape</option>
-                                    <option>Cupê</option>
-                                    <option>Minivan</option>
-                                    <option>Crossover</option>
-                                </select>
 
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
-                                </div>
-                            </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endforeach
 </div>
 
@@ -1197,17 +1195,17 @@
             margin-bottom: 10px; /* Adicionar espaço entre os campos */
         }
         button {
-            width: 100%; /* Definir a largura do botão "Continuar" como 100% */
+            width: 100%;
         }
     }
 
 </style>
 
 <!-- Full Page Search -->
-<!-- Modal de Pesquisa de veículos no banco. Full Page Search -->
+<!-- Modal de Pesquisa de veículos noo banco Full Page Search -->
 <div id="full-page-search">
     <button type="button" class="close">×</button>
-    <!-- Use o método GET para enviar o formulário para a rota 'buscar-carros' -->
+    <!-- Usar o método GET para enviar o formulário para a rota 'buscar-carros' -->
     <form id="search-form" action="{{ route('buscar-carros') }}" method="GET" class="search-header">
         <input type="search" name="buscar" id="search-input" value="" placeholder="Digite palavras-chave aqui"/>
         <button type="submit" class="btn btn-sm button-theme">Procurar</button>
@@ -1282,7 +1280,7 @@
                                 </section>
                                 <div class="description">
                                     <h3>Description</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                                    <p>Lorem Ipsum is simply dummy text of the printing e typesetting industry. Lorem Ipsum has been the industry's standard.</p>
                                     <a href="/car-details/{{ $carro->id }}" class="btn btn-md btn-round btn-theme">Show Detail</a>              
                                 </div>
                             </div>
@@ -1366,8 +1364,6 @@
 
     <!-- Botão do WhatsApp gerado no site: https://www.rdstation.com/ferramentas/botao-de-whatsapp-gratuito/ -->
     <!-- <script>window.rwbp={email:'isaque.ixs@gmail.com',phone:'5551999006797',message:'Olá, seja bem vindo ao atendimento João Automóveis. Como podemos ajudar?',lang:'pt-BR'}</script><script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script> -->
-
-
 
 
 
