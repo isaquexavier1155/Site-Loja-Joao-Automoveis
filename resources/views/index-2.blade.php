@@ -6,6 +6,7 @@
     <meta charset="utf-8">
 
     <!-- Meta tag utilizada para corrigir erro ao clicar no contato via whtas -->
+    <!-- Se não inserir essa metatag ocorre erro especifico ao clicar no contato via whatsapp -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,23 +84,46 @@ $params = [
 
 <!-- Modal -->
 <div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeForm()">&times;</span>
-    <h2>Entre em contato</h2>
-    <p>Por favor, insira seu nome, email e telefone para que possamos entrar em contato:</p>
-<!-- Formulário de contato -->
-<form id="contactForm">
-  <label for="name">Nome:</label>
-  <input type="text" id="name" name="name">
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email">
-  <label for="telefone">Telefone:</label>
-  <input type="tel" id="telefone" name="telefone">
-  <button type="button" onclick="submitForm()">Enviar</button>
-</form>
-  </div>
+    <div class="modal-content">
+        <span class="custom-close" onclick="closeForm()">&times;</span>
+        <h2>Entre em contato</h2>
+        <p>Por favor, preencha os campos abaixo para continuar para o WhatsApp:</p>
+        <!-- Formulário de contato -->
+        <form id="contactForm">
+            <div class="input-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </div>
+            <button type="button" onclick="submitForm()">Continuar</button>
+        </form>
+    </div>
 </div>
 
+<script>
+    // Função para adicionar efeito de balanço à imagem do WhatsApp
+function shakeWhatsAppImage() {
+    const whatsappImage = document.querySelector('.whatsapp-button img');
+    whatsappImage.style.transition = 'transform 0.5s ease'; // Definir transição suave
+    whatsappImage.style.transform = 'rotate(10deg)'; // Rotacionar mais para a direita
+
+    // Após 0.5 segundos, restaurar a posição original
+    setTimeout(() => {
+        whatsappImage.style.transform = 'rotate(0deg)';
+    }, 500);
+}
+
+// Chamar a função shakeWhatsAppImage a cada 5 segundos
+setInterval(shakeWhatsAppImage, 5000);
+
+</script>
 
 
 <script>
@@ -1058,48 +1082,47 @@ function submitForm() {
 
     
     /* ESTILO PARA MODAL ABERTO AO CLICAR NA IMAGEM DO WHATSAPP */
+
 /* Estilo para o modal */
 .modal {
-    display: none; /* Escondendo o modal por padrão */
-    position: fixed; /* Posicionamento fixo para que ele fique sobreposto ao conteúdo */
-    z-index: 9999; /* Z-index alto para garantir que o modal esteja acima de todos os outros elementos */
-    left: 0;
-    top: 0;
-    width: 100%; /* Cobrindo toda a largura da tela */
-    height: 100%; /* Cobrindo toda a altura da tela */
-    overflow: auto; /* Adicionando rolagem se o conteúdo for maior que a tela */
-    background-color: rgba(0,0,0,0.4); /* Cor de fundo semi-transparente */
-    transition: all 0.3s ease; /* Efeito de transição suave */
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 64%; /* Ajuste a margem superior conforme necessário */
+    transform: translate(-50%, -50%) scale(0.1);
+    width: 30%;
+    max-width: 400px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation: modal-open 1.5s ease forwards;
 }
 
 /* Estilo para o conteúdo do modal */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* Margem para centralizar o modal verticalmente */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Largura do conteúdo do modal */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: all 0.3s ease; /* Efeito de transição suave */
+    font-family: Arial, sans-serif;
 }
 
-/* Estilo para o botão de fechar */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.input-group {
+    margin-bottom: 20px;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* Estilo para o botão "Enviar" */
+.input-group input {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão "Continuar" */
 button {
     background-color: #4CAF50;
     color: white;
@@ -1107,32 +1130,69 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    float: right;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+/* Estilo para o botão de fechar */
+.custom-close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.custom-close:hover,
+.custom-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de abertura do modal */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    bottom: 50px;
+}
+
+/* Animação de abertura do modal */
+@keyframes modal-open {
+    0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
 /* Estilo para tornar o formulário responsivo */
 @media screen and (max-width: 600px) {
-    .modal-content {
-        width: 90%; /* Reduzir a largura do conteúdo do modal */
-        position: relative;
-        top: 5%;
+    .modal {
+        width: 90%; /* Reduzir a largura do modal */
+        max-width: 90%; /* Reduzir a largura máxima do modal */
     }
-    label {
-        display: block; /* Fazer com que as etiquetas apareçam como blocos */
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"] {
+    .input-group input {
         width: 100%; /* Definir a largura dos campos de entrada como 100% */
         margin-bottom: 10px; /* Adicionar espaço entre os campos */
     }
     button {
-        width: 100%; /* Definir a largura do botão "Enviar" como 100% */
+        width: 100%; /* Definir a largura do botão "Continuar" como 100% */
     }
 }
+
 
 
 
