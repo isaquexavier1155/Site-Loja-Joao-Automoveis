@@ -90,7 +90,7 @@ $params = [
         <p>Por favor, preencha os campos abaixo para continuar para o WhatsApp:</p>
         <!-- Formulário de contato -->
         <form id="contactForm">
-            <div class="input-group">
+            <div class="input-group" onsubmit="return validateForm()">
                 <label for="name">Nome</label>
                 <input type="text" id="name" name="name" required>
             </div>
@@ -102,13 +102,35 @@ $params = [
                 <label for="telefone">Telefone</label>
                 <input type="tel" id="telefone" name="telefone" required>
             </div>
-            <button type="button" onclick="submitForm()">Continuar</button>
+            <button id="submitButton" type="submit" onclick="submitForm()" disabled>Continuar</button>
         </form>
     </div>
 </div>
 
 <script>
-    // Função para adicionar efeito de balanço à imagem do WhatsApp
+    // Função para verificar se todos os campos estão preenchidos
+    function checkForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var telefone = document.getElementById("telefone").value;
+
+        // Habilitar o botão Continuar se todos os campos estiverem preenchidos
+        if (name.trim() !== '' && email.trim() !== '' && telefone.trim() !== '') {
+            document.getElementById("submitButton").removeAttribute("disabled");
+        } else {
+            document.getElementById("submitButton").setAttribute("disabled", "disabled");
+        }
+    }
+
+    // Adicionar evento de input para verificar sempre que um campo for preenchido
+    document.getElementById("name").addEventListener("input", checkForm);
+    document.getElementById("email").addEventListener("input", checkForm);
+    document.getElementById("telefone").addEventListener("input", checkForm);
+</script>
+
+
+<!-- // Script para adicionar efeito de balanço à imagem do WhatsApp -->
+<script>
 function shakeWhatsAppImage() {
     const whatsappImage = document.querySelector('.whatsapp-button img');
     whatsappImage.style.transition = 'transform 0.5s ease'; // Definir transição suave
@@ -1097,7 +1119,7 @@ function submitForm() {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    animation: modal-open 1.5s ease forwards;
+    animation: modal-open 1.2s ease forwards;
 }
 
 /* Estilo para o conteúdo do modal */
