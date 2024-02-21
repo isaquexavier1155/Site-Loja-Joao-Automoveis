@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SendmailController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CarroController;
@@ -219,3 +220,9 @@ Route::get('/pesquisar', [CarroController::class, 'pesquisar'])->name('pesquisar
 
 //ROTA PARA SALVAR DADOS DE USUÁRIO QUE ENTRAR EM CONTATO VIA API WHATSAPP
 Route::post('/contato-whatsapp', [ContatoWhatsappController::class, 'store']);
+
+//Rota para envio de email na página de contato
+Route::resources([
+    'email'=> SendmailController::class
+]);
+

@@ -219,13 +219,6 @@
                         <a class="nav-link dropdown-toggle ativo" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Início
                         </a>
-                        <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> -->
-                            <!-- <li><a class="dropdown-item" href="#">Início 1</a></li> -->
-                            <!-- <li><a class="dropdown-item" href="#">Início 2</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Início 3</a></li>
-                            <li><a class="dropdown-item" href="index-4.html">Início 4</a></li>
-                            <li><a class="dropdown-item" href="index-5.html">Início 5</a></li> -->
-                        <!-- </ul> -->
                     </li>
                     <li class="nav-item dropdown">
 
@@ -233,76 +226,16 @@
                             Carros
                         </a>
                     </li>
-                    <!-- <li class="nav-item dropdown megamenu-li">
-                        <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Páginas</a>
-                        <div class="dropdown-menu megamenu" aria-labelledby="dropdown01">
-                            <div class="megamenu-area">
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-lg-4">
-                                        <div class="megamenu-section">
-                                            <h6 class="megamenu-title">Páginas</h6>
-                                            <a class="dropdown-item" href="{{ route('about') }}">Sobre nós</a>
-                                            <a class="dropdown-item" href="{{ route('team') }}">Equipe</a>
-                                            <a class="dropdown-item" href="{{ route('team-detail') }}">Detalhes da equipe</a>
-                                            <a class="dropdown-item" href="{{ route('car-comparison') }}">Comparação entre carros</a>
-                                            <a class="dropdown-item" href="{{ route('search-brand') }}">Marcas de carros</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-4">
-                                        <div class="megamenu-section">
-                                            <h6 class="megamenu-title">Páginas</h6>
-                                            <a class="dropdown-item" href="{{ route('pricing-tables') }}">Tabelas de preços</a>
-                                            <a class="dropdown-item" href="{{ route('gallery') }}">Galeria</a>
-                                            <a class="dropdown-item" href="{{ route('typography') }}">Tipografia</a>
-                                            <a class="dropdown-item" href="{{ route('elements') }}">Elementos</a>
-                                            <a class="dropdown-item" href="{{ route('faq') }}">Perguntas frequentes</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4 col-lg-4">
-                                        <div class="megamenu-section">
-                                            <h6 class="megamenu-title">Páginas</h6>
-                                            <a class="dropdown-item" href="{{ route('icon') }}">Ícones</a>
-                                            <a class="dropdown-item" href="{{ route('coming-soon') }}">Em breve</a>
-                                            <a class="dropdown-item" href="{{ route('404') }}">Página de erro</a>
-                                            <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                            <a class="dropdown-item" href="{{ route('signup') }}">Registro</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li> -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Loja
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('shop-list') }}">Produtos</a></li>
-                            <li><a class="dropdown-item" href="{{ route('shop-cart') }}">Carrinho de compras</a></li>
-                            <li><a class="dropdown-item" href="{{ route('shop-checkout') }}">Finalizar pedidos</a></li>
-                            <li><a class="dropdown-item" href="{{ route('shop-details') }}">Detalhes do produto</a></li>
-                        </ul>
-                    </li> -->
+        
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{{ route('localizacao') }}"  id="navbarDropdownMenuLink11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Localização
                         </a>
-                        <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('services') }}">Serviços</a></li>
-                            <li><a class="dropdown-item" href="services-2.html">Serviços 2</a></li>
-                            <li><a class="dropdown-item" href="{{ route('services-details') }}">Serviços Detalhes</a></li>
-                        </ul> -->
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{{ route('blog-post') }}" id="navbarDropdownMenuLink6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Blog
                         </a>
-
-                        <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('blog-post') }}">Blog Post</a></li>
-                            <li><a class="dropdown-item" href="blog-sidebar.html">Blog Sidebar</a></li>
-                            <li><a class="dropdown-item" href="{{ route('blog-details') }}">Blog Details</a></li>
-                        </ul> -->
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{{ route('contact') }}">Contato</a>
@@ -383,7 +316,6 @@
 </nav>
 <!-- Sidenav end -->
 
-<!-- INÍCIO BLOCO PESQUISA AVANÇADA -->
 <!-- Banner start -->
 <!-- INÍCIO BLOCO PESQUISA AVANÇADA -->
 <div class="banner bnr-2" id="banner">
@@ -472,16 +404,10 @@
     </div>
 </div>
 <!-- Banner end -->
-
-
-<!-- FIM BLOCO DE PESQUISA Avançada////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- FIM BLOCO DE PESQUISA Avançada -->
 
 <!-- Search box 3 start -->
+<!-- FINAL da Caixa de pesquisa em dispositivos móveis -->
 <div class="search-box-3 sb-7 sb-2 bg-active">
     <div class="container">
         <div class="search-area-inner">
@@ -555,7 +481,7 @@
         </div>
     </div>
 </div>
-<!-- final da Caixa em dispositivos móveis -->
+<!-- FINAL da Caixa de pesquisa em dispositivos móveis -->
 
 <!-- Início do carros em destaque -->
 <div class="featured-car content-area">
@@ -760,75 +686,6 @@
 </div> -->
 <!-- Counters end -->
 
-<!-- INício Depoimentos 2  -->
-<!-- <div class="testimonial-2 content-area-5">
-    <div class="container">
-        <div class="main-title">
-            <h1>Por que os clientes <span> Nos amam?</span></h1>
-            <p>Descubra o motivo pelo qual tantos clientes escolhem e apreciam nossos serviços.</p>
-        </div>
-        <div class="featured-slider row slide-box-btn slider" data-slick='{"slidesToShow": 2, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-            <div class="slide slide-box">
-                <div class="testimonial-info">
-                    <div class="user-section">
-                        <div class="user-thumb">
-                            <img src="img/avatar/avatar-1.png" alt="testimonial">
-                            <div class="icon">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="user-name">
-                            <h5>Michele</h5>
-                            <p>Consultora</p>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p>"Uma ampla seleção de veículos, atendendo a diferentes preferências e necessidades."</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide slide-box">
-                <div class="testimonial-info">
-                    <div class="user-section">
-                        <div class="user-thumb">
-                            <img src="img/avatar/avatar-2.png" alt="testimonial">
-                            <div class="icon">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="user-name">
-                            <h5>Ana</h5>
-                            <p>Web Designer, SC</p>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p>"Um serviço personalizado que entende as necessidades individuais dos clientes e oferece soluções específicas."</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide slide-box">
-                <div class="testimonial-info">
-                    <div class="user-section">
-                        <div class="user-thumb">
-                            <img src="img/avatar/avatar-3.png" alt="testimonial">
-                            <div class="icon">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="user-name">
-                            <h5>Caroline da Silva</h5>
-                            <p>Designer</p>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p>"Transparência nas informações sobre os veículos, preços justos e honestidade nas transações."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Fim Depoimento 2-->
 
 <!-- Início do blog-->
 <!-- <div class="blog-section content-area-5">

@@ -2406,7 +2406,7 @@ input[type=checkbox]:checked + label:before {
     color: #fff;
     transition: all 0.3s;
     overflow-y: scroll;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 3px rgba(33, 13, 132, 0.2);
 }
 
 .nav-sidebar.active {

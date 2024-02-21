@@ -27,43 +27,44 @@
                 <h1>Entre em <span>Contato</span> Conosco</h1>
                 <p>Estamos aqui para atendê-lo da melhor maneira possível. Entre em contato conosco para esclarecer dúvidas, fazer sugestões ou agendar uma visita. Sua opinião é importante para nós.</p>
             </div>
-            <form action="#" method="GET" enctype="multipart/form-data">
+            <form action="{{ route('email.store') }}" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floating-full-name" placeholder="Full Name">
+                                    <input type="text" name="nome" value="Carol" class="form-control" id="floating-full-name" placeholder="Full Name">
                                     <label for="floating-full-name">Nome completo</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floating-email-address" placeholder="Email Address">
+                                    <input type="email" name="email" value="carol.rs97@gmail.com" class="form-control" id="floating-email-address" placeholder="Email Address">
                                     <label for="floating-email-address">E-mail</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floating-subject" placeholder="Subject">
+                                    <input type="text" name="assunto" value="Assunto"  class="form-control" id="floating-subject" placeholder="Subject">
                                     <label for="floating-subject">Assunto</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floating-phone-Number" placeholder="Phone Number">
+                                    <input type="text" name="telefone" value="51980388229" class="form-control" id="floating-phone-Number" placeholder="Phone Number">
                                     <label for="floating-phone-Number">Número de telefone</label>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <textarea name="mensagem"class="form-control" value="Gostaria de informações sobre um veículo" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                     <label for="floatingTextarea2">Ajustar envio de Comentário ou Mensagem</label>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="send-btn text-center">
-                                    <button type="button" class="btn btn-primary btn-4 btn-lg">Enviar Mensagem</button>
+                                    <button type="submit" class="btn btn-primary btn-4 btn-lg">Enviar Mensagem</button>
                                 </div>
                             </div>
                         </div>
