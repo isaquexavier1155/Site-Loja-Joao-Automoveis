@@ -59,15 +59,16 @@
                     <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple required>
                 </div>
 
-                <div class="mb-3 mb-0" style="width: 80%;">
-                    <label for="valor_normal" class="form-label">Valor Normal:</label>
-                    <input type="number" class="form-control" id="valor_normal" name="valor_normal" required>
-                </div>
+<!-- Campos com máscara -->
+<div class="mb-3 mb-0" style="width: 80%;">
+    <label for="valor_normal" class="form-label">Valor Normal:</label>
+    <input type="text" class="form-control" id="valor_normal" name="valor_normal" required>
+</div>
 
-                <div class="mb-3 mb-0" style="width: 80%;">
-                    <label for="valor_promocional" class="form-label">Valor Promocional:</label>
-                    <input type="number" class="form-control" id="valor_promocional" name="valor_promocional">
-                </div>
+<div class="mb-3 mb-0" style="width: 80%;">
+    <label for="valor_promocional" class="form-label">Valor Promocional:</label>
+    <input type="text" class="form-control" id="valor_promocional" name="valor_promocional">
+</div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="cambio" class="form-label">Câmbio:</label>
@@ -111,7 +112,13 @@
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="combustivel" class="form-label">Combustível:</label>
-                    <input type="text" class="form-control" id="combustivel" name="combustivel">
+                    <select class="form-select" id="combustivel" name="combustivel">
+                        <option value="Flex">Flex</option>
+                        <option value="Gasolina">Gasolina</option>
+                        <option value="Etanol">Etanol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="GNV">Gás Natural Veicular (GNV)</option>
+                    </select>
                 </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
@@ -241,6 +248,10 @@
         <!-- Custom javascript -->
         <script  src="js/ie10-viewport-bug-workaround.js"></script>
 
+        <!-- Script para mascara de campos valor adicionar o prefixo "R$" após o campo perder o foco -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
         <!--Script responsaveis pelo campo destacar -->
         <script>
             $(document).ready(function () {
@@ -283,5 +294,37 @@
                 });
             });
         </script>
+
+
+<!-- Adicione um script jQuery para aplicar a máscara -->
+<script>
+    $(document).ready(function(){
+        // Aplica a máscara de valor monetário ao campo valor_normal
+        $('#valor_normal').mask('000.000.000', {reverse: true});
+        
+        // Aplica a máscara de valor monetário ao campo valor_promocional
+        $('#valor_promocional').mask('000.000.000', {reverse: true});
+    });
+</script>
+
+<!-- Script para adicionar o prefixo "R$" após o campo perder o foco -->
+<script>
+    $(document).ready(function(){
+        // Adiciona o prefixo "R$" ao valor do campo valor_normal ao perder o foco
+        $('#valor_normal').blur(function() {
+            if ($(this).val() !== '') {
+                $(this).val('R$ ' + $(this).val());
+            }
+        });
+
+        // Adiciona o prefixo "R$" ao valor do campo valor_promocional ao perder o foco
+        $('#valor_promocional').blur(function() {
+            if ($(this).val() !== '') {
+                $(this).val('R$ ' + $(this).val());
+            }
+        });
+    });
+</script>
+
 
 @endsection

@@ -135,7 +135,7 @@
                                         ( 7 Avaliações )                               
                                     </div>  -->
                                     <div class="pull-right">
-                                        <p class="price">R$ {{ $carro->valor_promocional }}</p>
+                                        <p class="price">{{ $carro->valor_promocional }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -350,8 +350,8 @@
                 $('#modelo').text(carro.nome);
                 $('#quilometragem').text(carro.quilometragem);
                 $('#motor').text(carro.motor);
-                $('#preco-1').text('R$ ' + carro.valor_promocional);
-                $('#preco-2').text('R$ ' + carro.valor_promocional);
+                $('#preco-1').text(carro.valor_promocional);
+                $('#preco-2').text(carro.valor_promocional);
                 $('#estilo').text(carro.estilo);
                 $('#ano').text(carro.ano);
                 $('#descricao').text(carro.descricao);

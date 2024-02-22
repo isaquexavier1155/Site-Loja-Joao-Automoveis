@@ -250,65 +250,56 @@ class CarroController extends Controller
 
         public function pesquisar(Request $request)
         {
-
-    // Iniciar a consulta
-    $query = Carro::query();
-
-    // Verificar e adicionar condição para a marca se estiver preenchida
-    if ($request->filled('select-brand')) {
-        $marca = $request->input('select-brand');
-        $query->where('marca', $marca); // Utilizar a comparação exata
-    }
-
-    // Verificar e adicionar condição para o ano se estiver preenchido
-    if ($request->filled('select-year') && $request->input('select-year') != 'Selecione o ano') {
-        $ano = $request->input('select-year');
-        $query->where('ano', $ano);
-    }
-
-    // Verificar e adicionar condição para o estilo se estiver preenchido
-    if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
-        $estilo = $request->input('estilo');
-        $query->where('estilo', $estilo);
-    }
-
-// Verificar e adicionar condição para a faixa de preço se estiver preenchida
-if ($request->filled('min_price') && $request->filled('max_price')) {
-    $minPrice = $request->input('min_price');
-    $maxPrice = $request->input('max_price');
-    //dd($minPrice, $maxPrice);
-    $query->where(function ($q) use ($minPrice, $maxPrice) {
-        $q->where('valor_promocional', '>=', $minPrice)
-            ->where('valor_promocional', '<=', $maxPrice);
-            
-    });
-}
-
-
-    // Executar a consulta
-    $carros = $query->get();
-    //dd( $carros, $query->toSql(), $query->getBindings());
-
+            // Iniciar a consulta
+            $query = Carro::query();
+        
+            // Verificar e adicionar condição para a marca se estiver preenchida
+            if ($request->filled('select-brand')) {
+                $marca = $request->input('select-brand');
+                $query->where('marca', $marca); // Utilizar a comparação exata
+            }
+        
+            // Verificar e adicionar condição para o ano se estiver preenchido
+            if ($request->filled('select-year') && $request->input('select-year') != 'Selecione o ano') {
+                $ano = $request->input('select-year');
+                $query->where('ano', $ano);
+            }
+        
+            // Verificar e adicionar condição para o estilo se estiver preenchido
+            if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
+                $estilo = $request->input('estilo');
+                $query->where('estilo', $estilo);
+            }
+        
+            // Verificar e adicionar condição para a faixa de preço se estiver preenchida
+            if ($request->filled('min_price') && $request->filled('max_price')) {
+                $minPrice = (int) str_replace(['R$', '.', ','], '', $request->input('min_price'));
+                $maxPrice = (int) str_replace(['R$', '.', ','], '', $request->input('max_price'));
+        
+                $query->where(function ($q) use ($minPrice, $maxPrice) {
+                    $q->where('valor_promocional', '>=', $minPrice)
+                      ->where('valor_promocional', '<=', $maxPrice);
+                });
+            }
+        
+            // Executar a consulta
+            $carros = $query->get();
+        
             $blocos_pesquisa = [
-                [
-                    'imagem' => 'img/car-4.jpg',
-                ],
-                [
-                    'imagem' => 'img/car-3.jpg',
-                ],
-                [
-                    'imagem' => 'img/car-2.jpg',
-                ]
+                ['imagem' => 'img/car-4.jpg'],
+                ['imagem' => 'img/car-3.jpg'],
+                ['imagem' => 'img/car-2.jpg']
             ];
-
-        // Recuperar os últimos três carros registrados no banco de dados
-         $ultimosCarros = Carro::orderBy('created_at', 'desc')->take(3)->get();
-    
-        $ultimasOfertas = Carro::latest()->take(4)->get();
-
+        
+            // Recuperar os últimos três carros registrados no banco de dados
+            $ultimosCarros = Carro::orderBy('created_at', 'desc')->take(3)->get();
+        
+            $ultimasOfertas = Carro::latest()->take(4)->get();
+        
             // Passa os resultados da busca para a visão
             return view('index-2', compact('carros', 'blocos_pesquisa', 'ultimasOfertas', 'ultimosCarros'));
         }
+        
 
        
     
