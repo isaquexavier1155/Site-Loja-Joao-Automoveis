@@ -10,12 +10,12 @@ class SendmailController extends Controller
 {
     public function store(Request $request)
     {
-        $nome = $request->nome;
-        $email = $request->email;
-        $assunto = $request->assunto;
-        $telefone = $request->telefone;
-        $mensagem = $request->mensagem;
-
+        $nome = $request->input('nome');
+        $email = $request->input('email');
+        $assunto = $request->input('assunto');
+        $telefone = $request->input('telefone');
+        $mensagem = $request->input('mensagem');
+    
         $data = [
             'nome' => $nome,
             'email' => $email,
@@ -23,9 +23,15 @@ class SendmailController extends Controller
             'telefone' => $telefone,
             'mensagem' => $mensagem,
         ];
+    
+        try {
+            Mail::to('contato@joaoautomoveisparobe.com.br')->send(new Sendmail($data));
+            
+            return view('contact', compact('mensagem'));
+        } catch (\Exception $e) {
 
-        Mail::to('contato@joaoautomoveisparobe.com.br')->send(new Sendmail($data));//to é email do destinatario
-
-        dd('Email enviado com sucesso!!');
+            return view('contact', compact('mensagem'));
+        }
+    
     }
 }

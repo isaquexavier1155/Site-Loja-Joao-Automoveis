@@ -85,8 +85,8 @@
         </div>
 
         <!-- Modal -->
-        <div id="myModal" class="modal">
-            <div class="modal-content">
+        <div id="myModal" class="modal-01">
+            <div class="modal-content-01">
                 <span class="custom-close" onclick="closeForm()">&times;</span>
                 <h2>Entre em contato</h2>
                 <p>Por favor, preencha os campos abaixo para continuar para o WhatsApp:</p>
@@ -567,7 +567,7 @@
             }
     
             /* ESTILO PARA MODAL ABERTO AO CLICAR NA IMAGEM DO WHATSAPP */
-            .modal {
+            .modal-01 {
                 display: none;
                 position: fixed;
                 z-index: 9999;
@@ -584,7 +584,7 @@
             }
 
             /* Estilo para o conteúdo do modal */
-            .modal-content {
+            .modal-content-01 {
                 padding: 20px;
                 font-family: Arial, sans-serif;
             }
@@ -663,7 +663,7 @@
 
             /* Estilo para tornar o formulário responsivo */
             @media screen and (max-width: 600px) {
-                .modal {
+                .modal-01 {
                     width: 90%; /* Reduzir a largura do modal */
                     max-width: 90%; /* Reduzir a largura máxima do modal */
                 }

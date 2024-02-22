@@ -10,10 +10,9 @@
 
 </p>
 
-<x-mail::button :url="'https://www.joaoautomoveisparobe.com.br'">
-Button Text
-</x-mail::button>
+<!-- <x-mail::button :url="'https://www.joaoautomoveisparobe.com.br'">
+Página Inicial</x-mail::button> -->
 
-Thanks,<br>
+<!-- Thanks,<br>
 {{ config('app.name') }}
-</x-mail::message>
+</x-mail::message> -->
