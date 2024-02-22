@@ -59,16 +59,16 @@
                     <input type="file" class="form-control" id="imagem" name="imagem[]" accept="image/*" multiple required>
                 </div>
 
-<!-- Campos com máscara -->
-<div class="mb-3 mb-0" style="width: 80%;">
-    <label for="valor_normal" class="form-label">Valor Normal:</label>
-    <input type="text" class="form-control" id="valor_normal" name="valor_normal" required>
-</div>
+                <!-- Campos com máscara -->
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="valor_normal" class="form-label">Valor Normal:</label>
+                    <input type="text" class="form-control" id="valor_normal" name="valor_normal" required>
+                </div>
 
-<div class="mb-3 mb-0" style="width: 80%;">
-    <label for="valor_promocional" class="form-label">Valor Promocional:</label>
-    <input type="text" class="form-control" id="valor_promocional" name="valor_promocional">
-</div>
+                <div class="mb-3 mb-0" style="width: 80%;">
+                    <label for="valor_promocional" class="form-label">Valor Promocional:</label>
+                    <input type="text" class="form-control" id="valor_promocional" name="valor_promocional">
+                </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="cambio" class="form-label">Câmbio:</label>
@@ -295,36 +295,35 @@
             });
         </script>
 
+        <!-- Script para aplicar a máscara de valor normal e promocionql -->
+        <script>
+            $(document).ready(function(){
+                // Aplica a máscara de valor monetário ao campo valor_normal
+                $('#valor_normal').mask('000.000.000', {reverse: true});
+                
+                // Aplica a máscara de valor monetário ao campo valor_promocional
+                $('#valor_promocional').mask('000.000.000', {reverse: true});
+            });
+        </script>
 
-<!-- Adicione um script jQuery para aplicar a máscara -->
-<script>
-    $(document).ready(function(){
-        // Aplica a máscara de valor monetário ao campo valor_normal
-        $('#valor_normal').mask('000.000.000', {reverse: true});
-        
-        // Aplica a máscara de valor monetário ao campo valor_promocional
-        $('#valor_promocional').mask('000.000.000', {reverse: true});
-    });
-</script>
+        <!-- Script para adicionar o prefixo "R$" após o campo perder o foco -->
+        <script>
+            $(document).ready(function(){
+                // Adiciona o prefixo "R$" ao valor do campo valor_normal ao perder o foco
+                $('#valor_normal').blur(function() {
+                    if ($(this).val() !== '') {
+                        $(this).val('R$ ' + $(this).val());
+                    }
+                });
 
-<!-- Script para adicionar o prefixo "R$" após o campo perder o foco -->
-<script>
-    $(document).ready(function(){
-        // Adiciona o prefixo "R$" ao valor do campo valor_normal ao perder o foco
-        $('#valor_normal').blur(function() {
-            if ($(this).val() !== '') {
-                $(this).val('R$ ' + $(this).val());
-            }
-        });
-
-        // Adiciona o prefixo "R$" ao valor do campo valor_promocional ao perder o foco
-        $('#valor_promocional').blur(function() {
-            if ($(this).val() !== '') {
-                $(this).val('R$ ' + $(this).val());
-            }
-        });
-    });
-</script>
+                // Adiciona o prefixo "R$" ao valor do campo valor_promocional ao perder o foco
+                $('#valor_promocional').blur(function() {
+                    if ($(this).val() !== '') {
+                        $(this).val('R$ ' + $(this).val());
+                    }
+                });
+            });
+        </script>
 
 
 @endsection

@@ -56,14 +56,15 @@
                         </div>
                     </div>
 
+                    <!-- Campos com máscara -->
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="valor_normal" class="form-label">Valor Normal:</label>
-                        <input type="number" class="form-control" id="valor_normal" name="valor_normal" value="{{ $carro->valor_normal }}" required>
+                        <input type="text" class="form-control" id="valor_normal" name="valor_normal" required>
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="valor_promocional" class="form-label">Valor Promocional:</label>
-                        <input type="number" class="form-control" id="valor_promocional" name="valor_promocional" value="{{ $carro->valor_promocional }}">
+                        <input type="text" class="form-control" id="valor_promocional" name="valor_promocional">
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
@@ -258,6 +259,9 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    <!-- Script para mascara de campos valor adicionar o prefixo "R$" após o campo perder o foco -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <!-- Esser script estava interferindo no funcionamento do modal de sucesso de edição -->
     <!--Script responsavel pelo funcionamento do campo destacar -->
     <script>
@@ -326,6 +330,36 @@
 
                 // Se algum campo foi modificado, exibir o modal de sucesso
                 $('#successModal').modal('show');
+            });
+        });
+    </script>
+
+    <!-- Script para aplicar a máscara de valor normal e promocionql -->
+    <script>
+        $(document).ready(function(){
+            // Aplica a máscara de valor monetário ao campo valor_normal
+            $('#valor_normal').mask('000.000.000', {reverse: true});
+            
+            // Aplica a máscara de valor monetário ao campo valor_promocional
+            $('#valor_promocional').mask('000.000.000', {reverse: true});
+        });
+    </script>
+
+    <!-- Script para adicionar o prefixo "R$" após o campo perder o foco -->
+    <script>
+        $(document).ready(function(){
+            // Adiciona o prefixo "R$" ao valor do campo valor_normal ao perder o foco
+            $('#valor_normal').blur(function() {
+                if ($(this).val() !== '') {
+                    $(this).val('R$ ' + $(this).val());
+                }
+            });
+
+            // Adiciona o prefixo "R$" ao valor do campo valor_promocional ao perder o foco
+            $('#valor_promocional').blur(function() {
+                if ($(this).val() !== '') {
+                    $(this).val('R$ ' + $(this).val());
+                }
             });
         });
     </script>
