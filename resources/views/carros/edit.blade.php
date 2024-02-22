@@ -369,17 +369,6 @@
         });
     </script>
 
-    <!-- Script para aplicar a máscara de valor normal e promocionql -->
-    <script>
-        $(document).ready(function(){
-            // Aplica a máscara de valor monetário ao campo valor_normal
-            $('#valor_normal').mask('000.000.000', {reverse: true});
-            
-            // Aplica a máscara de valor monetário ao campo valor_promocional
-            $('#valor_promocional').mask('000.000.000', {reverse: true});
-        });
-    </script>
-
     <!-- Script para adicionar o prefixo "R$" após o campo perder o foco -->
     <script>
         $(document).ready(function(){
