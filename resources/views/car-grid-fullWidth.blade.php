@@ -274,6 +274,10 @@
             position: relative;
             top: 39px;
         }
+
+        .car-model-2 .price-box {
+            width: 120px !important;
+        }
     </style>
 
     <script src="js/jquery-2.2.0.min.js"></script>
