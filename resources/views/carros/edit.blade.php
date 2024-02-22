@@ -78,12 +78,12 @@
                     <!-- Campos com máscara -->
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="valor_normal" class="form-label">Valor Normal:</label>
-                        <input type="text" class="form-control" id="valor_normal" name="valor_normal" required>
+                        <input type="text" class="form-control" id="valor_normal" name="valor_normal"  value="{{ $carro->valor_normal }}" required>
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="valor_promocional" class="form-label">Valor Promocional:</label>
-                        <input type="text" class="form-control" id="valor_promocional" name="valor_promocional">
+                        <input type="text" class="form-control" id="valor_promocional" name="valor_promocional" value="{{ $carro->valor_promocional }}" required>
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
