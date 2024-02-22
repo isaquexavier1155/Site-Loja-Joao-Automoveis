@@ -276,7 +276,7 @@
         }
 
         .car-model-2 .price-box {
-            width: 120px !important;
+            width: 132px !important;
         }
     </style>
 
