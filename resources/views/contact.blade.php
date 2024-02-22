@@ -197,68 +197,83 @@
     <!-- Custom javascript -->
     <script  src="js/ie10-viewport-bug-workaround.js"></script>
 
+    <!-- SCRIPT PARA FUNCIONAR SCRIPT DE MÁSCARA DE TELEFONE ABAIXO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <!--Chama a função initMap ao carregar a página -->
     <script>
-    // Chama a função initMap ao carregar a página
-    document.addEventListener("DOMContentLoaded", function() {
-        initMap();
-    });
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRX7MbidxCnNN4UL5bL4o_X2HlpM0qjI0&callback=initMap" async defer></script>
-
-<script>
-    // Função de inicialização do mapa Google Maps API
-    function initMap() {
-        // Coordenadas da localização desejada
-        var minhaLocalizacao = { lat: -29.63878725658625, lng: -50.81336923383515 };
-
-        // Opções de configuração do mapa
-        var mapOptions = {
-            zoom: 15,
-            center: minhaLocalizacao
-        };
-
-        // Criar o mapa
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-        // Adicionar marcador
-        var marker = new google.maps.Marker({
-            position: minhaLocalizacao,
-            map: map,
-            title: 'Minha Localização'
+        document.addEventListener("DOMContentLoaded", function() {
+            initMap();
         });
-    }
-</script>
+    </script>
 
-<!-- SCRIPT PARA EXIBIR MODAL DE SUCESSO OU ERRO NO ENVIO DE EMAIL -->
-<script>
-    $(document).ready(function () {
-        // Captura o envio do formulário
-        $('.contactForm').submit(function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: $(this).attr('method'),
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                success: function (response) {
-                    $('#successModal').modal('show');
-                },
-                error: function (xhr, status, error) {
-                    $('#errorModal').modal('show');
-                }
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRX7MbidxCnNN4UL5bL4o_X2HlpM0qjI0&callback=initMap" async defer></script>
+
+    <script>
+        // Função de inicialização do mapa Google Maps API
+        function initMap() {
+            // Coordenadas da localização desejada
+            var minhaLocalizacao = { lat: -29.63878725658625, lng: -50.81336923383515 };
+
+            // Opções de configuração do mapa
+            var mapOptions = {
+                zoom: 15,
+                center: minhaLocalizacao
+            };
+
+            // Criar o mapa
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            // Adicionar marcador
+            var marker = new google.maps.Marker({
+                position: minhaLocalizacao,
+                map: map,
+                title: 'Minha Localização'
+            });
+        }
+    </script>
+
+    <!-- SCRIPT PARA EXIBIR MODAL DE SUCESSO OU ERRO NO ENVIO DE EMAIL -->
+    <script>
+        $(document).ready(function () {
+            // Captura o envio do formulário
+            $('.contactForm').submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $('#successModal').modal('show');
+                    },
+                    error: function (xhr, status, error) {
+                        $('#errorModal').modal('show');
+                    }
+                });
+            });
+
+
+            // Evento de clique para o botão "Fechar" do modal de sucesso
+            $('#successModal').on('click', '.close', function () {
+                $('#successModal').modal('hide');
+            });
+
+
+            // Evento de clique para o botão "Fechar" do modal de erro
+            $('#errorModal').on('click', '.close', function () {
+                $('#errorModal').modal('hide');
             });
         });
+    </script>
 
+<!-- Script para Aplicar a máscara de telefone -->
+<script>
+    $(document).ready(function() {
+        $('#floating-phone-Number').mask('(00) 00000-0000');
 
-        // Evento de clique para o botão "Fechar" do modal de sucesso
-        $('#successModal').on('click', '.close', function () {
-            $('#successModal').modal('hide');
-        });
-
-
-        // Evento de clique para o botão "Fechar" do modal de erro
-        $('#errorModal').on('click', '.close', function () {
-            $('#errorModal').modal('hide');
+        // Remover a máscara de telefone antes de enviar o formulário
+        $('form').submit(function() {
+            $('#floating-phone-Number').unmask();
         });
     });
 </script>

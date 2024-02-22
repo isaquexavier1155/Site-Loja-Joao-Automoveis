@@ -13,7 +13,10 @@ class SendmailController extends Controller
         $nome = $request->input('nome');
         $email = $request->input('email');
         $assunto = $request->input('assunto');
-        $telefone = $request->input('telefone');
+        
+        // Remova a máscara do telefone antes de atribuí-lo à variável
+        $telefone = str_replace(['(', ')', ' ', '-'], '', $request->input('telefone'));
+        
         $mensagem = $request->input('mensagem');
     
         $data = [
@@ -29,9 +32,8 @@ class SendmailController extends Controller
             
             return view('contact', compact('mensagem'));
         } catch (\Exception $e) {
-
             return view('contact', compact('mensagem'));
         }
-    
     }
+    
 }
