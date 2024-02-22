@@ -186,7 +186,7 @@
                                         ( 7 Avaliações )                               
                                     </div>  -->
                                     <div class="pull-right">
-                                        <p class="price">R$ {{ $carro->valor_promocional }}</p>
+                                        <p class="price">{{ $carro->valor_promocional }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -477,7 +477,6 @@
         <script  src="js/ie10-viewport-bug-workaround.js"></script>
 
     <!-- Script para exibir dados ao clicar no ícone de olho em cada carro -->
-    
     <!-- Para relacionar aos componentes do Modal deve-se mudar o id do componente no html para funcionar -->
     <script>
         $(document).ready(function() {
@@ -489,8 +488,8 @@
                 $('#modelo').text(carro.nome);
                 $('#quilometragem').text(carro.quilometragem);
                 $('#motor').text(carro.motor);
-                $('#preco-1').text('R$ ' + carro.valor_promocional);
-                $('#preco-2').text('R$ ' + carro.valor_promocional);
+                $('#preco-1').text(carro.valor_promocional);
+                $('#preco-2').text(carro.valor_promocional);
                 $('#estilo').text(carro.estilo);
                 $('#ano').text(carro.ano);
                 $('#descricao').text(carro.descricao);
