@@ -128,11 +128,11 @@
                         <label for="combustivel" class="form-label">Combustível:</label>
                         <select class="form-select" id="combustivel" name="combustivel" required>
                             <option value="">Selecione o combustível</option>
-                            <option value="Flex">Flex</option>
-                            <option value="Gasolina">Gasolina</option>
-                            <option value="Etanol">Etanol</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="GNV">Gás Natural Veicular (GNV)</option>
+                            <option value="Flex" {{ $carro->tag == 'Flex' ? 'selected' : '' }}>Flex</option>
+                            <option value="Gasolina" {{ $carro->tag == 'Gasolina' ? 'selected' : '' }}>Gasolina</option>
+                            <option value="Etanol" {{ $carro->tag == 'Etanol' ? 'selected' : '' }}>Etanol</option>
+                            <option value="Diesel" {{ $carro->tag == 'Diesel' ? 'selected' : '' }}>Diesel</option>
+                            <option value="GNV" {{ $carro->tag == 'GNV' ? 'selected' : '' }}>Gás Natural Veicular (GNV)</option>
                         </select>
                     </div>
 
