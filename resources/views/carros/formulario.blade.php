@@ -112,7 +112,8 @@
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="combustivel" class="form-label">Combustível:</label>
-                    <select class="form-select" id="combustivel" name="combustivel">
+                    <select class="form-select" id="combustivel" name="combustivel" required>
+                        <option value="">Selecione o combustível</option>
                         <option value="Flex">Flex</option>
                         <option value="Gasolina">Gasolina</option>
                         <option value="Etanol">Etanol</option>

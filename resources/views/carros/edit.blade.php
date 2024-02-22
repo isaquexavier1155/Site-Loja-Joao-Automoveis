@@ -19,7 +19,26 @@
                     
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="marca" class="form-label">Marca:</label>
-                        <input type="text" class="form-control" id="marca" name="marca" value="{{ $carro->marca }}">
+                        <select class="form-select" id="marca" name="marca" required>
+                            <option value="">Selecione a Marca</option>
+                            <option value="Audi">Audi</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Citroën">Citroën</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Volvo">Volvo</option>
+                        </select>
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
@@ -107,7 +126,14 @@
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="combustivel" class="form-label">Combustível:</label>
-                        <input type="text" class="form-control" id="combustivel" name="combustivel" value="{{ $carro->combustivel }}">
+                        <select class="form-select" id="combustivel" name="combustivel" required>
+                            <option value="">Selecione o combustível</option>
+                            <option value="Flex">Flex</option>
+                            <option value="Gasolina">Gasolina</option>
+                            <option value="Etanol">Etanol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="GNV">Gás Natural Veicular (GNV)</option>
+                        </select>
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
@@ -117,7 +143,16 @@
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="estilo" class="form-label">Estilo:</label>
-                        <input type="text" class="form-control" id="estilo" name="estilo" value="{{ $carro->estilo }}">
+                        <select class="form-select" id="estilo" name="estilo" required>
+                            <option value="">Selecione o Estilo</option>
+                            <option value="Sedã">Sedã</option>
+                            <option value="Hatchback">Hat</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Picape">Picape</option>
+                            <option value="Cupê">Cupê</option>
+                            <option value="Minivan">Minivan</option>
+                            <option value="Crossover">Crossover</option>
+                        </select>
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
