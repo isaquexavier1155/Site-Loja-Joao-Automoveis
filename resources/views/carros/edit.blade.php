@@ -21,23 +21,23 @@
                         <label for="marca" class="form-label">Marca:</label>
                         <select class="form-select" id="marca" name="marca" required>
                             <option value="">Selecione a Marca</option>
-                            <option value="Audi">Audi</option>
-                            <option value="BMW">BMW</option>
-                            <option value="Chevrolet">Chevrolet</option>
-                            <option value="Citroën">Citroën</option>
-                            <option value="Fiat">Fiat</option>
-                            <option value="Ford">Ford</option>
-                            <option value="Honda">Honda</option>
-                            <option value="Hyundai">Hyundai</option>
-                            <option value="Jeep">Jeep</option>
-                            <option value="Kia">Kia</option>
-                            <option value="Mitsubishi">Mitsubishi</option>
-                            <option value="Nissan">Nissan</option>
-                            <option value="Peugeot">Peugeot</option>
-                            <option value="Renault">Renault</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Volkswagen">Volkswagen</option>
-                            <option value="Volvo">Volvo</option>
+                            <option value="Audi" {{ $carro->marca == 'Audi' ? 'selected' : '' }}>Audi</option>
+                            <option value="BMW" {{ $carro->marca == 'BMW' ? 'selected' : '' }}>BMW</option>
+                            <option value="Chevrolet" {{ $carro->marca == 'Chevrolet' ? 'selected' : '' }}>Chevrolet</option>
+                            <option value="Citroën" {{ $carro->marca == 'Citroën' ? 'selected' : '' }}>Citroën</option>
+                            <option value="Fiat" {{ $carro->marca == 'Fiat' ? 'selected' : '' }}>Fiat</option>
+                            <option value="Ford" {{ $carro->marca == 'Ford' ? 'selected' : '' }}>Ford</option>
+                            <option value="Honda" {{ $carro->marca == 'Honda' ? 'selected' : '' }}>Honda</option>
+                            <option value="Hyundai" {{ $carro->marca == 'Hyundai' ? 'selected' : '' }}>Hyundai</option>
+                            <option value="Jeep" {{ $carro->marca == 'Jeep' ? 'selected' : '' }}>Jeep</option>
+                            <option value="Kia" {{ $carro->marca == 'Kia' ? 'selected' : '' }}>Kia</option>
+                            <option value="Mitsubishi" {{ $carro->marca == 'Mitsubishi' ? 'selected' : '' }}>Mitsubishi</option>
+                            <option value="Nissan" {{ $carro->marca == 'Nissan' ? 'selected' : '' }}>Nissan</option>
+                            <option value="Peugeot" {{ $carro->marca == 'Peugeot' ? 'selected' : '' }}>Peugeot</option>
+                            <option value="Renault" {{ $carro->marca == 'Renault' ? 'selected' : '' }}>Renault</option>
+                            <option value="Toyota" {{ $carro->marca == 'Toyota' ? 'selected' : '' }}>Toyota</option>
+                            <option value="Volkswagen" {{ $carro->marca == 'Volkswagen' ? 'selected' : '' }}>Volkswagen</option>
+                            <option value="Volvo" {{ $carro->marca == 'Volvo' ? 'selected' : '' }}>Volvo</option>
                         </select>
                     </div>
 
@@ -127,12 +127,12 @@
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="combustivel" class="form-label">Combustível:</label>
                         <select class="form-select" id="combustivel" name="combustivel" required>
-                            <option value="">Selecione o combustível</option>
-                            <option value="Flex" {{ $carro->tag == 'Flex' ? 'selected' : '' }}>Flex</option>
-                            <option value="Gasolina" {{ $carro->tag == 'Gasolina' ? 'selected' : '' }}>Gasolina</option>
-                            <option value="Etanol" {{ $carro->tag == 'Etanol' ? 'selected' : '' }}>Etanol</option>
-                            <option value="Diesel" {{ $carro->tag == 'Diesel' ? 'selected' : '' }}>Diesel</option>
-                            <option value="GNV" {{ $carro->tag == 'GNV' ? 'selected' : '' }}>Gás Natural Veicular (GNV)</option>
+                            <option value="">Selecione o Combustível</option>
+                            <option value="Flex" {{ $carro->combustivel == 'Flex' ? 'selected' : '' }}>Flex</option>
+                            <option value="Gasolina" {{ $carro->combustivel == 'Gasolina' ? 'selected' : '' }}>Gasolina</option>
+                            <option value="Etanol" {{ $carro->combustivel == 'Etanol' ? 'selected' : '' }}>Etanol</option>
+                            <option value="Diesel" {{ $carro->combustivel == 'Diesel' ? 'selected' : '' }}>Diesel</option>
+                            <option value="GNV" {{ $carro->combustivel == 'GNV' ? 'selected' : '' }}>Gás Natural Veicular (GNV)</option>
                         </select>
                     </div>
 
@@ -145,13 +145,13 @@
                         <label for="estilo" class="form-label">Estilo:</label>
                         <select class="form-select" id="estilo" name="estilo" required>
                             <option value="">Selecione o Estilo</option>
-                            <option value="Sedã">Sedã</option>
-                            <option value="Hatchback">Hat</option>
-                            <option value="SUV">SUV</option>
-                            <option value="Picape">Picape</option>
-                            <option value="Cupê">Cupê</option>
-                            <option value="Minivan">Minivan</option>
-                            <option value="Crossover">Crossover</option>
+                            <option value="Sedã" {{ $carro->estilo == 'Sedã' ? 'selected' : '' }}>Sedã</option>
+                            <option value="Hatchback" {{ $carro->estilo == 'Hatchback' ? 'selected' : '' }}>Hat</option>
+                            <option value="SUV" {{ $carro->estilo == 'SUV' ? 'selected' : '' }}>SUV</option>
+                            <option value="Picape" {{ $carro->estilo == 'Picape' ? 'selected' : '' }}>Picape</option>
+                            <option value="Cupê" {{ $carro->estilo == 'Cupê' ? 'selected' : '' }}>Cupê</option>
+                            <option value="Minivan" {{ $carro->estilo == 'Minivan' ? 'selected' : '' }}>Minivan</option>
+                            <option value="Crossover" {{ $carro->estilo == 'Crossover' ? 'selected' : '' }}>Crossover</option>
                         </select>
                     </div>
 
