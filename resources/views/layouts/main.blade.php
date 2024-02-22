@@ -45,11 +45,6 @@
     <!-- Custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/ie10-viewport-bug-workaround.css') }}">
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <script src="js/ie-emulation-modes-warning.js"></script>
     <script src="{{ asset('js/ie-emulation-modes-warning.js') }}"></script>
 </head>
@@ -60,7 +55,6 @@
 
         <!-- Capturar o endereço IP do usuário -->
         <?php $user_ip = $_SERVER['REMOTE_ADDR']; ?>
-        <!-- URL base para o WhatsApp -->
         <?php $whatsapp_url = "https://api.whatsapp.com/send"; ?>
         <!-- Parâmetros adicionais para personalizar a mensagem -->
         <?php
@@ -195,14 +189,17 @@
             }
 
         </script>
-
         <!-- FIM FUNCIONAMENTO DO BOTÃO FLUTUANTE DO WHATSAPP -->
 
 
         <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX5VQP"
-                        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX5VQP"
+                height="0" width="0" style="display:none;visibility:hidden">
+            </iframe>
+        </noscript>
         <!-- End Google Tag Manager (noscript) -->
+        
         <div class="page_loader"></div>
 
         <!-- Top header start -->
@@ -245,76 +242,27 @@
                     <div class="navbar-collapse collapse w-100 justify-content-end" id="navbar">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle @if(request()->is('/')) ativo @endif" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {{ request()->is('/') ? 'ativo' : '' }}" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Início
                                 </a>
                             </li>
-                            <li class="nav-item dropdown @if(request()->is('car-grid-fullWidth')) ativo @endif">
+                            <li class="nav-item dropdown {{ request()->routeIs('car-grid-fullWidth') ? 'ativo' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="{{ route('car-grid-fullWidth') }}" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Carros
                                 </a>
                             </li> 
-                            <!-- <li class="nav-item dropdown megamenu-li">
-                                <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Páginas</a>
-                                <div class="dropdown-menu megamenu" aria-labelledby="dropdown01">
-                                    <div class="megamenu-area">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-md-4 col-lg-4">
-                                                <div class="megamenu-section">
-                                                    <h6 class="megamenu-title">Páginas</h6>
-                                                    <a class="dropdown-item" href="{{ route('about') }}">Sobre nós</a>
-                                                    <a class="dropdown-item" href="{{ route('team') }}">Equipe</a>
-                                                    <a class="dropdown-item" href="{{ route('team-detail') }}">Detalhes da equipe</a>
-                                                    <a class="dropdown-item" href="{{ route('car-comparison') }}">Comparação entre carros</a>
-                                                    <a class="dropdown-item" href="{{ route('search-brand') }}">Marcas de carros</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-lg-4">
-                                                <div class="megamenu-section">
-                                                    <h6 class="megamenu-title">Páginas</h6>
-                                                    <a class="dropdown-item" href="{{ route('pricing-tables') }}">Tabelas de preços</a>
-                                                    <a class="dropdown-item" href="{{ route('gallery') }}">Galeria</a>
-                                                    <a class="dropdown-item" href="{{ route('typography') }}">Tipografia</a>
-                                                    <a class="dropdown-item" href="{{ route('elements') }}">Elementos</a>
-                                                    <a class="dropdown-item" href="{{ route('faq') }}">Perguntas frequentes</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-lg-4">
-                                                <div class="megamenu-section">
-                                                    <h6 class="megamenu-title">Páginas</h6>
-                                                    <a class="dropdown-item" href="{{ route('icon') }}">Ícones</a>
-                                                    <a class="dropdown-item" href="{{ route('coming-soon') }}">Em breve</a>
-                                                    <a class="dropdown-item" href="{{ route('faq') }}">Página de erro</a>
-                                                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                                    <a class="dropdown-item" href="{{ route('signup') }}">Registro</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <li class="nav-item dropdown @if(request()->is('shop-list')) ativo @endif">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Loja
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="{{ route('shop-list') }}">Produtos</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('shop-cart') }}">Carrinho de compras</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('shop-checkout') }}">Finalizar pedidos</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('shop-details') }}">Detalhes do produto</a></li>
-                                </ul>
-                            </li> -->
-                            <li class="nav-item dropdown @if(request()->is('localizacao')) ativo @endif">
+                            
+                            <li class="nav-item dropdown {{ request()->is('localizacao') ? 'ativo' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="{{ route('localizacao') }}" id="navbarDropdownMenuLink11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Localização
                                 </a>
                             </li>
-                            <li class="nav-item dropdown @if(request()->is('about')) ativo @endif">
+                            <li class="nav-item dropdown {{ request()->is('about') ? 'ativo' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="{{ route('about') }}" id="navbarDropdownMenuLink6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Sobre Nós
                                 </a>
                             </li>
-                            <li class="nav-item dropdown @if(request()->is('contact')) ativo @endif">
+                            <li class="nav-item dropdown {{ request()->is('contact') ? 'ativo' : '' }}">
                                 <a class="nav-link" href="{{ route('contact') }}">Contato</a>
                             </li>
                             @if (!request()->is('gerenciar-veiculos'))
@@ -407,27 +355,24 @@
             </div>
         </main>
 
-<!-- Modal de Pesquisa de veículos no banco. Full Page Search -->
-<div id="full-page-search">
-    <button type="button" class="close">×</button>
-    <!-- Use o método GET para enviar o formulário para a rota 'buscar-carros' -->
-    <form id="search-form" action="{{ route('buscar-carros') }}" method="GET" class="search-header">
-        <input type="search" name="buscar" id="search-input" value="" placeholder="Digite palavras-chave aqui"/>
-        <button type="submit" class="btn btn-sm button-theme">Procurar</button>
-    </form>
-</div>
+        <!-- Modal de Pesquisa de veículos no banco. Full Page Search -->
+        <div id="full-page-search">
+            <button type="button" class="close">×</button>
+            <!-- Use o método GET para enviar o formulário para a rota 'buscar-carros' -->
+            <form id="search-form" action="{{ route('buscar-carros') }}" method="GET" class="search-header">
+                <input type="search" name="buscar" id="search-input" value="" placeholder="Digite palavras-chave aqui"/>
+                <button type="submit" class="btn btn-sm button-theme">Procurar</button>
+            </form>
+        </div>
 
-<script>
-    // Captura o formulário de pesquisa
-    var searchForm = document.getElementById('search-form');
-    // Adiciona um listener para o evento submit
-    searchForm.addEventListener('submit', function(event) {
-        // Captura a URL atual
-        var currentUrl = window.location.href;
-        // Adiciona a URL atual como valor do campo oculto "url_atual"
-        document.getElementById('url-atual').value = currentUrl;
-    });
-</script>
+        <script>
+            // Captura o formulário de pesquisa
+            var searchForm = document.getElementById('search-form');
+            searchForm.addEventListener('submit', function(event) {
+                var currentUrl = window.location.href;
+                document.getElementById('url-atual').value = currentUrl;
+            });
+        </script>
 
 
         <!-- Início Rodapé -->
@@ -449,12 +394,6 @@
                                 <li>
                                     <i class="flaticon-phone"></i><a href="tel: 051999402842">051999402842</a>
                                 </li>
-                                <!-- <li>
-                                    <i class="flaticon-fax"></i>+0024 85X6 987
-                                </li> -->
-                                <!-- <li>
-                                    <i class="flaticon-earth"></i><a href="mailto:contato@joaoautomoveisparobe.com.br">carhouse@themevessel.com</a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -483,9 +422,6 @@
                                 <li>
                                     <a href="{{ route('contact') }}" class="link-inner"><span> Contate-nos</span></a>
                                 </li>
-                                <!-- <li>
-                                    <a class="link-inner"><span> Elements</span></a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -505,7 +441,7 @@
                                             <a href="/car-details/{{ $carro->id }}">{{ $carro->nome }}</a>
                                         </h5>
                                         <div class="listing-post-meta">
-                                            R$ {{ $carro->valor_promocional }} | <a href="#"><i class="fa fa-calendar"></i> {{ $carro->created_at->format('d M, Y') }} </a>
+                                            {{ $carro->valor_promocional }} | <a href="#"><i class="fa fa-calendar"></i> {{ $carro->created_at->format('d M, Y') }} </a>
                                         </div>
                                     </div>
                                 </div>
@@ -664,15 +600,15 @@
             /* Estilo para tornar o formulário responsivo */
             @media screen and (max-width: 600px) {
                 .modal-01 {
-                    width: 90%; /* Reduzir a largura do modal */
-                    max-width: 90%; /* Reduzir a largura máxima do modal */
+                    width: 90%;
+                    max-width: 90%; 
                 }
                 .input-group input {
-                    width: 100%; /* Definir a largura dos campos de entrada como 100% */
-                    margin-bottom: 10px; /* Adicionar espaço entre os campos */
+                    width: 100%; 
+                    margin-bottom: 10px; 
                 }
                 button {
-                    width: 100%; /* Definir a largura do botão "Continuar" como 100% */
+                    width: 100%;
                 }
             }
         </style>
@@ -699,8 +635,6 @@
 
             // Atualiza a data e hora a cada segundo
             setInterval(updateDateTime, 1000);
-
-            // Inicializa a função para exibir a data e hora imediatamente
             updateDateTime();
         </script>
 

@@ -464,7 +464,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                             <div class="form-group">
                                 <div class="range-slider">
-                                    <div data-min="0" data-max="300000" data-unit="R$" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div data-min="0" data-max="200000" data-unit="R$" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -884,7 +884,7 @@
                                     <a href="/car-details/{{ $carro->id }}">{{ $carro->nome }}</a>
                                 </h5>
                                 <div class="listing-post-meta">
-                                    R$ {{ $carro->valor_promocional }} | <a href="#"><i class="fa fa-calendar"></i> {{ $carro->created_at->format('d M, Y') }} </a>
+                                    {{ $carro->valor_promocional }} | <a href="#"><i class="fa fa-calendar"></i> {{ $carro->created_at->format('d M, Y') }} </a>
                                 </div>
                             </div>
                         </div>
