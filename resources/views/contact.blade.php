@@ -266,17 +266,17 @@
         });
     </script>
 
-<!-- Script para Aplicar a máscara de telefone -->
-<script>
-    $(document).ready(function() {
-        $('#floating-phone-Number').mask('(00) 00000-0000');
+    <!-- Script para Aplicar a máscara de telefone -->
+    <script>
+        $(document).ready(function() {
+            $('#floating-phone-Number').mask('(00) 00000-0000');
 
-        // Remover a máscara de telefone antes de enviar o formulário
-        $('form').submit(function() {
-            $('#floating-phone-Number').unmask();
+            // Remover a máscara de telefone antes de enviar o formulário
+            $('form').submit(function() {
+                $('#floating-phone-Number').unmask();
+            });
         });
-    });
-</script>
+    </script>
 
 
 
