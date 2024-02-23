@@ -92,13 +92,12 @@
                                                 <a href="#" class="overlap-btn" data-bs-toggle="modal" data-bs-target="#carOverviewModal" data-carro="{{ json_encode($carro) }}">
                                                     <i class="fa fa-eye-slash"></i>
                                                 </a>
-
-                                                <a class="overlap-btn wishlist-btn">
+                                                <!-- <a class="overlap-btn wishlist-btn">
                                                     <i class="fa fa-heart-o"></i>
                                                 </a>
                                                 <a class="overlap-btn compare-btn">
                                                     <i class="fa fa-balance-scale"></i>
-                                                </a>
+                                                </a> -->
                                                 <!-- Botão expandir para exibir mais fotos do veículo -->
                                                 <div class="car-magnify-gallery">
                                                     @php
