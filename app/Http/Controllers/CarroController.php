@@ -74,7 +74,7 @@ class CarroController extends Controller
         $carro->estilo = $request->input('estilo');
         $carro->cor = $request->input('cor');
         $carro->ano = $request->input('ano');
-        $carro->tag = $request->input('tag');
+        $carro->tag = "DESTAQUE";
         // Obtenha as opções selecionadas como um array
         $destacarArray = $request->input('destacar');
         // Atribua o array ao campo destacar após convertê-lo para JSON

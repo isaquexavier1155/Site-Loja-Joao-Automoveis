@@ -180,14 +180,14 @@
                         <input type="text" class="form-control" id="velocidade_maxima" name="velocidade_maxima" value="{{ $carro->velocidade_maxima }}">
                     </div>
 
-                    <div class="mb-3 mb-0" style="width: 80%;">
+                    <!-- <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="tag" class="form-label">Tag:</label>
                         <select class="form-select" id="tag" name="tag" required>
                             <option value="DESTAQUE" {{ $carro->tag == 'DESTAQUE' ? 'selected' : '' }}>DESTAQUE</option>
                             <option value="UNICO DONO" {{ $carro->tag == 'UNICO DONO' ? 'selected' : '' }}>UNICO DONO</option>
                             <option value="NOVO" {{ $carro->tag == 'NOVO' ? 'selected' : '' }}>NOVO</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="destacar" class="form-label">Destacar (características):</label>

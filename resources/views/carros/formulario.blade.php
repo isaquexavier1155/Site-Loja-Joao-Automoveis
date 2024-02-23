@@ -112,7 +112,7 @@
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="combustivel" class="form-label">Combustível:</label>
                     <select class="form-select" id="combustivel" name="combustivel" required>
-                        <option value="">Selecione o combustível</option>
+                        <option value="">Selecione o Combustível</option>
                         <option value="Flex">Flex</option>
                         <option value="Gasolina">Gasolina</option>
                         <option value="Etanol">Etanol</option>
@@ -165,14 +165,14 @@
                     <input type="text" class="form-control" id="velocidade_maxima" name="velocidade_maxima">
                 </div>
 
-                <div class="mb-3 mb-0" style="width: 80%;">
+                <!-- <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="tag" class="form-label">Tag:</label>
                     <select class="form-select" id="tag" name="tag" required>
                         <option value="DESTAQUE">DESTAQUE</option>
                         <option value="UNICO DONO">UNICO DONO</option>
                         <option value="NOVO">NOVO</option>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="destacar" class="form-label">Destacar (características):</label>
