@@ -43,10 +43,9 @@
                     </select>
                 </div>
 
-
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="quilometragem" class="form-label">Quilometragem:</label>
-                    <input type="number" class="form-control" id="quilometragem" name="quilometragem">
+                    <input type="text" class="form-control" id="quilometragem" name="quilometragem">
                 </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
@@ -158,12 +157,12 @@
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="potencia" class="form-label">Potência:</label>
-                    <input type="number" class="form-control" id="potencia" name="potencia">
+                    <input type="text" class="form-control" id="potencia" name="potencia">
                 </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
                     <label for="velocidade_maxima" class="form-label">Velocidade Máxima:</label>
-                    <input type="number" class="form-control" id="velocidade_maxima" name="velocidade_maxima">
+                    <input type="text" class="form-control" id="velocidade_maxima" name="velocidade_maxima">
                 </div>
 
                 <div class="mb-3 mb-0" style="width: 80%;">
@@ -326,5 +325,64 @@
             });
         </script>
 
+        <script>
+            // Espera o documento estar completamente carregado
+            document.addEventListener("DOMContentLoaded", function() {
+                // Seleciona o campo de quilometragem
+                var inputQuilometragem = document.getElementById('quilometragem');
+                
+                // Adiciona um ouvinte de evento para o evento 'blur' (quando o campo perde o foco)
+                inputQuilometragem.addEventListener('blur', function() {
+                    // Obtém o valor atual do campo
+                    var valor = inputQuilometragem.value;
+
+                    // Verifica se o valor não está vazio
+                    if (valor.trim() !== '') {
+                        // Adiciona ' KM' ao final do valor
+                        inputQuilometragem.value = valor + ' KM';
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            // Espera o documento estar completamente carregado
+            document.addEventListener("DOMContentLoaded", function() {
+                // Seleciona o campo de velocidade máxima
+                var inputVelocidadeMaxima = document.getElementById('velocidade_maxima');
+                
+                // Adiciona um ouvinte de evento para o evento 'blur' (quando o campo perde o foco)
+                inputVelocidadeMaxima.addEventListener('blur', function() {
+                    // Obtém o valor atual do campo
+                    var valor = inputVelocidadeMaxima.value;
+
+                    // Verifica se o valor não está vazio
+                    if (valor.trim() !== '') {
+                        // Adiciona ' KM/H' ao final do valor
+                        inputVelocidadeMaxima.value = valor + ' KM/H';
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            // Espera o documento estar completamente carregado
+            document.addEventListener("DOMContentLoaded", function() {
+                // Seleciona o campo de potência
+                var inputPotencia = document.getElementById('potencia');
+                
+                // Adiciona um ouvinte de evento para o evento 'blur' (quando o campo perde o foco)
+                inputPotencia.addEventListener('blur', function() {
+                    // Obtém o valor atual do campo
+                    var valor = inputPotencia.value;
+
+                    // Verifica se o valor não está vazio
+                    if (valor.trim() !== '') {
+                        // Adiciona ' CV' ao final do valor
+                        inputPotencia.value = valor + ' CV';
+                    }
+                });
+            });
+        </script>
 
 @endsection

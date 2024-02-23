@@ -43,7 +43,7 @@
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="quilometragem" class="form-label">Quilometragem:</label>
-                        <input type="number" class="form-control" id="quilometragem" name="quilometragem" value="{{ $carro->quilometragem }}">
+                        <input type="text" class="form-control" id="quilometragem" name="quilometragem" value="{{ $carro->quilometragem }}">
                     </div>
 
                     <!-- Foto de Capa -->
@@ -172,12 +172,12 @@
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="potencia" class="form-label">Potência:</label>
-                        <input type="number" class="form-control" id="potencia" name="potencia" value="{{ $carro->potencia }}">
+                        <input type="text" class="form-control" id="potencia" name="potencia" value="{{ $carro->potencia }}">
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">
                         <label for="velocidade_maxima" class="form-label">Velocidade Máxima:</label>
-                        <input type="number" class="form-control" id="velocidade_maxima" name="velocidade_maxima" value="{{ $carro->velocidade_maxima }}">
+                        <input type="text" class="form-control" id="velocidade_maxima" name="velocidade_maxima" value="{{ $carro->velocidade_maxima }}">
                     </div>
 
                     <div class="mb-3 mb-0" style="width: 80%;">

@@ -74,9 +74,9 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="contact-tab-5" data-bs-toggle="tab" data-bs-target="#contact-5" type="button" role="tab" aria-controls="contact-5" aria-selected="false">Localização</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="contact-tab-6" data-bs-toggle="tab" data-bs-target="#contact-6" type="button" role="tab" aria-controls="contact-6" aria-selected="false">Vídeo</button>
-                                </li>
+                                </li> -->
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -102,9 +102,6 @@
                                                         <ul class="amenities">
                                                             <li>
                                                                 <i class="fa fa-check"></i>Velocidade máxima: {{ $carro->velocidade_maxima }}
-                                                            </li>
-                                                            <li>
-                                                                <i class="fa fa-check"></i>Tipo de combustível: {{ $carro->combustivel }}
                                                             </li>
                                                             <li>
                                                                 <i class="fa fa-check"></i>Quilometragem: {{ $carro->quilometragem }}
@@ -133,7 +130,7 @@
                                                                 <i class="fa fa-check"></i>Portas: {{ $carro->portas }}
                                                             </li>
                                                             <li>
-                                                                <i class="fa fa-check"></i>Potência(Cv): {{ $carro->potencia }}
+                                                                <i class="fa fa-check"></i>Potência: {{ $carro->potencia }}
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -157,7 +154,7 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="contact-6" role="tabpanel" aria-labelledby="contact-tab-6">
+                                <!-- <div class="tab-pane fade" id="contact-6" role="tabpanel" aria-labelledby="contact-tab-6">
                                     <div class="accordion accordion-flush" id="accordionFlushExample6">
                                         <div class="accordion-item">
                                             <div class="inside-car mb-50">
@@ -168,7 +165,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         
@@ -247,9 +244,7 @@
                                 <li>
                                     <span>Passageiros:</span>4
                                 </li>
-                                <li>
-                                    <span>Consumo de Combustível:</span>20 Cidade / 28 Estrada
-                                </li>
+    
                                 <li>
                                     <span>Tipo de Combustível:</span>{{ $carro->combustivel }}
                                 </li>
@@ -294,7 +289,7 @@
                                     <input type="text" class="form-control" id="inputprice" placeholder="30000">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputinterest" class="form-label">Taxa de juro (%)</label>
+                                    <label for="inputinterest" class="form-label">Taxa de juros (%)</label>
                                     <input type="text" class="form-control" id="inputinterest" placeholder="15">
                                 </div>
                                 <div class="form-group">
