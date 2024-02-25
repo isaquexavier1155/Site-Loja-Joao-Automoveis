@@ -21,11 +21,9 @@ Route::get('/', [CarroController::class, 'index']);
 
 Route::get('/index-2', [CarroController::class, 'index'])->name('index-2');
 
-
 //  Route::get('/index-2', function () {
 //      return view('index-2');
 //  })->name('index-2')->middleware('auth');
-
 
 //ROTAS MENU CABEÇALHO DA PÁGINA INICIAL
 
@@ -194,7 +192,7 @@ Route::get('/cadastrar-carro', [CarroController::class, 'mostrarFormulario'])->n
 Route::post('/salvar-carro', [CarroController::class, 'salvarCarro'])->name('salvar_carro');
 
 //ROTA PARA EDITAR CARROS CADASTRADOS NO BANCO DE DADOS
-Route::get('/cars/{id}/edit', [CarroController::class,'edit'])->name('cars.edit');
+Route::get('/cars/{id}/edit', [CarroController::class,'edit'])->name('cars.edit')->middleware('auth')->can('admin');
 
 //ROTA PARA ATUALIZAR CARROS CADASTRADOS NO BANCO DE DADOS
 Route::put('cars/update/{id}', [CarroController::class, 'update']);
@@ -202,9 +200,8 @@ Route::put('cars/update/{id}', [CarroController::class, 'update']);
 //ROTA PARA REMOVER IMAGENS NA TELA DE EDIÇÃO DE VEÍCULOS
 Route::post('/cars/remove-image', [CarroController::class, 'removeImage']);
 
-
 //ROTA PARA VISUALIZAR TODOS OS VEÍCULOS CADASTRADOS NO SIETEMA
-Route::get('/gerenciar-veiculos', [CarroController::class, 'gerenciar_veiculos'])->name('carros.gerenciar-veiculos');
+Route::get('/gerenciar-veiculos', [CarroController::class, 'gerenciar_veiculos'])->name('carros.gerenciar-veiculos')->middleware('auth')->can('admin');
 
 //ROTA PARA DELETAR VEÍCULOS CADASTRADOS NO SIETEMA
 Route::delete('/cars/{id}', [CarroController::class, 'destroy'])->name('car-delete');

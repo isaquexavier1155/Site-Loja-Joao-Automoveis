@@ -240,6 +240,13 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{{ route('contact') }}">Contato</a>
                     </li>
+
+                    @can('admin')                   
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel Administrativo</a>
+                        </li>
+                    @endcan
+
                     <li class="nav-item dropdown m-hide">
                         <a href="#full-page-search" class="nav-link h-icon">
                             <i class="fa fa-search"></i>

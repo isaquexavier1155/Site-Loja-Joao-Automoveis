@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Carro;
@@ -190,8 +189,7 @@ class CarroController extends Controller
             // Retorne a view 'gerenciar-veiculos' e passe os carros paginados para ela
             return view('gerenciar-veiculos', ['carros' => $carros]);
         }
-        
-        
+            
         public function destroy($id)
         {
             $carro = Carro::findOrFail($id);
