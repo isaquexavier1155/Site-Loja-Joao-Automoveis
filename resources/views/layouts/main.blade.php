@@ -215,12 +215,21 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-5">
                         <ul class="top-social-media pull-right">
+                            @auth
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="sign-in"><i class="fa fa-sign-out"></i> Sair</button>
+                                </form>
+                            </li>
+                            @else
                             <li>
                                 <a href="{{ route('login') }}" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
                             </li>
                             <li>
                                 <a href="{{ route('signup') }}" class="sign-in"><i class="fa fa-user"></i> Registro</a>
                             </li>
+                            @endauth
                         </ul>
                     </div>
                 </div>
@@ -265,6 +274,15 @@
                             <li class="nav-item dropdown {{ request()->is('contact') ? 'ativo' : '' }}">
                                 <a class="nav-link" href="{{ route('contact') }}">Contato</a>
                             </li>
+
+                            <!-- MOSTRA PAINEL ADMINISTRATIVO EM TODAS AS PÁGINAS EXTENDIDAS PELO LAYOUT PRICIPAL -->
+                            @can('admin')                   
+                                <li class="nav-item dropdown {{ request()->is('gerenciar-veiculos') ? 'ativo' : '' }}">
+                                    <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel Administrativo</a>
+                                </li>
+                            @endcan
+
+                            <!-- MOSTRA SISTEMA DE BUSCA QUANDO ROTA FOR GERENCIAR-VEICULOS -->
                             @if (!request()->is('gerenciar-veiculos'))
                                 <li class="nav-item dropdown m-hide">
                                     <a href="#full-page-search" class="nav-link h-icon">
