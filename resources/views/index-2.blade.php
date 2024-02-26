@@ -85,8 +85,8 @@
         </a>
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
+    <!-- Modal Whats-->
+    <div id="myModal" class="modal-01">
         <div class="modal-content">
             <span class="custom-close" onclick="closeForm()">&times;</span>
             <h2>Entre em contato</h2>
@@ -1052,7 +1052,7 @@
 
 
         /* ESTILO PARA MODAL ABERTO AO CLICAR NA IMAGEM DO WHATSAPP */
-        .modal {
+        .modal-01 {
             display: none;
             position: fixed;
             z-index: 9999;
@@ -1170,7 +1170,7 @@
                 /* Adicionar espaço entre os campos */
             }
 
-            button {
+            #submitButton {
                 width: 100%;
             }
         }

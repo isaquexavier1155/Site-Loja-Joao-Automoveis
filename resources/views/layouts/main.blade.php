@@ -78,7 +78,7 @@
             </a>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal Whats-->
         <div id="myModal" class="modal-01">
             <div class="modal-content-01">
                 <span class="custom-close" onclick="closeForm()">&times;</span>
