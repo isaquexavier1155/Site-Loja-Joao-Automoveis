@@ -227,7 +227,7 @@
                                 <a href="{{ route('login') }}" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
                             </li>
                             <li>
-                                <a href="{{ route('signup') }}" class="sign-in"><i class="fa fa-user"></i> Registro</a>
+                                <a href="{{ route('register') }}" class="sign-in"><i class="fa fa-user"></i> Registro</a>
                             </li>
                             @endauth
                         </ul>

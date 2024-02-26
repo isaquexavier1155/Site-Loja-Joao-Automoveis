@@ -278,7 +278,7 @@
                         <a href="{{ route('login') }}" class="btn btn-link btn-custom"><i class="fa fa-sign-in"></i> Login</a>
                         </li>
                         <li>
-                        <a href="{{ route('signup') }}" class="btn btn-link btn-custom"><i class="fa fa-user"></i> Registro</a>
+                        <a href="{{ route('register') }}" class="btn btn-link btn-custom"><i class="fa fa-user"></i> Registro</a>
                         </li>
                     @endauth
                 </ul>
@@ -364,7 +364,7 @@
                         <a href="{{ route('login') }}" class="btn btn-link btn-custom"><i class="fa fa-sign-in"></i> Login</a>
                         </li>
                         <li>
-                        <a href="{{ route('signup') }}" class="btn btn-link btn-custom"><i class="fa fa-user"></i> Registro</a>
+                        <a href="{{ route('register') }}" class="btn btn-link btn-custom"><i class="fa fa-user"></i> Registro</a>
                         </li>
                     @endauth
                 </ul>
