@@ -659,18 +659,11 @@
                 bottom: 50px;
             }
 
-        /* Animação de abertura do modal */
-        @keyframes modal-open {
-            0% {
-                transform: translate(-50%, -50%) scale(0.1);
-                opacity: 0;
+            /* Animação de abertura do modal */
+            @keyframes modal-open {
+                0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
             }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-        }
 
             /* Estilo para tornar o formulário responsivo */
             @media screen and (max-width: 600px) {
