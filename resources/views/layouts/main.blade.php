@@ -592,7 +592,6 @@
                 padding: 20px;
                 font-family: Arial, sans-serif;
                 background-color: white;
-                height: 100%;
             }
 
             .input-group {
@@ -672,6 +671,8 @@
                 .modal-01 {
                     width: 90%;
                     max-width: 90%; 
+                    height: 100%;
+                    background: white;
                 }
                 .input-group input {
                     width: 100%; 
