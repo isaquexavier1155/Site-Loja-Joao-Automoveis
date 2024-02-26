@@ -675,7 +675,7 @@
                     width: 100%; 
                     margin-bottom: 10px; 
                 }
-                button {
+                #submitButton {
                     width: 100%;
                 }
             }
