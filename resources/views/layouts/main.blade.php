@@ -331,6 +331,50 @@
                             </a>
                         </li>
                     </ul>
+                    <ul id="ul-bots">
+                    @auth
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-link btn-custom"><i class="fa fa-sign-out"></i> Sair</button>
+                            </form>
+                        </li>
+                        @else
+                        <li>
+                        <a href="{{ route('login') }}" class="btn btn-link btn-custom"><i class="fa fa-sign-in"></i> Login</a>
+                        </li>
+                        <li>
+                        <a href="{{ route('signup') }}" class="btn btn-link btn-custom"><i class="fa fa-user"></i> Registro</a>
+                        </li>
+                    @endauth
+                </ul>
+                <style>
+                    .btn-custom {
+                        background-color: #cc121a;
+                        color: #fff;
+                        border: 1px solid #fff;
+                        padding: 0px 12px;
+                        border-radius: 3px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-size: 13px;
+                        -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
+                        box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.2);
+                        margin-top: 10%;
+                    }
+
+                    .btn-custom:hover {
+                        background-color: #fff;
+                        color: #cc121a;
+                        text-decoration: none;
+                    }
+
+                    #ul-bots {
+                        margin-left: 120px;
+                        margin-right: -40px;
+                    }
+
+                </style>
                 </div>
                 <div class="get-in-touch">
                     <h3 class="heading">Entrar em contato</h3>

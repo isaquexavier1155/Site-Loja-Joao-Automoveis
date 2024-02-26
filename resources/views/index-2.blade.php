@@ -282,7 +282,6 @@
                         </li>
                     @endauth
                 </ul>
-
                 <style>
                     .btn-custom {
                         background-color: #cc121a;
@@ -310,7 +309,6 @@
                     }
 
                 </style>
-
             </div>
         </nav>
     </div>
@@ -344,6 +342,7 @@
                         <a href="{{ route('about') }}">Sobre nós</a>
                     </li>
                     <li>
+                        <!-- ITEM DO MENU EM DISPOSITIVOS MÓVEIS -->
                         <a href="{{ route('contact') }}">Contato</a>
                     </li>
                     <li>
@@ -351,6 +350,23 @@
                             <i class="fa fa-search"></i>
                         </a>
                     </li>
+                </ul>
+                <ul id="ul-bots">
+                    @auth
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-link btn-custom"><i class="fa fa-sign-out"></i> Sair</button>
+                            </form>
+                        </li>
+                        @else
+                        <li>
+                        <a href="{{ route('login') }}" class="btn btn-link btn-custom"><i class="fa fa-sign-in"></i> Login</a>
+                        </li>
+                        <li>
+                        <a href="{{ route('signup') }}" class="btn btn-link btn-custom"><i class="fa fa-user"></i> Registro</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
             <div class="get-in-touch">
