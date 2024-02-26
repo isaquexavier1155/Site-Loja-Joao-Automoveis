@@ -148,8 +148,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
+                                    </div>                      
                                     <!-- Fim da Tela exibida ao clicar em expandir -->
 
                                     <!-- Botões de edição e exclusão -->
@@ -158,15 +157,13 @@
                                             <a href="/car-details/{{ $carro->id }}">{{ $carro->nome }}</a>
                                         </h1>
                                         <div class="button-group">
-                                            <!-- Botão de exclusão com mensagem de confirmação -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $carro->id }}">Excluir</button>
-
                                             <!-- Botão de edição -->
-                                            <a href="/cars/{{ $carro->id }}/edit" class="btn btn-warning">Editar</a>
+                                            <a href="/cars/{{ $carro->id }}/edit" class="btn btn-warning">Editar</a>                                            
+                                            <!-- Botão de exclusão com mensagem de confirmação -->
+                                            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $carro->id }}">Excluir</a>
                                         </div>
                                     </div>
                                 
-
                                     <!-- Modal de Confirmação para Exclusão -->
                                     <div class="modal custom-modal" id="confirmDeleteModal{{ $carro->id }}" tabindex="-1" aria-labelledby="confirmDeleteModalLabel{{ $carro->id }}" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
