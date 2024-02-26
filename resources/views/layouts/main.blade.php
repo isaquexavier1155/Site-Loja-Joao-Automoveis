@@ -591,6 +591,7 @@
             .modal-content-01 {
                 padding: 20px;
                 font-family: Arial, sans-serif;
+                background-color: white;
             }
 
             .input-group {
@@ -679,6 +680,7 @@
                     width: 100%;
                 }
             }
+            
         </style>
 
         <!-- ESCRIPT RESPONSÁVEL PELO CONTROLE DE ANO DO RODAPÉ -->
