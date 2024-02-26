@@ -345,6 +345,12 @@
                         <!-- ITEM DO MENU EM DISPOSITIVOS MÓVEIS -->
                         <a href="{{ route('contact') }}">Contato</a>
                     </li>
+                    @can('admin')
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel
+                            Administrativo</a>
+                    </li>
+                    @endcan
                     <li>
                         <a href="#full-page-search">
                             <i class="fa fa-search"></i>
