@@ -659,7 +659,7 @@
                 bottom: 50px;
             }
 
-            /* Animação de abertura do modal */
+        /* Animação de abertura do modal */
         @keyframes modal-open {
             0% {
                 transform: translate(-50%, -50%) scale(0.1);
@@ -672,27 +672,21 @@
             }
         }
 
-        /* Estilo para tornar o formulário responsivo */
-        @media screen and (max-width: 600px) {
-            .modal {
-                width: 90%;
-                /* Reduzir a largura do modal */
-                max-width: 90%;
-                /* Reduzir a largura máxima do modal */
+            /* Estilo para tornar o formulário responsivo */
+            @media screen and (max-width: 600px) {
+                .modal-01 {
+                    width: 90%;
+                    max-width: 90%; 
+                }
+                .input-group input {
+                    width: 100%; 
+                    margin-bottom: 10px; 
+                }
+                #submitButton {
+                    width: 100%;
+                }
             }
-
-            .input-group input {
-                width: 100%;
-                /* Definir a largura dos campos de entrada como 100% */
-                margin-bottom: 10px;
-                /* Adicionar espaço entre os campos */
-            }
-
-            #submitButton {
-                width: 100%;
-            }
-        }
-    </style>
+        </style>
 
         <!-- ESCRIPT RESPONSÁVEL PELO CONTROLE DE ANO DO RODAPÉ -->
         <script>
