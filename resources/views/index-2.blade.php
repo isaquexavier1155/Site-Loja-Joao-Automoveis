@@ -310,7 +310,7 @@
                     }
 
                 </style>
-                
+
             </div>
         </nav>
     </div>
@@ -1070,14 +1070,14 @@
         }
 
         /* Estilo para o botão "Continuar" */
-        button {
+        #submitButton {
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            float: right;
+            float: right; 
         }
 
         button:hover {
@@ -1163,89 +1163,6 @@
             <input type="search" name="buscar" id="search-input" value="" placeholder="Digite palavras-chave aqui" />
             <button type="submit" class="btn btn-sm button-theme">Procurar</button>
         </form>
-    </div>
-
-    <!-- Car Overview Modal -->
-    <div class="car-model-2">
-        <div class="modal fade" id="carOverviewModal" tabindex="-1" role="dialog"
-            aria-labelledby="carOverviewModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="modal-title" id="carOverviewModalLabel">
-                            <h4>Explore Your Dream Car</h4>
-                            <h5><i class="flaticon-pin"></i> 123 Kathal St. Tampa City,</h5>
-                        </div>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row modal-raw">
-                            <div class="col-lg-6 modal-left">
-                                <div class="item active">
-                                    <img src="img/car-13.png" alt="best-car" class="img-fluid modalLabel-1">
-                                    <img src="img/car-14.png" alt="best-car" class="img-fluid modalLabel-2">
-                                    <div class="sobuz">
-                                        <div class="price-box">
-                                            <span class="del-2">$1050.00</span>
-                                        </div>
-                                        <div class="ratings-2">
-                                            <span class="ratings-box">4.5/5</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            ( 7 Reviews )
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 modal-right">
-                                <div class="modal-right-content">
-                                    <section>
-                                        <h3>Features</h3>
-                                        <div class="features">
-                                            <ul class="bullets">
-                                                <li>Cruise Control</li>
-                                                <li>Airbags</li>
-                                                <li>Air Conditioning</li>
-                                                <li>Alarm System</li>
-                                                <li>Audio Interface</li>
-                                                <li>CDR Audio</li>
-                                                <li>Seat Heating</li>
-                                                <li>ParkAssist</li>
-                                            </ul>
-                                        </div>
-                                    </section>
-                                    <section>
-                                        <h3>Overview</h3>
-                                        <ul class="bullets">
-                                            <li>Model</li>
-                                            <li>Year</li>
-                                            <li>Condition</li>
-                                            <li>Price</li>
-                                            <li>Audi</li>
-                                            <li>2020</li>
-                                            <li>Brand New</li>
-                                            <li>$178,000</li>
-                                        </ul>
-                                    </section>
-                                    <div class="description">
-                                        <h3>Description</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing e typesetting industry.
-                                            Lorem Ipsum has been the industry's standard.</p>
-                                        <a href="/car-details/{{ $carro->id }}"
-                                            class="btn btn-md btn-round btn-theme">Show Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="/js/jquery-2.2.0.min.js"></script>
