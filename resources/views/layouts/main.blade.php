@@ -592,6 +592,7 @@
                 padding: 20px;
                 font-family: Arial, sans-serif;
                 background-color: white;
+                height: 100%;
             }
 
             .input-group {
