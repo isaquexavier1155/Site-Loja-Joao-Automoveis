@@ -244,13 +244,14 @@
                             Localização
                         </a>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ route('blog-post') }}"
-                            id="navbarDropdownMenuLink6" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Blog
-                        </a>
-                    </li>
+                                <a class="nav-link dropdown-toggle" href="{{ route('about') }}" 
+                                id="navbarDropdownMenuLink6" data-toggle="dropdown" aria-haspopup="true" 
+                                aria-expanded="false">
+                                    Sobre Nós
+                                </a>
+                            </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{{ route('contact') }}">Contato</a>
                     </li>
