@@ -97,7 +97,7 @@
                         </div>
                         <div class="form-group clearfix">
                             <!-- <input name="password" type="password" class="form-control" placeholder="Senha" aria-label="Password"> -->
-                            <input value="asssssss" id="password" type="password" placeholder="Senha" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" type="password" placeholder="Senha" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="form-group clearfix">
                             <!-- <input name="password-confirm" type="password" class="form-control" placeholder="Confirmar Senha" aria-label="Confirmar Senha"> -->
-                            <input value="asssssss" id="password-confirm" placeholder="Confirmar Senha" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <input id="password-confirm" placeholder="Confirmar Senha" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
                         <div class="form-group checkbox clearfix">
                             <div class="form-check checkbox-theme float-start">
