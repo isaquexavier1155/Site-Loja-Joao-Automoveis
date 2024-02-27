@@ -2,8 +2,16 @@
 <html lang="zxx">
 <head>
     <title>Criar Conta</title>
+
+    <!-- Adicione o link para o ícone da página -->
+    <link rel="icon" href="{{ asset('img/logos/logoa.png') }}" type="image/x-icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+
+    <!-- //Adiconado terça feira para ver se usuário esta autenticado -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -30,7 +38,7 @@
     <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/red.css">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
+    <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" > -->
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
@@ -66,26 +74,53 @@
                         <img src="img/logos/logoa.png" alt="logo">
                     </a>
                     <h3>Crie a sua conta aqui</h3>
-                    <form action="#" method="GET">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
                         <div class="form-group clearfix">
-                            <input name="name" type="text" class="form-control" placeholder="Nome completo" aria-label="Full Name">
+                            <!-- <input name="name" type="text" class="form-control" placeholder="Nome completo" aria-label="Full Name"> -->
+
+                            <input id="name" type="text" placeholder="Nome completo" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group clearfix">
-                            <input name="email" type="email" class="form-control" placeholder="Endereço de email" aria-label="Email Address">
+                            <!-- <input name="email" type="email" class="form-control" placeholder="Endereço de email" aria-label="Email Address"> -->
+                            <input id="email" type="email" placeholder="Endereço de email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group clearfix">
-                            <input name="password" type="password" class="form-control" placeholder="Senha" aria-label="Password">
+                            <!-- <input name="password" type="password" class="form-control" placeholder="Senha" aria-label="Password"> -->
+                            <input value="asssssss" id="password" type="password" placeholder="Senha" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group clearfix">
+                            <!-- <input name="password-confirm" type="password" class="form-control" placeholder="Confirmar Senha" aria-label="Confirmar Senha"> -->
+                            <input value="asssssss" id="password-confirm" placeholder="Confirmar Senha" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div>
                         <div class="form-group checkbox clearfix">
                             <div class="form-check checkbox-theme float-start">
-                                <input class="form-check-input" type="checkbox" id="agree">
+                                <input class="form-check-input" type="checkbox" id="agree" required>
                                 <label class="form-check-label" for="agree">
-                                    Estou de acordo com<a href="#" class="terms">termos de serviço</a>
+                                    Estou de acordo com <a href="/terms" class="terms" target="_blank">termos de uso</a> e as <a href="/privacy" class="terms" target="_blank">políticas de privacidade</a>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group clearfix">
-                            <button type="submit" class="btn btn-lg btn-4 btn-primary">Registrar</button>
+                            <!-- <button type="submit" class="btn btn-lg btn-4 btn-primary">Registrar</button> -->
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
                         </div>
                         <!-- <div class="extra-login clearfix">
                             <span>Ou login com</span>
@@ -111,7 +146,7 @@
             </div>
             <div class="col-lg-6 bg-color-15 pad-0 none-992 bg-img">
                 <div class="info clearfix">
-                    <h1>Bem-vindo à <span>João Automóveis</span></h1>
+                    <h1>Bem-vindo à</h1><br><br><br><br><br><br><br><br><br><br><br><br>
                     <p>Nossa missão é realizar os seus sonhos </p>
                 </div>
             </div>
@@ -154,5 +189,6 @@
 <script  src="js/ie10-viewport-bug-workaround.js"></script>
 <!-- Custom javascript -->
 <script  src="js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>

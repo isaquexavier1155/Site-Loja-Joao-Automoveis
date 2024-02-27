@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Carro;
-
+use App\Models\User;
 
 class CarroController extends Controller
 {
@@ -303,5 +303,18 @@ class CarroController extends Controller
             // Passa os resultados da busca para a visão
             return view('index-2', compact('carros', 'blocos_pesquisa', 'ultimasOfertas', 'ultimosCarros'));
         } 
+
+        public function checkUser(Request $request)
+        {
+            dd('chegou na controller');
+            $name = $request->input('name');
+            $email = $request->input('email');
+
+            // Verifique no banco de dados se o usuário já existe
+            $userExists = User::where('name', $name)->orWhere('email', $email)->exists();
+
+            return response()->json(['exists' => $userExists]);
+        }
+
     
 }

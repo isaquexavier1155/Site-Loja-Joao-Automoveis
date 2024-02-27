@@ -2,6 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title>Carros</title>
+
+    <!-- Adicione o link para o ícone da página -->
+    <link rel="icon" href="{{ asset('img/logos/logoa.png') }}" type="image/x-icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -34,7 +38,7 @@
     <link rel="stylesheet" type="text/css" id="style_sheet" href="{{ asset('css/skins/red.css') }}">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" >
+    <!-- <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" > -->
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700') }}">
@@ -227,7 +231,7 @@
                                 <a href="{{ route('login') }}" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
                             </li>
                             <li>
-                                <a href="{{ route('register') }}" class="sign-in"><i class="fa fa-user"></i> Registro</a>
+                                <a href="{{ route('signup') }}" class="sign-in"><i class="fa fa-user"></i> Registro</a>
                             </li>
                             @endauth
                         </ul>
