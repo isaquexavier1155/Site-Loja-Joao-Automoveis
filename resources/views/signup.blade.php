@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>Criar Conta</title>
+    <title>Registrar</title>
 
     <!-- Adicione o link para o ícone da página -->
     <link rel="icon" href="{{ asset('img/logos/logoa.png') }}" type="image/x-icon">

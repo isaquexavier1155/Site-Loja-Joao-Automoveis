@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Carros')
+@section('title', 'Editar Veículos')
 
 @section('content')
         <div class="container" style="margin-top: 10%;">

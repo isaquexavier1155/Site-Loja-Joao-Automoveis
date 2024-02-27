@@ -1,7 +1,7 @@
 
 @extends('layouts.main')
 
-@section('title', 'Sobre nós')
+@section('title', 'Contato')
 
 @section('content')
 
