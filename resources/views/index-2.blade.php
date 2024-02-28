@@ -272,6 +272,9 @@
 
                 <ul id="ul-bots">
                     @auth
+                    <li>
+                        <span class="btn btn-link btn-perfil"><i class="fa fa-user"></i> {{ Auth::user()->name }}</span>
+                    </li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -288,15 +291,32 @@
                     @endauth
                 </ul>
                 <style>
+
+                    .btn-perfil {
+                        color: black;
+                        font-size: 0.8vw;
+                        background-color: white;
+                        border-radius: 8px;
+                        text-decoration: none;
+                    }
+                    .btn-perfil:hover {
+                        color: black;
+                        font-size: 0.8vw;
+                        background-color: white;
+                        border-radius: 8px;
+                        text-decoration: none;
+                    }
+
                     .btn-custom {
-                        background-color: #cc121a;
-                        color: #fff;
-                        border: 1px solid #fff;
+                        /* background-color: #cc121a; */
+                        color: red;
+                        /* border: 1px solid #fff; */
                         padding: 0px 12px;
-                        border-radius: 3px;
+                        /* border-radius: 3px; */
                         text-transform: uppercase;
                         text-decoration: none;
-                        font-size: 13px;
+                        font-size: 10px;
+                        float: right;
                         -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
                         box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.2);
                         margin-top: 10%;

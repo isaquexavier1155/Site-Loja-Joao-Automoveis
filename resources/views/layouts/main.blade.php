@@ -222,9 +222,12 @@
                         <ul class="top-social-media pull-right">
                             @auth
                             <li>
+                                <span class="btn btn-link btn-perfil"><i class="fa fa-user"></i> {{ Auth::user()->name }}</span>
+                            </li>
+                            <li>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="sign-in"><i class="fa fa-sign-out"></i> Sair</button>
+                                    <button type="submit" class="btn btn-link btn-saire"><i class="fa fa-sign-out"></i>Sair</button>
                                 </form>
                             </li>
                             @else
@@ -345,9 +348,12 @@
                     <ul id="ul-bots">
                     @auth
                         <li>
+                            <span class="btn btn-link btn-perfil"><i class="fa fa-user"></i> {{ Auth::user()->name }}</span>
+                        </li>
+                        <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-link btn-custom"><i class="fa fa-sign-out"></i> Sair</button>
+                                <button type="submit" class="btn btn-link btn-custom"><i class="fa fa-sign-out"></i>Sair</button>
                             </form>
                         </li>
                         @else
@@ -360,6 +366,31 @@
                     @endauth
                 </ul>
                 <style>
+                    .btn-perfil {
+                        color: black;
+                        font-size: 12px;
+                        background-color: white;
+                        border-radius: 8px;
+                        text-decoration: none;
+                    }
+                    .btn-perfil:hover {
+                        color: black;
+                        font-size: 12px;
+                        background-color: white;
+                        border-radius: 8px;
+                        text-decoration: none;
+                    }
+
+                    .btn-saire{
+                        color:white;
+                        text-decoration: none;
+                        font-size: 13px;
+                    }
+                    .btn-saire:hover{
+                        color:white;
+                        text-decoration: none;
+                        background: red;
+                    }
                     .btn-custom {
                         background-color: #cc121a;
                         color: #fff;
