@@ -32,15 +32,23 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/car/car-1.png" class="d-block w-100" alt="...">
+                                    <img src="{{ asset('img/car-2.jpg') }}" class="d-block w-100 carousel-img" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/car/car-2.png" class="d-block w-100" alt="...">
+                                    <img src="{{ asset('img/car-3.jpg') }}" class="d-block w-100 carousel-img" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/car/car-3.png" class="d-block w-100" alt="...">
+                                    <img src="{{ asset('img/car-4.jpg') }}" class="d-block w-100 carousel-img" alt="...">
                                 </div>
                             </div>
+
+                            <style>
+                                .carousel-img {
+                                height: 500px; /* Defina a altura desejada para as imagens */
+                                object-fit: cover; /* Garante que a imagem mantenha sua proporção */
+                            }
+                            </style>
+
                         </div>
                     </div>
                 </div>
@@ -57,130 +65,6 @@
         </div>
     </div>
     <!-- Service center end -->
-
-    <!-- Service section start -->
-    <div class="service-section content-area bg-grea-4">
-        <div class="container">
-            <!-- Main title -->
-            <div class="main-title text-center">
-                <h1>Encontre o <span>Que Você Procura</span></h1>
-                <p>Seja bem-vindo à nossa plataforma, onde seus desejos automotivos se tornam realidade. Na João Automóveis, estamos aqui para ajudá-lo a encontrar o veículo perfeito que atenda às suas expectativas.</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="service-info-2">
-                        <div class="icon">
-                            <i class="flaticon-shield"></i>
-                        </div>
-                        <div class="detail">
-                            <h5>
-                                <a href="services-details.html">Segurança em Primeiro Lugar</a>
-                            </h5>
-                            <p>Na João Automóveis, a sua tranquilidade é a nossa prioridade. Investimos em medidas altamente seguras...</p>
-                            <a href="services.html" class="read-more">Saiba mais...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="service-info-2">
-                        <div class="icon">
-                            <i class="flaticon-deal"></i>
-                        </div>
-                        <div class="detail">
-                            <h5>
-                                <a href="services-details.html">Vendedores Confiáveis</a>
-                            </h5>
-                            <p>Na João Automóveis, contamos com uma equipe de vendedores dedicados e confiáveis, prontos para guiá-lo em cada etapa da sua jornada automotiva. Nossa prioridade é oferecer um serviço transparente e confiável, proporcionando a você a tranquilidade que merece. Conheça mais sobre a nossa equipe e como estamos comprometidos em superar suas expectativas.</p>
-                            <a href="services.html" class="read-more">Saiba mais...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="service-info-2">
-                        <div class="icon">
-                            <i class="flaticon-money"></i>
-                        </div>
-                        <div class="detail">
-                            <h5>
-                                <a href="services-details.html">Receba uma Oferta</a>
-                            </h5>
-                            <p>Na João Automóveis, facilitamos o processo de obtenção de ofertas personalizadas para atender às suas necessidades. Nossa equipe está pronta para oferecer soluções sob medida, garantindo que você encontre o melhor negócio. Descubra como podemos tornar a sua experiência de compra mais conveniente e vantajosa.</p>
-                            <a href="services.html" class="read-more">Saiba mais...</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="service-info-2">
-                        <div class="icon">
-                            <i class="flaticon-support-2"></i>
-                        </div>
-                        <div class="detail">
-                            <h5>
-                                <a href="services-details.html">Suporte Gratuito</a>
-                            </h5>
-                            <p>Na João Automóveis, oferecemos suporte gratuito para garantir que sua experiência seja suave e sem complicações. Estamos aqui para responder às suas perguntas, fornecer assistência e orientá-lo em cada passo do caminho. Descubra como nosso suporte dedicado faz toda a diferença, proporcionando a você a confiança e tranquilidade que merece.</p>
-                            <a href="services.html" class="read-more">Saiba mais...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service section end -->
-
-    <!-- Counters strat -->
-    <div class="counters-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-box-2">
-                        <div class="icon">
-                            <i class="flaticon-car"></i>
-                        </div>
-                        <div class="detail align-self-center">
-                            <h2 class="counter">475</h2>
-                            <h5>Total de Carros</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-box-2">
-                        <div class="icon">
-                            <i class="flaticon-blog"></i>
-                        </div>
-                        <div class="detail">
-                            <h2 class="counter">1402</h2>
-                            <h5>Avaliações dos Revendedores</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-box-2">
-                        <div class="icon">
-                            <i class="flaticon-user"></i>
-                        </div>
-                        <div class="detail">
-                            <h2 class="counter">252</h2>
-                            <h5>Clientes Felizes</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter-box-2">
-                        <div class="icon">
-                            <i class="flaticon-medal"></i>
-                        </div>
-                        <div class="detail">
-                            <h2 class="counter">555</h2>
-                            <h5>Prêmios</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Counters end -->
 
     <!-- Parceiros Strat -->
     <!-- <div class="partners">
