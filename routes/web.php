@@ -91,9 +91,9 @@ Route::get('/404', function () {
     return view('404');
 })->name('404');
 
-// Route::get('/login', function () {
-//     return view('login');
-// })->name('login');
+ Route::get('/login', function () {
+     return view('login');
+ })->name('login');
 
 Route::get('/signup', function () {
     return view('signup');

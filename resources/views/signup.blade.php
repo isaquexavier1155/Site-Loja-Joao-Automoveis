@@ -73,7 +73,7 @@
                     <a href="{{ route('index-2') }}" class="logo">
                         <img src="img/logos/logoa.png" alt="logo">
                     </a>
-                    <h3>Crie a sua conta aqui</h3>
+                    <h3>Regitre-se aqui</h3>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group clearfix">
