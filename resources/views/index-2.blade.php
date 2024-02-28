@@ -278,7 +278,7 @@
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-link btn-custom"><i class="fa fa-sign-out"></i> Sair</button>
+                                <button type="submit" class="btn btn-link btn-sair"><i class="fa fa-sign-out"></i> Sair</button>
                             </form>
                         </li>
                         @else
@@ -294,29 +294,24 @@
 
                     .btn-perfil {
                         color: black;
-                        font-size: 0.8vw;
+                        font-size: 13px;
                         background-color: white;
                         border-radius: 8px;
                         text-decoration: none;
                     }
                     .btn-perfil:hover {
                         color: black;
-                        font-size: 0.8vw;
-                        background-color: white;
-                        border-radius: 8px;
-                        text-decoration: none;
                     }
 
                     .btn-custom {
-                        /* background-color: #cc121a; */
-                        color: red;
-                        /* border: 1px solid #fff; */
+                        background-color: #cc121a;
+                        color: #fff;
+                        border: 1px solid #fff;
                         padding: 0px 12px;
-                        /* border-radius: 3px; */
+                        border-radius: 3px;
                         text-transform: uppercase;
                         text-decoration: none;
-                        font-size: 10px;
-                        float: right;
+                        font-size: 13px;
                         -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
                         box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.2);
                         margin-top: 10%;
@@ -326,6 +321,24 @@
                         background-color: #fff;
                         color: #cc121a;
                         text-decoration: none;
+                    }
+
+                    .btn-sair {
+                        color: red;
+                        padding: 0px 12px;
+                        border-radius: 3px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-size: 9px;
+                        float: right;
+                        -webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
+                        box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.2);
+                        margin-top: 10%;
+                    }
+
+                    .btn-sair:hover {
+                         background-color: #cc121a; 
+                        color: white;
                     }
 
                     #ul-bots {
@@ -384,6 +397,9 @@
                 </ul>
                 <ul id="ul-bots">
                     @auth
+                        <li>
+                            <span class="btn btn-link btn-perfil"><i class="fa fa-user"></i> {{ Auth::user()->name }}</span>
+                        </li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
