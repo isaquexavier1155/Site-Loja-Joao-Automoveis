@@ -463,7 +463,7 @@
                                         <h3>Bem-vindo à João Automóveis</h3>
                                         <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse, para
                                             encontrar o carro dos seus sonhos.</h5>
-                                        <a href="#" class="btn btn-primary btn-lg">Saiba mais</a>
+                                        <a href="#carosemdest" class="btn btn-primary btn-lg">Saiba mais</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
@@ -622,7 +622,7 @@
     <!-- FINAL da Caixa de pesquisa em dispositivos móveis -->
 
     <!-- Início do carros em destaque -->
-    <div class="featured-car content-area">
+    <div class="featured-car content-area" id="carosemdest">
         <div class="container">
             <!-- Main title -->
             <div class="main-title">
