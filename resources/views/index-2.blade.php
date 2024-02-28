@@ -1005,9 +1005,8 @@
                         <h4>Inscreva-se</h4>
                         <p class="mb-4">Inscreva-se e fique por dentro das melhores ofertas da loja.</p>
                         <div class="newsletter-content-wrap">
-                            <form class="newsletter-form d-flex" action="#">
-                                <input class="form-control me-2" type="email" id="email"
-                                    placeholder="Endereço de Email...">
+                            <form class="newsletter-form d-flex" id="newsletterForm" action="/signup" method="GET">
+                                <input class="form-control me-2" type="email" id="email-newsletter" name="email" placeholder="Endereço de Email...">
                                 <button class="btn btn-theme" type="submit"><i class="fa fa-paper-plane"></i></button>
                             </form>
                         </div>

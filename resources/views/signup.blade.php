@@ -190,5 +190,17 @@
 <!-- Custom javascript -->
 <script  src="js/ie10-viewport-bug-workaround.js"></script>
 
+<!-- SCRIPT PARA OBTER EMAIL RECEBIDO NA URL PELA NEWSLETER DO RODAPE DA PÁGINA INICIAL -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var email = urlParams.get('email');
+        if (email) {
+            document.getElementById("email").value = decodeURIComponent(email);
+        }
+    });
+</script>
+
+
 </body>
 </html>
