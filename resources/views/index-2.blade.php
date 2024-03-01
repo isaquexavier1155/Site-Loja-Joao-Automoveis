@@ -258,7 +258,7 @@
 
                     @can('admin')
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel
+                        <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel
                             Administrativo</a>
                     </li>
                     @endcan
@@ -385,7 +385,7 @@
                     </li>
                     @can('admin')
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel
+                        <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel
                             Administrativo</a>
                     </li>
                     @endcan

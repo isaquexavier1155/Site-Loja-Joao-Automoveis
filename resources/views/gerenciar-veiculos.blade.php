@@ -33,7 +33,8 @@
 
     @can('user')
         <h4 id="sadm"><i class="fas fa-exclamation-triangle"></i>SOMENTE ADMINISTRADORES PODEM VER ESSA PÁGINA</h4>
-    @elsecan('admin')  
+    @elsecan('admin') 
+
         <!-- Conteudo da página para pesquisa -->
         <!-- Featured car start -->
         <div class="featured-car content-area" id="page-content">
@@ -512,7 +513,7 @@
         });
     </script>
 
-
+        <!-- CODIGO ORIGINAL -->
 
 
 

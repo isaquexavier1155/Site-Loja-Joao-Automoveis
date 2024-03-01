@@ -285,8 +285,8 @@
 
                             <!-- MOSTRA PAINEL ADMINISTRATIVO EM TODAS AS PÁGINAS EXTENDIDAS PELO LAYOUT PRICIPAL -->
                             @can('admin')                   
-                                <li class="nav-item dropdown {{ request()->is('gerenciar-veiculos') ? 'ativo' : '' }}">
-                                    <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel Administrativo</a>
+                                <li class="nav-item dropdown {{ request()->is('painel-administrativo') ? 'ativo' : '' }}">
+                                    <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel Administrativo</a>
                                 </li>
                             @endcan
 
@@ -335,7 +335,7 @@
                         </li>
                         @can('admin')
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{ route('carros.gerenciar-veiculos') }}">Painel
+                                <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel
                                     Administrativo</a>
                             </li>
                         @endcan

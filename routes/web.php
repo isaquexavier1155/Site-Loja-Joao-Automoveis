@@ -229,3 +229,7 @@ Route::post('/checkAuth', function () {
     return response()->json(['authenticated' => auth()->check()]);
 })->name('checkAuth');
 
+//painel-administrativo
+Route::get('/painel-administrativo', function () {
+    return view('painel-administrativo');
+})->name('painel-administrativo');
