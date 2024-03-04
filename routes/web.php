@@ -223,7 +223,6 @@ Route::resources([
     'email'=> SendmailController::class
 ]);
 
-
 // ROTA PARA VERIFICAR SE USUÁRIO JÁ ESTÁ AUTENTICADO
 Route::post('/checkAuth', function () {
     return response()->json(['authenticated' => auth()->check()]);
