@@ -286,7 +286,7 @@
                             <!-- MOSTRA PAINEL ADMINISTRATIVO EM TODAS AS PÁGINAS EXTENDIDAS PELO LAYOUT PRICIPAL -->
                             @can('admin')                   
                                 <li class="nav-item dropdown {{ request()->is('painel-administrativo') ? 'ativo' : '' }}">
-                                    <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel Administrativo</a>
+                                    <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel</a>
                                 </li>
                             @endcan
 
@@ -335,8 +335,7 @@
                         </li>
                         @can('admin')
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel
-                                    Administrativo</a>
+                                <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel</a>
                             </li>
                         @endcan
                         <li>
