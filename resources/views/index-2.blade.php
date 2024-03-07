@@ -258,8 +258,7 @@
 
                     @can('admin')
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel
-                            Administrativo</a>
+                        <a class="nav-link" href="{{ route('painel-administrativo') }}">Painel</a>
                     </li>
                     @endcan
 
@@ -576,6 +575,7 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="form-group">
+                                    <!-- Versão mobile -->
                                     <select class="selectpicker search-fields" name="select-year" id="select-year">
                                         <option value="">Selecione o Ano</option>
                                     </select>
