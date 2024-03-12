@@ -250,25 +250,27 @@ class CarroController extends Controller
         {
             // Iniciar a consulta
             $query = Carro::query();
-
+        
             // Verificar e adicionar condição para a marca se estiver preenchida
-            if ($request->filled('select-brand')) {
+            if ($request->filled('select-brand') && $request->input('select-year') != 'Selecione a marca') {
                 $marca = $request->input('select-brand');
                 $query->where('marca', $marca); // Utilizar a comparação exata
             }
-
+        
             // Verificar e adicionar condição para o ano se estiver preenchido
             if ($request->filled('select-year') && $request->input('select-year') != 'Selecione o ano') {
                 $ano = $request->input('select-year');
                 $query->where('ano', $ano);
             }
 
-            // Verificar e adicionar condição para o estilo se estiver preenchido
-            if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
-                $estilo = $request->input('estilo');
-                $query->where('estilo', $estilo);
-            }
+        // Verificar e adicionar condição para o estilo se estiver preenchido
+        if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
+            $estilo = $request->input('estilo');
+            $query->where('estilo', $estilo);
+            // dd('Estilo:', $estilo, $query->toSql(), $query->getBindings());
+        }
 
+        
             // Verificar e adicionar condição para a faixa de preço se estiver preenchida
             if ($request->filled('min_price') && $request->filled('max_price')) {
                 $minPrice = preg_replace('/[^0-9]/', '', $request->input('min_price'));
@@ -278,11 +280,10 @@ class CarroController extends Controller
                         ->whereRaw('CAST(REPLACE(REPLACE(valor_promocional, "R$", ""), ".", "") AS UNSIGNED) <= ?', [$maxPrice]);
                 });
             }
-
+        
             // Executar a consulta
             $carros = $query->get();
-            // dd( $carros, $query->toSql(), $query->getBindings());
-
+        
             $blocos_pesquisa = [
                 [
                     'imagem' => 'img/car-4.jpg',
@@ -294,15 +295,17 @@ class CarroController extends Controller
                     'imagem' => 'img/car-2.jpg',
                 ]
             ];
-
+        
             // Recuperar os últimos três carros registrados no banco de dados
             $ultimosCarros = Carro::orderBy('created_at', 'desc')->take(3)->get();
             
             $ultimasOfertas = Carro::latest()->take(4)->get();
-
+        
             // Passa os resultados da busca para a visão
             return view('index-2', compact('carros', 'blocos_pesquisa', 'ultimasOfertas', 'ultimosCarros'));
-        } 
+        }
+        
+        
 
         public function checkUser(Request $request)
         {

@@ -490,11 +490,17 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="selectpicker search-fields" name="select-year"
-                                                    id="select-year">
-                                                    <option>Selecione o ano</option>
-                                                    <!-- Opções de ano aqui -->
-                                                </select>
+                                            <select class="selectpicker search-fields" name="select-year" id="select-year">
+                                                <option>Selecione o ano</option>
+                                                @php
+                                                    $anoAtual = date('Y');
+                                                    $anoInicial = 1990;
+                                                @endphp
+                                                @for ($ano = $anoAtual; $ano >= $anoInicial; $ano--)
+                                                    <option>{{ $ano }}</option>
+                                                @endfor
+                                            </select>
+
                                             </div>
                                             <div class="form-group">
                                                 <select class="selectpicker search-fields" name="estilo">
@@ -509,6 +515,7 @@
                                                 </select>
 
                                             </div>
+                                            <!-- Tela grande -->
                                             <div class="form-group">
                                                 <button type="submit"
                                                     class="btn btn-primary btn-4 btn-md btn-w-100">Procurar</button>
@@ -576,7 +583,14 @@
                                 <div class="form-group">
                                     <!-- Versão mobile -->
                                     <select class="selectpicker search-fields" name="select-year" id="select-year">
-                                        <option value="">Selecione o Ano</option>
+                                        <option>Selecione o ano</option>
+                                        @php
+                                            $anoAtual = date('Y');
+                                            $anoInicial = 1990;
+                                        @endphp
+                                        @for ($ano = $anoAtual; $ano >= $anoInicial; $ano--)
+                                            <option>{{ $ano }}</option>
+                                        @endfor
                                     </select>
                                 </div>
                             </div>
@@ -1252,27 +1266,6 @@
     <!-- Custom javascript -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script>
-        // Função para gerar opções de ano
-        function populateYears(selectId) {
-            const selectElement = document.getElementById(selectId);
-            const currentYear = new Date().getFullYear();
-
-            // Adiciona opções de anos de 1990 até o ano atual
-            for (let year = currentYear; year >= 1990; year--) {
-                const option = document.createElement('option');
-                option.textContent = year;
-                selectElement.appendChild(option);
-            }
-        }
-
-        // Chama a função para cada campo de seleção
-        populateYears('select-year');
-        populateYears('select-year-2');
-        populateYears('select-year-3');
-        populateYears('select-year-4');
-    </script>
-
     <!-- SCRIPT RESPONSÁVEL PELO CONTROLE DE ANO DO RODAPÉ -->
     <script>
         document.getElementById("current-year").innerText = new Date().getFullYear();
@@ -1298,8 +1291,6 @@
 
     <!-- Botão do WhatsApp gerado no site: https://www.rdstation.com/ferramentas/botao-de-whatsapp-gratuito/ -->
     <!-- <script>window.rwbp={email:'isaque.ixs@gmail.com',phone:'5551999006797',message:'Olá, seja bem vindo ao atendimento João Automóveis. Como podemos ajudar?',lang:'pt-BR'}</script><script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script> -->
-
-
 
 </body>
 
