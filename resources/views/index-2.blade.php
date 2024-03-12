@@ -999,19 +999,13 @@
                                 <a href="#" class="link-inner"><span> Início</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('about') }}" class="link-inner"><span> Sobre nós</span></a>
-                            </li>
-                            <li>
-                                <a href="{{ route('services') }}" class="link-inner"><span> Serviços</span></a>
-                            </li>
-                            <li>
                                 <a href="{{ route('car-grid-fullWidth') }}" class="link-inner"><span> Carros</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('blog-post') }}" class="link-inner"><span> Blog</span></a>
+                                <a href="{{ route('localizacao') }}" class="link-inner"><span> Localização</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('gallery') }}" class="link-inner"><span> Galeria</span></a>
+                                <a href="{{ route('about') }}" class="link-inner"><span> Sobre Nós</span></a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}" class="link-inner"><span> Contate-nos</span></a>
