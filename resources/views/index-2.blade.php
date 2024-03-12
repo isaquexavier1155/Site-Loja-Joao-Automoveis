@@ -1068,8 +1068,11 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <p class="copy">© <span id="current-year"></span> <a
-                                href="https://www.sitesdriversoft.com.br/porque-ainda-vale-pena-ter-um-site"
-                                target="_blank">- Sites Driver Soft.</a> Todos os direitos reservados.</p>
+                            href="#"
+                            target="_blank">- João Automóveis.</a> Todos os direitos reservados.
+                            Desenvolvido por <a href="https://www.sitesdriversoft.com.br/porque-ainda-vale-pena-ter-um-site">Sites Driver Soft.</a>
+                            <img src="img/logo-sitesdriversoft.jpg" alt="Ícone da Empresa" width="20" height="20">
+                        </p>
                     </div>
                     <div class="col-lg-4">
                         <div class="social-list-2">
