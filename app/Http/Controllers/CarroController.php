@@ -263,13 +263,12 @@ class CarroController extends Controller
                 $query->where('ano', $ano);
             }
 
-        // Verificar e adicionar condição para o estilo se estiver preenchido
-        if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
-            $estilo = $request->input('estilo');
-            $query->where('estilo', $estilo);
-            // dd('Estilo:', $estilo, $query->toSql(), $query->getBindings());
-        }
-
+            // Verificar e adicionar condição para o estilo se estiver preenchido
+            if ($request->filled('estilo') && $request->input('estilo') != 'Selecione o Estilo') {
+                $estilo = $request->input('estilo');
+                $query->where('estilo', $estilo);
+                // dd('Estilo:', $estilo, $query->toSql(), $query->getBindings());
+            }
         
             // Verificar e adicionar condição para a faixa de preço se estiver preenchida
             if ($request->filled('min_price') && $request->filled('max_price')) {
