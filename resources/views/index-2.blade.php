@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <title>João Automóveis</title>
+    <title>Carros novos - Carros Usados - Revenda de carros - Revenda de veículos</title>
 
     <!-- Adicione o link para o ícone da página -->
     <link rel="icon" href="{{ asset('img/logos/logoa.png') }}" type="image/x-icon">
