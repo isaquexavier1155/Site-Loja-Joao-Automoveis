@@ -119,7 +119,7 @@
                         <div class="form-group clearfix">
                             <!-- <button type="submit" class="btn btn-lg btn-4 btn-primary">Registrar</button> -->
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Register') }}
+                                {{ __('Registrar') }}
                             </button>
                         </div>
                         <!-- <div class="extra-login clearfix">
