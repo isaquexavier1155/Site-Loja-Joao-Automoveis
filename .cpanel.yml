@@ -1,5 +1,5 @@
 deployment:
   tasks:
-    # move todass as pastas onde está o arquivo .cpanel para /home1/rifad375/sitesdriversoft.com.br/Gerenciamento-de-Alunos/
+    # move todas as pastas onde está o arquivo .cpanel para /home1/rifad375/sitesdriversoft.com.br/Gerenciamento-de-Alunos/
     - export DEPLOYPATH=/home1/rifad375/joaoautomoveisparobe.com.br/Site-Loja-Joao-Automoveis/
     - /bin/cp -R * $DEPLOYPATH

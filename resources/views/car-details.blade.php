@@ -337,7 +337,7 @@
 
                     <!-- Question start -->
                     <div class="widget question">
-                        <h5 class="sidebar-title">Tem Alguma Dúvida?</h5>
+                        <h5 class="sidebar-title">Fale Conosco</h5>
                         <ul class="contact-info">
                             <li>
                                 <i class="flaticon-pin"></i>Av. Taquara, 2691 - Palmeiras, Parobé - RS, 95630-000
