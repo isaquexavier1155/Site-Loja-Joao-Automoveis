@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Detalhes dos Veículos')
+@section('title', 'Detalhes do Veículo | Detalhe do carro | Detalhes | Ficha técnica do carro | Ficha técnica do veículo')
 
 @section('content')
 
