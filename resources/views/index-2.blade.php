@@ -48,6 +48,9 @@
     <!-- Meta Description -->
     <meta name="description" content="Descubra na João Automóveis de Parobé as melhores opções de carros novos e usados. Encontre qualidade, variedade e excelentes condições de financiamento. Visite-nos agora e escolha o seu próximo carro.">
     
+    <!-- Meta keywords - Palavras Chave -->
+    <meta name="keywords" content="João Automóveis de Parobé, carros novos, carros usados, revenda de veículos, financiamento de carros, Parobé">
+
         <!-- IE10 Viewport Hack para Surface/Desktop Windows 8 Bug -->
     <link rel="stylesheet" type="text/css" href="/css/ie10-viewport-bug-workaround.css">
 
