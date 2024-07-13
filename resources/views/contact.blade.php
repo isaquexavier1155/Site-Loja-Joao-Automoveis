@@ -1,7 +1,7 @@
 
 @extends('layouts.main')
 
-@section('title', 'Contato')
+@section('title', 'Contato loja João Automóveis Parobe | Contato loja revenda | Contato revenda | Contate-nos | Entre em contato com a João Automóveis de Parobe')
 
 @section('content')
 
