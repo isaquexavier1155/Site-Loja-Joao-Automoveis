@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <title>Carros novoss - Carros Usados - Revenda de carros - Revenda de veículos</title>
+    <title>Carros novos - Carros Usados - Revenda de carros - Revenda de veículos</title>
 
     <!-- Adicione o link para o ícone da página -->
     <link rel="icon" href="{{ asset('img/logos/logoa.png') }}" type="image/x-icon">
@@ -45,7 +45,10 @@
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
 
-    <!-- IE10 Viewport Hack para Surface/Desktop Windows 8 Bug -->
+    <!-- Meta Description -->
+    <meta name="description" content="Descubra na João Automóveis de Parobé as melhores opções de carros novos e usados. Encontre qualidade, variedade e excelentes condições de financiamento. Visite-nos agora e escolha o seu próximo carro.">
+    
+        <!-- IE10 Viewport Hack para Surface/Desktop Windows 8 Bug -->
     <link rel="stylesheet" type="text/css" href="/css/ie10-viewport-bug-workaround.css">
 
     <!-- Apenas para fins de depuração. Na verdade, não copie estas 2 linhas! -->
