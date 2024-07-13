@@ -464,8 +464,8 @@
                             <div class="row bi5">
                                 <div class="col-lg-7">
                                     <div class="b-content text-start">
-                                        <h1>Bem-vindo à João Automóveis</h1>
-                                        <h2>Carros novos e usados com o melhor custo-benefício do mercado</h2>
+                                        <h3>Bem-vindo à João Automóveis</h3>
+                                        <h5>Carros novos e usados com o melhor custo-benefício do mercado.</h5>
                                         <a href="#carosemdest" class="btn btn-primary btn-lg">Saiba mais</a>
                                     </div>
                                 </div>
