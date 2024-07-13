@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Localização')
+@section('title', 'Localização do carro | Localização do veículo | Localização')
 
 @section('content')
 
