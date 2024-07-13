@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- <title>João Automóveis</title> -->
-    <title>@yield('title', 'João Automóveis')</title>
+    <title>@yield('title', 'Carros novos - Carros Usados - Revenda de carros - Revenda de veículos')</title>
 
     <!-- Adicione o link para o ícone da página -->
     <link rel="icon" href="{{ asset('img/logos/logoa.png') }}" type="image/x-icon">

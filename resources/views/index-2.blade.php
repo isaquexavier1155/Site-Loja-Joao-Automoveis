@@ -45,7 +45,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
 
-    <!-- Meta Description -->
+    <!-- Meta Description - Descrição que aparece abaixo do link nas pesquisas do Google-->
     <meta name="description" content="Descubra na João Automóveis de Parobé as melhores opções de carros novos e usados. Encontre qualidade, variedade e excelentes condições de financiamento. Visite-nos agora e escolha o seu próximo carro.">
     
     <!-- Meta keywords - Palavras Chave -->
@@ -464,9 +464,8 @@
                             <div class="row bi5">
                                 <div class="col-lg-7">
                                     <div class="b-content text-start">
-                                        <h3>Bem-vindo à João Automóveis</h3>
-                                        <h5>Deixe-nos guiá-lo através de uma abordagem inovadora, sem estresse, para
-                                            encontrar o carro dos seus sonhos.</h5>
+                                        <h1>Bem-vindo à João Automóveis</h1>
+                                        <h2>Carros novos e usados com o melhor custo-benefício do mercado</h2>
                                         <a href="#carosemdest" class="btn btn-primary btn-lg">Saiba mais</a>
                                     </div>
                                 </div>
