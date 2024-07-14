@@ -17,6 +17,12 @@
     <!-- para corrigir erro de indexação do Google Search Console -->
     <link rel="canonical" href="{{ url()->current() }}" />
 
+    <!-- Meta Description - Descrição que aparece abaixo do link nas pesquisas do Google-->
+    <meta name="description" content="Descubra na João Automóveis de Parobé as melhores opções de carros novos e usados. Encontre qualidade, variedade e excelentes condições de financiamento. Visite-nos agora e escolha o seu próximo carro.">
+    
+    <!-- Meta keywords - Palavras Chave -->
+    <meta name="keywords" content="João Automóveis de Parobé, João Automóveis, revenda João Automóveis, carros novos, carros usados, revenda de veículos, financiamento de carros, Parobé, loja João Automoveis, loja João automóveis Parobé">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
