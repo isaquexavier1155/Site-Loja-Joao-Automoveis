@@ -14,6 +14,9 @@
     <!-- Se não inserir essa metatag ocorre erro especifico ao clicar no contato via whatsapp -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- para corrigir erro de indexação do Google Search Console -->
+    <link rel="canonical" href="{{ url()->current() }}" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
